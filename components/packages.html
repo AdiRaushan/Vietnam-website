@@ -1,0 +1,123 @@
+
+
+<section class="bg-gray-50 py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h6 class="text-red-600 font-semibold uppercase tracking-widest">Packages</h6>
+      <h2 class="text-4xl font-bold text-gray-800 mt-2">Perfect Vietnam Tour Packages</h2>
+    </div>
+
+    <div id="packageContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+
+    <div class="text-center mt-10">
+      <button id="viewMoreBtn" class="bg-red-500 text-white px-6 py-2 rounded font-semibold hover:bg-red-400">View More</button>
+    </div>
+  </div>
+</section>
+
+<script>
+  async function loadComponent(id, file) {
+    const res = await fetch(file);
+    const html = await res.text();
+    document.getElementById(id).innerHTML = html;
+  }
+
+  loadComponent("header", "./components/header.html");
+  loadComponent("footer", "./components/footer.html");
+  loadComponent("banner", "./components/banner.html");
+
+  function toggleSidebar() {
+    document.getElementById("filterSidebar").classList.toggle("translate-x-full");
+  }
+
+  let tours = [];
+  let visibleCount = 9;
+
+  async function fetchTours() {
+    try {
+      const res = await fetch('./data/data.json');
+      tours = await res.json();
+      populateFilters();
+      renderTours();
+    } catch (err) {
+      console.error("Failed to load tours:", err);
+    }
+  }
+
+  function getUnique(arr, key) {
+    return [...new Set(arr.map(item => item[key]))];
+  }
+
+  function renderCheckboxes(list, id, type) {
+    const container = document.getElementById(id);
+    container.innerHTML = list.map(item => `
+      <label class="flex items-center gap-2">
+        <input type="checkbox" value="${item}" data-type="${type}" class="filter-checkbox"> ${item}
+      </label>
+    `).join("");
+  }
+
+  function populateFilters() {
+    renderCheckboxes(getUnique(tours, "city"), "filterCities", "city");
+    renderCheckboxes(getUnique(tours, "days"), "filterDays", "days");
+    renderCheckboxes(getUnique(tours, "style"), "filterStyles", "style");
+  }
+
+  function renderTours() {
+    const selectedFilters = { city: [], days: [], style: [] };
+
+    document.querySelectorAll(".filter-checkbox:checked").forEach(cb => {
+      selectedFilters[cb.dataset.type].push(cb.value);
+    });
+
+    let result = tours.filter(t => {
+      return (!selectedFilters.city.length || selectedFilters.city.includes(t.city)) &&
+             (!selectedFilters.days.length || selectedFilters.days.includes(t.days.toString())) &&
+             (!selectedFilters.style.length || selectedFilters.style.includes(t.style));
+    });
+
+    const sort = document.getElementById("sortSelect")?.value;
+    if (sort === "priceLowHigh") result.sort((a, b) => a.price - b.price);
+    if (sort === "priceHighLow") result.sort((a, b) => b.price - a.price);
+    if (sort === "ratingHigh") result.sort((a, b) => b.rating - a.rating);
+
+    const container = document.getElementById("packageContainer");
+    const sliced = result.slice(0, visibleCount);
+    container.innerHTML = sliced.length ? sliced.map(pkg => `
+      <div class="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
+        <img src="${pkg.image}" alt="${pkg.title}" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-bold">${pkg.title}</h3>
+          <div class="text-pink-600 text-sm font-medium my-2">
+            <i class="fas fa-check-circle mr-1"></i> Customizable
+          </div>
+          <div class="text-gray-600 text-sm mb-1">
+            <i class="fas fa-clock text-pink-500 mr-1"></i> ${pkg.days} Days
+          </div>
+          <div class="text-gray-600 text-sm mb-2">
+            <i class="fas fa-map-marker-alt text-pink-500 mr-1"></i> ${pkg.cities}
+          </div>
+          <div class="text-lg font-bold text-gray-800">
+            From <span class="text-pink-600">Rs. ${pkg.price.toLocaleString()}</span>
+          </div>
+        </div>
+      </div>`).join("") : `<p class='col-span-3 text-center text-red-500'>No tours found.</p>`;
+
+    const viewMoreBtn = document.getElementById("viewMoreBtn");
+    viewMoreBtn.style.display = result.length > visibleCount ? "inline-block" : "none";
+  }
+
+  document.addEventListener("change", function (e) {
+    if (e.target.classList.contains("filter-checkbox") || e.target.id === "sortSelect") {
+      visibleCount = 9;
+      renderTours();
+    }
+  });
+
+  document.getElementById("viewMoreBtn")?.addEventListener("click", () => {
+    visibleCount += 9;
+    renderTours();
+  });
+
+  window.onload = fetchTours;
+</script>

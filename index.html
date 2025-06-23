@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind Project</title>
+    <link rel="stylesheet" href="tailwind.css">
+    <link rel="stylesheet" href="">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+
+  </head>
+  <body>
+<div id="header"></div>
+
+
+
+<!-- Hero Section with Alpine Slider -->
+<section class="relative w-full h-[90vh] overflow-hidden" x-data="{ activeSlide: 0, slides: [
+  'https://images.unsplash.com/photo-1555979864-7a8f9b4fddf8?q=80&w=1171&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1557750255-c76072a7aad1?q=80&w=1170&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1526139334526-f591a54b477c?q=80&w=1170&auto=format&fit=crop'
+] }">
+
+  <!-- Slides -->
+  <div class="relative w-full h-full">
+    <template x-for="(slide, index) in slides" :key="index">
+      <div
+        x-show="activeSlide === index"
+        class="absolute inset-0 transition-opacity duration-700 ease-in-out"
+        :class="{ 'opacity-100 z-10': activeSlide === index, 'opacity-0 z-0': activeSlide !== index }"
+      >
+        <img :src="slide" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-center px-4">
+          <div>
+            <h4 class="text-white text-sm md:text-lg uppercase mb-2">Explore Vietnam</h4>
+            <h1 class="text-white text-3xl md:text-5xl font-bold mb-4"
+              x-text="index === 0 ? 'Discover Ha Long Bay Wonders' :
+                      index === 1 ? 'Sail through Ninh Binh Landscapes' :
+                      'Experience Vietnam’s Hidden Beauty'"></h1>
+            <a href="#" class="inline-block bg-red-600 text-white px-6 py-3 rounded-md hover:bg-red-700 transition">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </template>
+  </div>
+
+  <!-- Controls -->
+  <button @click="activeSlide = (activeSlide - 1 + slides.length) % slides.length"
+    class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800/70 text-white p-2 rounded-full hover:bg-gray-700 z-20">
+    &#10094;
+  </button>
+  <button @click="activeSlide = (activeSlide + 1) % slides.length"
+    class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800/70 text-white p-2 rounded-full hover:bg-gray-700 z-20">
+    &#10095;
+  </button>
+
+  <!-- ✅ Booking Form Floating INSIDE Hero at Bottom -->
+  <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-30 w-[95%] md:w-11/12 lg:w-4/5 xl:w-3/4">
+    <div class="bg-white shadow-xl rounded-xl px-4 py-4">
+      <form class="flex flex-col lg:flex-row items-center justify-between gap-4">
+
+        <!-- Destination -->
+        <div class="w-full lg:w-1/4">
+          <select class="w-full rounded-md border border-gray-300 px-4 py-2 text-sm">
+            <option selected>Destination</option>
+            <option>Hanoi</option>
+            <option>Da Nang</option>
+            <option>Ha Long Bay</option>
+            <option>Sapa</option>
+          </select>
+        </div>
+
+        <!-- Depart Date -->
+        <div class="w-full lg:w-1/4">
+          <input type="date" class="w-full rounded-md border border-gray-300 px-4 py-2 text-sm" />
+        </div>
+
+        <!-- Return Date -->
+        <div class="w-full lg:w-1/4">
+          <input type="date" class="w-full rounded-md border border-gray-300 px-4 py-2 text-sm" />
+        </div>
+
+        <!-- Duration -->
+        <div class="w-full lg:w-1/4">
+          <select class="w-full rounded-md border border-gray-300 px-4 py-2 text-sm">
+            <option selected>Tour Duration</option>
+            <option>1 Day</option>
+            <option>3 Days</option>
+            <option>5+ Days</option>
+          </select>
+        </div>
+      </form>
+
+      <div class="mt-4 text-right">
+        <button class="bg-red-600 text-white px-5 py-2 rounded-md hover:bg-red-700 transition text-sm font-medium">
+          Explore Vietnam
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<!--  -->
+<section class="bg-white py-16">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4">WHAT MAKES US DIFFERENT</h2>
+    <p class="text-gray-600 max-w-2xl mx-auto mb-12">Here’s why travelers choose us again and again.</p>
+
+    <div class="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      
+      <!-- Card 1 -->
+      <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition text-left">
+        <div class="mb-4 text-red-600 text-3xl">
+          <i class="fas fa-map-marked-alt"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">#1 Local Tour Operator</h3>
+        <p class="text-sm text-gray-600">
+          As the leading local tour operator in Vietnam, we understand the culture deeply and personalize tours just for you.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition text-left">
+        <div class="mb-4 text-red-600 text-3xl">
+          <i class="fas fa-building"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Offices in Vietnam & India</h3>
+        <p class="text-sm text-gray-600">
+          Our teams in both countries are ready to help you plan and support you every step of your journey.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition text-left">
+        <div class="mb-4 text-red-600 text-3xl">
+          <i class="fas fa-hands-helping"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Focused on Indian Travelers</h3>
+        <p class="text-sm text-gray-600">
+          We understand Indian travel needs — from food to comfort — and tailor experiences with care.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition text-left">
+        <div class="mb-4 text-red-600 text-3xl">
+          <i class="fas fa-tags"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Best Value With Lowest Price</h3>
+        <p class="text-sm text-gray-600">
+          Enjoy unmatched value with competitive pricing and packages crafted for all budgets.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- ----------------------------------- -->
+<section class="bg-gray-50 py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Heading -->
+    <div class="text-center mb-12">
+      <h6 class="text-red-600 font-semibold uppercase tracking-widest">Packages</h6>
+      <h2 class="text-4xl font-bold text-gray-800 mt-2">Perfect Vietnam Tour Packages</h2>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Package Card -->
+      <div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition">
+        <img src="https://images.unsplash.com/photo-1647227156240-47bcdced2868?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Vietnam Tour" class="w-full h-56 object-cover" />
+        <div class="p-6">
+          <div class="flex justify-between text-sm text-gray-500 mb-3">
+            <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-red-500"></i> Hanoi</span>
+            <span class="flex items-center gap-1"><i class="fas fa-calendar-alt text-red-500"></i> 3 Days</span>
+            <span class="flex items-center gap-1"><i class="fas fa-user text-red-500"></i> 2 Person</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 mb-4">Discover the beauty of Vietnam's capital city</h3>
+          <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+            <span class="flex items-center gap-1 text-yellow-500">
+              <i class="fas fa-star"></i> 4.5 <span class="text-sm text-gray-500">(250)</span>
+            </span>
+            <span class="text-red-600 font-semibold text-lg">₹13,999</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Repeat this block for other destinations -->
+     <!-- Repeat this block inside a grid layout -->
+<div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition">
+  <img src="https://images.unsplash.com/photo-1717158903135-ccfd697fd080?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Vietnam Tour" class="w-full h-56 object-cover" />
+  <div class="p-6">
+    <div class="flex justify-between text-sm text-gray-500 mb-3">
+      <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-red-500"></i> Hanoi</span>
+      <span class="flex items-center gap-1"><i class="fas fa-calendar-alt text-red-500"></i> 5 Days</span>
+      <span class="flex items-center gap-1"><i class="fas fa-user text-red-500"></i> Family</span>
+    </div>
+    <h3 class="text-lg font-semibold text-gray-800 mb-4">Vietnam Family Getaway</h3>
+    <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+      <span class="flex items-center gap-1 text-yellow-500">
+        <i class="fas fa-star"></i> 4.6 <span class="text-sm text-gray-500">(240)</span>
+      </span>
+      <span class="textred-600 font-semibold text-lg">₹15,999</span>
+    </div>
+  </div>
+</div>
+
+<div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition">
+  <img src="https://images.unsplash.com/photo-1643029891412-92f9a81a8c16?q=80&w=1486&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Vietnam Tour" class="w-full h-56 object-cover" />
+  <div class="p-6">
+    <div class="flex justify-between text-sm text-gray-500 mb-3">
+      <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-red-500"></i> Ha Long Bay</span>
+      <span class="flex items-center gap-1"><i class="fas fa-calendar-alt text-red-500"></i> 3 Days</span>
+      <span class="flex items-center gap-1"><i class="fas fa-user text-red-500"></i> Luxury</span>
+    </div>
+    <h3 class="text-lg font-semibold text-gray-800 mb-4">Luxury Ha Long Bay Cruise</h3>
+    <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+      <span class="flex items-center gap-1 text-yellow-500">
+        <i class="fas fa-star"></i> 4.9 <span class="text-sm text-gray-500">(410)</span>
+      </span>
+      <span class="text-red-600 font-semibold text-lg">₹13,999</span>
+    </div>
+  </div>
+</div>
+
+<div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition">
+  <img src="https://images.unsplash.com/photo-1696276959983-2da1448e695a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Vietnam Tour" class="w-full h-56 object-cover" />
+  <div class="p-6">
+    <div class="flex justify-between text-sm text-gray-500 mb-3">
+      <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-red-500"></i> Sapa</span>
+      <span class="flex items-center gap-1"><i class="fas fa-calendar-alt text-red-500"></i> 4 Days</span>
+      <span class="flex items-center gap-1"><i class="fas fa-user text-red-500"></i> Adventure</span>
+    </div>
+    <h3 class="text-lg font-semibold text-gray-800 mb-4">Sapa Hills Adventure</h3>
+    <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+      <span class="flex items-center gap-1 text-yellow-500">
+        <i class="fas fa-star"></i> 4.5 <span class="text-sm text-gray-500">(190)</span>
+      </span>
+      <span class="text-red-600 font-semibold text-lg">₹19,999</span>
+    </div>
+  </div>
+</div>
+
+<div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition">
+  <img src="https://images.unsplash.com/photo-1684784784123-0854fc0eec25?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Vietnam Tour" class="w-full h-56 object-cover" />
+  <div class="p-6">
+    <div class="flex justify-between text-sm text-gray-500 mb-3">
+      <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-red-500"></i> Da Nang</span>
+      <span class="flex items-center gap-1"><i class="fas fa-calendar-alt text-red-500"></i> 4 Days</span>
+      <span class="flex items-center gap-1"><i class="fas fa-user text-red-500"></i> Couple</span>
+    </div>
+    <h3 class="text-lg font-semibold text-gray-800 mb-4">Honeymoon at Golden Bridge</h3>
+    <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+      <span class="flex items-center gap-1 text-yellow-500">
+        <i class="fas fa-star"></i> 4.8 <span class="text-sm text-gray-500">(312)</span>
+      </span>
+      <span class="text-red-600 font-semibold text-lg">₹25,999</span>
+    </div>
+  </div>
+</div>
+
+<div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition">
+  <img src="https://images.unsplash.com/photo-1529271230144-e8c648ef570d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Vietnam Tour" class="w-full h-56 object-cover" />
+  <div class="p-6">
+    <div class="flex justify-between text-sm text-gray-500 mb-3">
+      <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-red-500"></i> Mekong Delta</span>
+      <span class="flex items-center gap-1"><i class="fas fa-calendar-alt text-red-500"></i> 2 Days</span>
+      <span class="flex items-center gap-1"><i class="fas fa-user text-red-500"></i> Group</span>
+    </div>
+    <h3 class="text-lg font-semibold text-gray-800 mb-4">Floating Markets Experience</h3>
+    <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+      <span class="flex items-center gap-1 text-yellow-500">
+        <i class="fas fa-star"></i> 4.4 <span class="text-sm text-gray-500">(122)</span>
+      </span>
+      <span class="text-red-600 font-semibold text-lg">₹13,999</span>
+    </div>
+  </div>
+</div>
+
+<div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition">
+  <img src="https://images.unsplash.com/photo-1637578338935-dfa78f4f40bf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Vietnam Tour" class="w-full h-56 object-cover" />
+  <div class="p-6">
+    <div class="flex justify-between text-sm text-gray-500 mb-3">
+      <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-red-500"></i> Hue, Hoi An</span>
+      <span class="flex items-center gap-1"><i class="fas fa-calendar-alt text-red-500"></i> 6 Days</span>
+      <span class="flex items-center gap-1"><i class="fas fa-user text-red-500"></i> Culture</span>
+    </div>
+    <h3 class="text-lg font-semibold text-gray-800 mb-4">Vietnam Heritage Trail</h3>
+    <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+      <span class="flex items-center gap-1 text-yellow-500">
+        <i class="fas fa-star"></i> 4.9 <span class="text-sm text-gray-500">(360)</span>
+      </span>
+      <span class="text-red-600 font-semibold text-lg">₹29,999</span>
+    </div>
+  </div>
+</div>
+
+<div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition">
+  <img src="https://images.unsplash.com/photo-1653914902751-30147988e291?q=80&w=734&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Vietnam Tour" class="w-full h-56 object-cover" />
+  <div class="p-6">
+    <div class="flex justify-between text-sm text-gray-500 mb-3">
+      <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-red-500"></i> Hanoi to Saigon</span>
+      <span class="flex items-center gap-1"><i class="fas fa-calendar-alt text-red-500"></i> 5 Days</span>
+      <span class="flex items-center gap-1"><i class="fas fa-user text-red-500"></i> Solo</span>
+    </div>
+    <h3 class="text-lg font-semibold text-gray-800 mb-4">Vietnam Express</h3>
+    <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+      <span class="flex items-center gap-1 text-yellow-500">
+        <i class="fas fa-star"></i> 4.2 <span class="text-sm text-gray-500">(174)</span>
+      </span>
+      <span class="text-red-600 font-semibold text-lg">₹19,999</span>
+    </div>
+  </div>
+</div>
+
+<div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition">
+  <img src="https://plus.unsplash.com/premium_photo-1661963382350-506c8185c584?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Vietnam Tour" class="w-full h-56 object-cover" />
+  <div class="p-6">
+    <div class="flex justify-between text-sm text-gray-500 mb-3">
+      <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-red-500"></i> Hanoi + Ninh Binh</span>
+      <span class="flex items-center gap-1"><i class="fas fa-calendar-alt text-red-500"></i> 7 Days</span>
+      <span class="flex items-center gap-1"><i class="fas fa-user text-red-500"></i> Explorer</span>
+    </div>
+    <h3 class="text-lg font-semibold text-gray-800 mb-4">Northern Vietnam Explorer</h3>
+    <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+      <span class="flex items-center gap-1 text-yellow-500">
+        <i class="fas fa-star"></i> 4.6 <span class="text-sm text-gray-500">(289)</span>
+      </span>
+      <span class="text-red-600 font-semibold text-lg">₹13,999</span>
+    </div>
+  </div>
+</div>
+
+
+      <!-- More cards can be added similarly -->
+    </div>
+  </div>
+</section>
+
+<!--  -->
+<section class="bg-gray-50 py-16">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Experience Once In Your Lifetime</h2>
+    <p class="text-gray-600 max-w-2xl mx-auto mb-12">
+      From luxury resorts to wild adventures, Vietnam has it all. Explore scenic landscapes, rich culture, and unforgettable cuisine.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
+      <!-- Card 1 -->
+      <div class="flex flex-col items-center text-center">
+        <i class="fas fa-utensils text-red-500 text-4xl mb-4"></i>
+        <h4 class="text-lg font-bold text-gray-800 mb-2">Good Foods</h4>
+        <p class="text-gray-600 text-sm">Taste authentic Vietnamese street food and gourmet dishes.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="flex flex-col items-center text-center">
+        <i class="fas fa-globe-asia text-red-500 text-4xl mb-4"></i>
+        <h4 class="text-lg font-bold text-gray-800 mb-2">Travel Anywhere</h4>
+        <p class="text-gray-600 text-sm">From Hanoi to Ho Chi Minh – seamless tours and transfers.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="flex flex-col items-center text-center">
+        <i class="fas fa-plane-departure text-red-500 text-4xl mb-4"></i>
+        <h4 class="text-lg font-bold text-gray-800 mb-2">Air Travel</h4>
+        <p class="text-gray-600 text-sm">Get flight-inclusive packages with the best rates.</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="flex flex-col items-center text-center">
+        <i class="fas fa-umbrella-beach text-red-500 text-4xl mb-4"></i>
+        <h4 class="text-lg font-bold text-gray-800 mb-2">Beach Resort</h4>
+        <p class="text-gray-600 text-sm">Relax on Vietnam’s pristine beaches in Da Nang & Nha Trang.</p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="flex flex-col items-center text-center">
+        <i class="fas fa-mountain text-red-500 text-4xl mb-4"></i>
+        <h4 class="text-lg font-bold text-gray-800 mb-2">Mountain Climbing</h4>
+        <p class="text-gray-600 text-sm">Trek Sapa's hills or summit Fansipan – Vietnam’s highest peak.</p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="flex flex-col items-center text-center">
+        <i class="fas fa-parachute-box text-red-500 text-4xl mb-4"></i> <!-- Use a placeholder if icon doesn't exist -->
+        <h4 class="text-lg font-bold text-gray-800 mb-2">Hot Air</h4>
+        <p class="text-gray-600 text-sm">Float above beautiful valleys for breathtaking views.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ---------- -->
+
+<!-- Carousel Section -->
+<section class="w-full py-16 bg-white">
+  <div x-data="{
+    currentSlide: 0,
+    slides: [
+      {
+        title: 'Family Package',
+        price: '₹45,999',
+        img: 'https://plus.unsplash.com/premium_photo-1708007649753-62d8584c6525?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        cta: '#'
+      },
+      {
+        title: 'Luxury Escape',
+        price: '₹89,999',
+        img: 'https://images.unsplash.com/photo-1559191515-fb3fa97e6d61?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        cta: '#'
+      },
+      {
+        title: 'Honeymoon Special',
+        price: '₹59,999',
+        img: 'https://images.unsplash.com/photo-1654763966914-4f8bacc2913a?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        cta: '#'
+      },
+      {
+        title: 'Group Tour',
+        price: '₹39,999',
+        img: 'https://images.unsplash.com/photo-1660214332007-d0f2612f0632?q=80&w=1073&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        cta: '#'
+      }
+    ],
+    next() {
+      this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+    },
+    prev() {
+      this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+    },
+    init() {
+      setInterval(() => this.next(), 5000);
+    }
+  }" x-init="init()" class="relative">
+
+    <!-- Slides Wrapper -->
+    <!-- Slides Wrapper -->
+<div class="overflow-hidden relative rounded-2xl shadow-lg max-w-7xl mx-auto h-[75vh]">
+  <template x-for="(slide, index) in slides" :key="index">
+    <div
+      x-show="currentSlide === index"
+      x-transition:enter="transition-opacity ease-out duration-700"
+      x-transition:enter-start="opacity-0"
+      x-transition:enter-end="opacity-100"
+      x-transition:leave="transition-opacity ease-in duration-700"
+      x-transition:leave-start="opacity-100"
+      x-transition:leave-end="opacity-0"
+      class="absolute inset-0 w-full h-full"
+    >
+      <img :src="slide.img" class="w-full h-full object-cover rounded-2xl" />
+      <div class="absolute inset-0 bg-black/30 rounded-2xl"></div>
+      <div class="absolute bottom-10 left-10 z-20 text-white">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-2" x-text="slide.title"></h2>
+        <p class="text-lg md:text-xl font-semibold mb-4" x-text="'Packages from ' + slide.price"></p>
+        <a :href="slide.cta" class="inline-block bg-red-400 text-black px-5 py-2 rounded-md font-semibold hover:bg-red-300 transition">Book Now</a>
+      </div>
+    </div>
+  </template>
+
+  <!-- Navigation INSIDE slider -->
+  <button @click="prev"
+    class="absolute top-1/2 left-5 transform -translate-y-1/2 bg-white text-gray-700 p-3 rounded-full shadow hover:bg-gray-100 z-30">
+    &#10094;
+  </button>
+  <button @click="next"
+    class="absolute top-1/2 right-5 transform -translate-y-1/2 bg-white text-gray-700 p-3 rounded-full shadow hover:bg-gray-100 z-30">
+    &#10095;
+  </button>
+</div>
+
+</section>
+<!-- new section  -->
+<section class="bg-white py-16">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 mb-12">
+      How to Customize Your Vietnam Tour Package
+    </h2>
+
+    <div class="grid gap-10 md:grid-cols-3 lg:grid-cols-5 text-gray-700">
+      <!-- Step 1 -->
+      <div>
+        <div class="text-red-500 text-4xl mb-4">
+          <i class="fas fa-route"></i>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Step 1: Choose a Tour</h3>
+        <p class="text-sm text-gray-500">
+          Browse our range of pre-designed tours and pick the one that excites you the most.
+        </p>
+      </div>
+
+      <!-- Step 2 -->
+      <div>
+        <div class="text-red-500 text-4xl mb-4">
+          <i class="fas fa-comments"></i>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Step 2: Talk to Experts</h3>
+        <p class="text-sm text-gray-500">
+          Discuss preferences and needs with our knowledgeable consultants.
+        </p>
+      </div>
+
+      <!-- Step 3 -->
+      <div>
+        <div class="text-red-500 text-4xl mb-4">
+          <i class="fas fa-file-alt"></i>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Step 3: Get Itinerary</h3>
+        <p class="text-sm text-gray-500">
+          Receive a personalized itinerary and quotation after consultation.
+        </p>
+      </div>
+
+      <!-- Step 4 -->
+      <div>
+        <div class="text-red-500 text-4xl mb-4">
+          <i class="fas fa-credit-card"></i>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Step 4: Book & Deposit</h3>
+        <p class="text-sm text-gray-500">
+          Secure your booking via Credit Card or bank transfer to Vietnam or India.
+        </p>
+      </div>
+
+      <!-- Step 5 -->
+      <div>
+        <div class="text-red-500 text-4xl mb-4">
+          <i class="fas fa-umbrella-beach"></i>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Step 5: Enjoy Vietnam</h3>
+        <p class="text-sm text-gray-500">
+          Embark on your customized Vietnam tour and create unforgettable memories.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- new section -->
+
+<!-- Blog  -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h6 class="text-red-600 font-semibold tracking-widest uppercase">Our Blog</h6>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 mt-2">Latest From Our Blog</h2>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      
+      <!-- Blog Card 1 -->
+      <div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1677146329804-c44b6e99c2bd?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Blog Post" class="w-full h-56 object-cover" />
+          <div class="absolute top-4 left-4 bg-red-600 text-white rounded-md px-3 py-1 text-sm shadow">
+            <span class="block text-lg font-bold">01</span>
+            <span class="text-xs uppercase">Jan</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center text-sm text-gray-500 space-x-3 mb-3">
+            <span><i class="fas fa-user mr-1 text-red-500"></i>Admin</span>
+            <span>|</span>
+            <span><i class="fas fa-tag mr-1 text-red-500"></i>Tours & Travel</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 hover:text-red-600 transition">
+            <a href="#">Dolor justo sea kasd lorem clita justo diam amet</a>
+          </h3>
+        </div>
+      </div>
+
+      <!-- Blog Card 2 -->
+      <div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1619977102593-7b7604df3ca7?q=80&w=2004&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Blog Post" class="w-full h-56 object-cover" />
+          <div class="absolute top-4 left-4 bg-red-600 text-white rounded-md px-3 py-1 text-sm shadow">
+            <span class="block text-lg font-bold">01</span>
+            <span class="text-xs uppercase">Jan</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center text-sm text-gray-500 space-x-3 mb-3">
+            <span><i class="fas fa-user mr-1 text-red-500"></i>Admin</span>
+            <span>|</span>
+            <span><i class="fas fa-tag mr-1 text-red-500"></i>Tours & Travel</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 hover:text-red-600 transition">
+            <a href="#">Explore Vietnam's Hidden Treasures with Us</a>
+          </h3>
+        </div>
+      </div>
+
+      <!-- Blog Card 3 -->
+      <div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1572522227522-4495a1481425?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Blog Post" class="w-full h-56 object-cover" />
+          <div class="absolute top-4 left-4 bg-red-600 text-white rounded-md px-3 py-1 text-sm shadow">
+            <span class="block text-lg font-bold">01</span>
+            <span class="text-xs uppercase">Jan</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center text-sm text-gray-500 space-x-3 mb-3">
+            <span><i class="fas fa-user mr-1 text-red-500"></i>Admin</span>
+            <span>|</span>
+            <span><i class="fas fa-tag mr-1 text-red-500"></i>Tours & Travel</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 hover:text-red-600 transition">
+            <a href="#">Best Time to Visit Vietnam: A Seasonal Guide</a>
+          </h3>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!--  -->
+
+
+<section class="bg-white">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center px-6 md:px-12 pt-8 pb-14">
+
+
+    <!-- Text Content -->
+    <div class="text-gray-800 space-y-5">
+      <h4 class="text-red-500 font-semibold uppercase tracking-widest">Mega Offer</h4>
+      <h2 class="text-4xl font-extrabold">
+        <span class="text-red-500">30% OFF</span> For Honeymoon
+      </h2>
+      <p class="text-base text-gray-600 max-w-xl">
+        Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.
+      </p>
+      <ul class="space-y-2 text-gray-700 text-sm">
+        <li class="flex items-center gap-2">
+          <span class="text-red-500">✔</span> Labore eos amet dolor amet diam
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="text-red-500">✔</span> Etsea et sit dolor amet ipsum
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="text-red-500">✔</span> Diam dolor diam elitripsum vero
+        </li>
+      </ul>
+    </div>
+
+    <!-- Form Panel -->
+    <div class="bg-red-600 rounded-lg p-6 mt-10 md:mt-0 shadow-lg w-full max-w-md mx-auto md:mx-0">
+      <h3 class="text-white text-xl font-bold mb-5 text-center">Sign Up Now</h3>
+      <form class="space-y-4">
+        <input type="text" placeholder="Your name" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-300" />
+        <input type="email" placeholder="Your email" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-300" />
+        <select class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-300">
+          <option>Select a city</option>
+          <option>Hanoi</option>
+          <option>Ho Chi Minh City</option>
+          <option>Da Nang</option>
+          <option>Hoi An</option>
+          <option>Nha Trang</option>
+          <option>Hue</option>
+        </select>
+        <button type="submit" class="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2 rounded-md">
+          Sign Up Now
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+
+<!--  -->
+
+
+<div id="footer"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+        async function loadComponent(id, file) {
+      const res = await fetch(file);
+      const html = await res.text();
+      document.getElementById(id).innerHTML = html;
+    }
+
+    loadComponent("header", "./components/header.html");
+    loadComponent("footer", "./components/footer.html");
+
+  </script>
+
+
+  </body>
+</html>
