@@ -13,6 +13,48 @@
   <div id="header"></div>
   <div id="banner"></div>
 
+
+  <!--  -->
+<div id="contactModal" onclick="closeContactModal()" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <div onclick="event.stopPropagation()" class="bg-white w-full max-w-md mx-4 sm:mx-0 rounded-lg shadow-lg p-4 relative overflow-hidden">
+
+    <!-- Close Button -->
+    <button onclick="closeContactModal()" class="absolute top-3 right-4 text-gray-600 hover:text-red-500 text-2xl font-bold">
+      &times;
+    </button>
+
+    <!-- Tour Image -->
+    <img id="modalImage" src="" alt="Tour Image" class="w-full h-48 object-cover rounded-md mb-4">
+
+    <!-- Title -->
+    <h2 id="modalTitle" class="text-xl font-semibold text-gray-800 mb-2">Tour Inquiry</h2>
+
+    <!-- Tour Details with Icons -->
+    <div id="modalDetails" class="text-sm text-gray-700 space-y-2 mb-4">
+      <!-- Populated by JS -->
+    </div>
+
+    <!-- Contact Form -->
+    <form id="contactForm" class="space-y-3">
+      <input type="text" name="name" placeholder="Your Name" required class="w-full border border-gray-300 rounded px-4 py-2 text-sm" />
+      <input type="email" name="email" placeholder="Your Email" required class="w-full border border-gray-300 rounded px-4 py-2 text-sm" />
+      <textarea name="message" rows="3" placeholder="Your Message" required class="w-full border border-gray-300 rounded px-4 py-2 text-sm"></textarea>
+
+      <!-- Buttons Row -->
+      <div class="flex flex-col sm:flex-row gap-3 pt-2">
+        <button type="submit" class="w-full sm:w-1/2 bg-red-600 hover:bg-red-700 text-white py-2 rounded-md text-sm font-medium">
+          Submit
+        </button>
+        <a href="https://wa.me/919999999999" target="_blank"
+           class="w-full sm:w-1/2 bg-green-500 hover:bg-green-600 text-white py-2 rounded-md text-sm font-medium flex items-center justify-center gap-2">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!--  -->
   <div class="p-6">
     <button onclick="toggleSidebar()" class="flex items-center gap-2 bg-red-700 px-4 py-2 text-white font-bold rounded">
       <i class="fas fa-sliders"></i> FILTER TOUR
@@ -184,25 +226,31 @@
 
       const container = document.getElementById("packageContainer");
       container.innerHTML = result.length ? result.map(pkg => `
-        <div class="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
-          <img src="${pkg.image}" alt="${pkg.title}" class="w-full h-48 object-cover">
-          <div class="p-4">
-            <h3 class="text-lg font-bold">${pkg.title}</h3>
-            <div class="text-red-600 text-sm font-medium my-2">
-              <i class="fas fa-check-circle mr-1"></i> Customizable
-            </div>
-            <div class="text-gray-600 text-sm mb-1">
-              <i class="fas fa-clock text-red-500 mr-1"></i> ${pkg.days} Days
-            </div>
-            <div class="text-gray-600 text-sm mb-2">
-              <i class="fas fa-map-marker-alt text-red-500 mr-1"></i> ${pkg.cities}
-            </div>
-            <div class="text-lg font-bold text-gray-800">
-              From <span class="text-red-600">Rs. ${pkg.price.toLocaleString()}</span>
-            </div>
-          </div>
-        </div>
-      `).join("") : `<p class='col-span-3 text-center text-red-500'>No tours found.</p>`;
+  <div class="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
+    <img src="${pkg.image}" alt="${pkg.title}" class="w-full h-48 object-cover">
+    <div class="p-4">
+      <h3 class="text-lg font-bold">${pkg.title}</h3>
+      <div class="text-red-600 text-sm font-medium my-2">
+        <i class="fas fa-check-circle mr-1"></i> Customizable
+      </div>
+      <div class="text-gray-600 text-sm mb-1">
+        <i class="fas fa-clock text-red-500 mr-1"></i> ${pkg.days} Days
+      </div>
+      <div class="text-gray-600 text-sm mb-2">
+        <i class="fas fa-map-marker-alt text-red-500 mr-1"></i> ${pkg.cities}
+      </div>
+      <div class="text-lg font-bold text-gray-800">
+        From <span class="text-red-600">Rs. ${pkg.price.toLocaleString()}</span>
+      </div>
+
+      <button onclick='openContactModal(${JSON.stringify(pkg).replace(/'/g, "\\'")})'
+        class="w-full mt-4 bg-red-600 hover:bg-red-700 text-white text-sm py-2 px-4 rounded-md">
+        Contact Us
+      </button>
+    </div>
+  </div>
+`).join("") : `<p class='col-span-3 text-center text-red-500'>No tours found.</p>`;
+
     }
 
     document.addEventListener("change", function (e) {
@@ -212,6 +260,34 @@
     });
 
     window.onload = fetchTours;
+
+
+     function openContactModal(tour) {
+  document.getElementById("modalTitle").textContent = tour.title;
+  document.getElementById("modalImage").src = tour.image;
+
+  document.getElementById("modalDetails").innerHTML = `
+    <div class="flex items-center gap-2">
+      <i class="fas fa-map-marker-alt text-red-500 w-5"></i> <span><strong>City:</strong> ${tour.city || tour.cities}</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <i class="fas fa-calendar-alt text-red-500 w-5"></i> <span><strong>Days:</strong> ${tour.days}</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <i class="fas fa-hiking text-red-500 w-5"></i> <span><strong>Style:</strong> ${tour.style}</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <i class="fas fa-rupee-sign text-red-500 w-5"></i> <span><strong>Price:</strong> ₹${tour.price.toLocaleString()}</span>
+    </div>
+  `;
+
+  document.getElementById("contactModal").classList.remove("hidden");
+}
+
+function closeContactModal() {
+  document.getElementById("contactModal").classList.add("hidden");
+}
+
   </script>
 </body>
 </html>

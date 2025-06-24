@@ -18,7 +18,7 @@
     "price": 24999,
     "rating": 4.7,
     "image": "https://images.unsplash.com/photo-1606801954050-be6b29588460?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Ho Chi Minh City - Cu Chi Tunnels"
+    "cities": "Ho Chi Minh City"
   },
   {
     "title": "Hue Imperial Journey",
@@ -211,7 +211,7 @@
     "cities": "Hanoi"
   },
   {
-    "title": "Da Lat Flower Festival",
+    "title": "Da Lat ",
     "city": "Da Lat",
     "days": 2,
     "style": "Cultural",
@@ -221,7 +221,7 @@
     "cities": "Da Lat"
   },
   {
-    "title": "Phu Quoc Snorkeling Tour",
+    "title": "Phu Quoc ",
     "city": "Phu Quoc",
     "days": 3,
     "style": "Adventure",
@@ -231,7 +231,7 @@
     "cities": "Phu Quoc"
   },
   {
-    "title": "Hoi An Lantern Festival",
+    "title": "Hoi An ",
     "city": "Hoi An",
     "days": 2,
     "style": "Cultural",

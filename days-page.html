@@ -16,6 +16,49 @@
   <div id="header"></div>
 <div id="banner"></div>
 
+
+
+<!--  -->
+
+
+<div id="contactModal" onclick="closeContactModal()" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <div onclick="event.stopPropagation()" class="bg-white w-full max-w-md mx-4 sm:mx-0 rounded-lg shadow-lg p-4 relative overflow-hidden">
+
+    <!-- Close Button -->
+    <button onclick="closeContactModal()" class="absolute top-3 right-4 text-gray-600 hover:text-red-500 text-2xl font-bold">
+      &times;
+    </button>
+
+    <!-- Tour Image -->
+    <img id="modalImage" src="" alt="Tour Image" class="w-full h-48 object-cover rounded-md mb-4">
+
+    <!-- Title -->
+    <h2 id="modalTitle" class="text-xl font-semibold text-gray-800 mb-2">Tour Inquiry</h2>
+
+    <!-- Tour Details with Icons -->
+    <div id="modalDetails" class="text-sm text-gray-700 space-y-2 mb-4">
+      <!-- Populated by JS -->
+    </div>
+
+    <!-- Contact Form -->
+    <form id="contactForm" class="space-y-3">
+      <input type="text" name="name" placeholder="Your Name" required class="w-full border border-gray-300 rounded px-4 py-2 text-sm" />
+      <input type="email" name="email" placeholder="Your Email" required class="w-full border border-gray-300 rounded px-4 py-2 text-sm" />
+      <textarea name="message" rows="3" placeholder="Your Message" required class="w-full border border-gray-300 rounded px-4 py-2 text-sm"></textarea>
+
+      <!-- Buttons Row -->
+      <div class="flex flex-col sm:flex-row gap-3 pt-2">
+        <button type="submit" class="w-full sm:w-1/2 bg-red-600 hover:bg-red-700 text-white py-2 rounded-md text-sm font-medium">
+          Submit
+        </button>
+        <a href="https://wa.me/919999999999" target="_blank"
+           class="w-full sm:w-1/2 bg-green-500 hover:bg-green-600 text-white py-2 rounded-md text-sm font-medium flex items-center justify-center gap-2">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
   <!-- Filter Button -->
   <div class="p-6">
     <button onclick="toggleSidebar()" class="flex items-center gap-2 bg-red-700 px-4 py-2 text-white font-bold rounded">
@@ -66,7 +109,6 @@
     <div id="packageContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
   </main>
 
-  <div id="footer"></div>
 
 <script>
 async function loadComponent(id, file, callback) {
@@ -80,9 +122,7 @@ async function loadComponent(id, file, callback) {
   loadComponent("footer", "./components/footer.html");
   loadComponent("banner", "./components/banner.html");
  
-
-
-  function toggleSidebar() {
+ function toggleSidebar() {
     document.getElementById("filterSidebar").classList.toggle("translate-x-full");
   }
 
@@ -93,10 +133,7 @@ async function loadComponent(id, file, callback) {
       const res = await fetch('./data/data.json');
       tours = await res.json();
       populateFilters();
-
-      // Apply URL parameter filters if any
-      applyURLFilters();
-
+      applyURLFilters(); // Apply filters from URL
     } catch (err) {
       console.error("Failed to load tours:", err);
     }
@@ -127,17 +164,25 @@ async function loadComponent(id, file, callback) {
 
   function applyURLFilters() {
     const params = new URLSearchParams(window.location.search);
-    const daysParam = params.get("days");
+    const filters = {
+      days: params.get("days"),
+      city: params.get("city"),
+      style: params.get("style")
+    };
 
-    if (daysParam) {
-      document.querySelectorAll(".filter-checkbox[data-type='days']").forEach(cb => {
-        if (Number(cb.value) === Number(daysParam)) {
-          cb.checked = true;
-        }
-      });
-    }
+    Object.entries(filters).forEach(([key, value]) => {
+      if (value) {
+        document.querySelectorAll(`.filter-checkbox[data-type='${key}']`).forEach(cb => {
+          const cbValue = cb.value.toLowerCase();
+          const filterValue = key === "days" ? Number(value) : value.toLowerCase();
+          if (key === "days" ? Number(cb.value) === filterValue : cbValue === filterValue) {
+            cb.checked = true;
+          }
+        });
+      }
+    });
 
-    renderTours();
+    renderTours(); // Finally render filtered tours
   }
 
   function renderTours() {
@@ -153,11 +198,11 @@ async function loadComponent(id, file, callback) {
       selectedFilters[type].push(value);
     });
 
-    let result = tours.filter(t => {
-      return (!selectedFilters.city.length || selectedFilters.city.includes(t.city)) &&
-             (!selectedFilters.days.length || selectedFilters.days.includes(Number(t.days))) &&
-             (!selectedFilters.style.length || selectedFilters.style.includes(t.style));
-    });
+    let result = tours.filter(t =>
+      (!selectedFilters.city.length || selectedFilters.city.includes(t.city)) &&
+      (!selectedFilters.days.length || selectedFilters.days.includes(Number(t.days))) &&
+      (!selectedFilters.style.length || selectedFilters.style.includes(t.style))
+    );
 
     const sort = document.getElementById("sortSelect")?.value;
     if (sort === "priceLowHigh") result.sort((a, b) => a.price - b.price);
@@ -182,10 +227,16 @@ async function loadComponent(id, file, callback) {
           <div class="text-lg font-bold text-gray-800">
             From <span class="text-red-600">Rs. ${pkg.price.toLocaleString()}</span>
           </div>
+              <button <button onclick='openContactModal(${JSON.stringify(pkg).replace(/'/g, "\\'")})'
+ class="w-full mt-4 bg-red-600 hover:bg-red-700 text-white text-sm py-2 px-4 rounded-md">
+  Contact Us
+</button>
         </div>
-      </div>`).join("") : `<p class='col-span-3 text-center text-red-500'>No tours found.</p>`;
+      </div>
+    `).join("") : `<p class='col-span-3 text-center text-red-500'>No tours found.</p>`;
   }
 
+  
   document.addEventListener("change", function (e) {
     if (e.target.classList.contains("filter-checkbox") || e.target.id === "sortSelect") {
       renderTours();
@@ -193,11 +244,70 @@ async function loadComponent(id, file, callback) {
   });
 
   window.onload = fetchTours;
+
+
+  function openContactModal(tour) {
+  document.getElementById("modalTitle").textContent = tour.title;
+  document.getElementById("modalImage").src = tour.image;
+
+  document.getElementById("modalDetails").innerHTML = `
+    <div class="flex items-center gap-2">
+      <i class="fas fa-map-marker-alt text-red-500 w-5"></i> <span><strong>City:</strong> ${tour.city || tour.cities}</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <i class="fas fa-calendar-alt text-red-500 w-5"></i> <span><strong>Days:</strong> ${tour.days}</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <i class="fas fa-hiking text-red-500 w-5"></i> <span><strong>Style:</strong> ${tour.style}</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <i class="fas fa-rupee-sign text-red-500 w-5"></i> <span><strong>Price:</strong> ₹${tour.price.toLocaleString()}</span>
+    </div>
+  `;
+
+  document.getElementById("contactModal").classList.remove("hidden");
+}
+
+function closeContactModal() {
+  document.getElementById("contactModal").classList.add("hidden");
+}
+
+ 
 </script>
 
 
 
   
   <script src="app.js"></script>
+
+
+  <section class="bg-white py-10">
+  <h2 class="text-2xl font-bold text-center mb-6">Explore Our Adventures</h2>
+  <div class="overflow-hidden relative">
+    <div id="autoSlider" class="flex gap-6 w-max animate-slide whitespace-nowrap">
+      <img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-lg w-80 h-52 object-cover" />
+      <img src="https://images.unsplash.com/photo-1504457047772-27faf1c00561?q=80&w=1247&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-lg w-80 h-52 object-cover" />
+      <img src="https://images.unsplash.com/photo-1521993117367-b7f70ccd029d?q=80&w=1140&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-lg w-80 h-52 object-cover" />
+      <img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?q=80&w=1228&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-lg w-80 h-52 object-cover" />
+      <img src="https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-lg w-80 h-52 object-cover" />
+      <img src="https://images.unsplash.com/photo-1526139334526-f591a54b477c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-lg w-80 h-52 object-cover" />
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes scrollX {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-slide {
+    animation: scrollX 40s linear infinite;
+  }
+</style>
+
+
+
+  <div id="footer"></div>
 </body>
 </html>

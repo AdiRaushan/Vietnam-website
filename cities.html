@@ -200,6 +200,10 @@
             <div class="text-lg font-bold text-gray-800">
               From <span class="text-red-600">Rs. ${pkg.price.toLocaleString()}</span>
             </div>
+              <button <button onclick='openContactModal(${JSON.stringify(pkg).replace(/'/g, "\\'")})'
+ class="w-full mt-4 bg-red-600 hover:bg-red-700 text-white text-sm py-2 px-4 rounded-md">
+  Contact Us
+</button>
           </div>
         </div>
       `).join("") : `<p class='col-span-3 text-center text-red-500'>No tours found.</p>`;

@@ -161,49 +161,80 @@
   </button>
 
   <!-- ✅ Booking Form Floating INSIDE Hero at Bottom -->
-  <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-30 w-[95%] md:w-11/12 lg:w-4/5 xl:w-3/4">
-    <div class="bg-white shadow-xl rounded-xl px-4 py-4">
-      <form class="flex flex-col lg:flex-row items-center justify-between gap-4">
+ <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-30 w-[95%] md:w-11/12 lg:w-4/5 xl:w-3/4">
+  <div class="bg-white shadow-xl rounded-xl px-4 py-4">
+    <form id="homepage-filter-form" class="flex flex-col lg:flex-row items-center justify-between gap-4">
 
-        <!-- Destination -->
-        <div class="w-full lg:w-1/4">
-          <select class="w-full rounded-md border border-gray-300 px-4 py-2 text-sm">
-            <option selected>Destination</option>
-            <option>Hanoi</option>
-            <option>Da Nang</option>
-            <option>Ha Long Bay</option>
-            <option>Sapa</option>
-          </select>
-        </div>
+      <!-- Destination -->
+      <div class="w-full lg:w-1/4">
+        <select id="filter-city" class="w-full rounded-md border border-gray-300 px-4 py-2 text-sm">
+          <option selected>Destination</option>
+          <option>Hanoi</option>
+          <option>Da Nang</option>
+          <option>Ha Long Bay</option>
+          <option>Sapa</option>
+        </select>
+      </div>
 
-        <!-- Depart Date -->
-        <div class="w-full lg:w-1/4">
-          <input type="date" class="w-full rounded-md border border-gray-300 px-4 py-2 text-sm" />
-        </div>
+      <!-- Tour Style -->
+      <div class="w-full lg:w-1/4">
+        <select id="filter-style" class="w-full rounded-md border border-gray-300 px-4 py-2 text-sm">
+          <option selected>Tour Style</option>
+          <option>Honeymoon</option>
+          <option>Family</option>
+          <option>Adventure</option>
+          <option>Cultural</option>
+          <option>Luxury</option>
+        </select>
+      </div>
 
-        <!-- Return Date -->
-        <div class="w-full lg:w-1/4">
-          <input type="date" class="w-full rounded-md border border-gray-300 px-4 py-2 text-sm" />
-        </div>
+      <!-- Duration -->
+      <div class="w-full lg:w-1/4">
+        <select id="filter-duration" class="w-full rounded-md border border-gray-300 px-4 py-2 text-sm">
+          <option selected>Tour Duration</option>
+          <option>1 Day</option>
+          <option>3 Days</option>
+          <option>5+ Days</option>
+        </select>
+      </div>
 
-        <!-- Duration -->
-        <div class="w-full lg:w-1/4">
-          <select class="w-full rounded-md border border-gray-300 px-4 py-2 text-sm">
-            <option selected>Tour Duration</option>
-            <option>1 Day</option>
-            <option>3 Days</option>
-            <option>5+ Days</option>
-          </select>
-        </div>
-      </form>
-
-      <div class="mt-4 text-right">
-        <button class="bg-red-600 text-white px-5 py-2 rounded-md hover:bg-red-700 transition text-sm font-medium">
+      <!-- Explore Button -->
+      <div class="w-full lg:w-1/4 text-right">
+        <button type="button" id="explore-btn" class="bg-red-600 text-white px-5 py-2 rounded-md hover:bg-red-700 transition text-sm font-medium">
           Explore Vietnam
         </button>
       </div>
-    </div>
+    </form>
   </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const exploreBtn = document.getElementById("explore-btn");
+
+    if (exploreBtn) {
+      exploreBtn.addEventListener("click", () => {
+        const city = document.getElementById("filter-city").value;
+        const style = document.getElementById("filter-style").value;
+        const duration = document.getElementById("filter-duration").value;
+
+        const params = new URLSearchParams();
+
+        if (city && city !== "Destination") params.append("city", city);
+        if (style && style !== "Tour Style") params.append("style", style);
+        if (duration && duration !== "Tour Duration") {
+          const daysValue = duration.includes("1") ? 1 : duration.includes("3") ? 3 : 5;
+          params.append("days", daysValue);
+        }
+
+        // Redirect to tours page with query
+        window.location.href = `days-page.html?${params.toString()}`;
+      });
+    }
+  });
+</script>
+
+
 </section>
 
 
@@ -283,178 +314,105 @@
     </div>
 
     <!-- Cards Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      
-      <!-- Package Card -->
-      <div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition">
-        <img src="https://images.unsplash.com/photo-1647227156240-47bcdced2868?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Vietnam Tour" class="w-full h-56 object-cover" />
-        <div class="p-6">
-          <div class="flex justify-between text-sm text-gray-500 mb-3">
-            <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-red-500"></i> Hanoi</span>
-            <span class="flex items-center gap-1"><i class="fas fa-calendar-alt text-red-500"></i> 3 Days</span>
-            <span class="flex items-center gap-1"><i class="fas fa-user text-red-500"></i> 2 Person</span>
-          </div>
-          <h3 class="text-lg font-semibold text-gray-800 mb-4">Discover the beauty of Vietnam's capital city</h3>
-          <div class="flex justify-between items-center pt-4 border-t border-gray-200">
-            <span class="flex items-center gap-1 text-yellow-500">
-              <i class="fas fa-star"></i> 4.5 <span class="text-sm text-gray-500">(250)</span>
-            </span>
-            <span class="text-red-600 font-semibold text-lg">₹13,999</span>
-          </div>
-        </div>
-      </div>
 
-      <!-- Repeat this block for other destinations -->
-     <!-- Repeat this block inside a grid layout -->
-<div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition">
-  <img src="https://images.unsplash.com/photo-1717158903135-ccfd697fd080?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Vietnam Tour" class="w-full h-56 object-cover" />
-  <div class="p-6">
-    <div class="flex justify-between text-sm text-gray-500 mb-3">
-      <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-red-500"></i> Hanoi</span>
-      <span class="flex items-center gap-1"><i class="fas fa-calendar-alt text-red-500"></i> 5 Days</span>
-      <span class="flex items-center gap-1"><i class="fas fa-user text-red-500"></i> Family</span>
-    </div>
-    <h3 class="text-lg font-semibold text-gray-800 mb-4">Vietnam Family Getaway</h3>
-    <div class="flex justify-between items-center pt-4 border-t border-gray-200">
-      <span class="flex items-center gap-1 text-yellow-500">
-        <i class="fas fa-star"></i> 4.6 <span class="text-sm text-gray-500">(240)</span>
-      </span>
-      <span class="textred-600 font-semibold text-lg">₹15,999</span>
-    </div>
-  </div>
-</div>
-
-<div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition">
-  <img src="https://images.unsplash.com/photo-1643029891412-92f9a81a8c16?q=80&w=1486&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Vietnam Tour" class="w-full h-56 object-cover" />
-  <div class="p-6">
-    <div class="flex justify-between text-sm text-gray-500 mb-3">
-      <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-red-500"></i> Ha Long Bay</span>
-      <span class="flex items-center gap-1"><i class="fas fa-calendar-alt text-red-500"></i> 3 Days</span>
-      <span class="flex items-center gap-1"><i class="fas fa-user text-red-500"></i> Luxury</span>
-    </div>
-    <h3 class="text-lg font-semibold text-gray-800 mb-4">Luxury Ha Long Bay Cruise</h3>
-    <div class="flex justify-between items-center pt-4 border-t border-gray-200">
-      <span class="flex items-center gap-1 text-yellow-500">
-        <i class="fas fa-star"></i> 4.9 <span class="text-sm text-gray-500">(410)</span>
-      </span>
-      <span class="text-red-600 font-semibold text-lg">₹13,999</span>
-    </div>
-  </div>
-</div>
-
-<div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition">
-  <img src="https://images.unsplash.com/photo-1696276959983-2da1448e695a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Vietnam Tour" class="w-full h-56 object-cover" />
-  <div class="p-6">
-    <div class="flex justify-between text-sm text-gray-500 mb-3">
-      <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-red-500"></i> Sapa</span>
-      <span class="flex items-center gap-1"><i class="fas fa-calendar-alt text-red-500"></i> 4 Days</span>
-      <span class="flex items-center gap-1"><i class="fas fa-user text-red-500"></i> Adventure</span>
-    </div>
-    <h3 class="text-lg font-semibold text-gray-800 mb-4">Sapa Hills Adventure</h3>
-    <div class="flex justify-between items-center pt-4 border-t border-gray-200">
-      <span class="flex items-center gap-1 text-yellow-500">
-        <i class="fas fa-star"></i> 4.5 <span class="text-sm text-gray-500">(190)</span>
-      </span>
-      <span class="text-red-600 font-semibold text-lg">₹19,999</span>
-    </div>
-  </div>
-</div>
-
-<div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition">
-  <img src="https://images.unsplash.com/photo-1684784784123-0854fc0eec25?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Vietnam Tour" class="w-full h-56 object-cover" />
-  <div class="p-6">
-    <div class="flex justify-between text-sm text-gray-500 mb-3">
-      <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-red-500"></i> Da Nang</span>
-      <span class="flex items-center gap-1"><i class="fas fa-calendar-alt text-red-500"></i> 4 Days</span>
-      <span class="flex items-center gap-1"><i class="fas fa-user text-red-500"></i> Couple</span>
-    </div>
-    <h3 class="text-lg font-semibold text-gray-800 mb-4">Honeymoon at Golden Bridge</h3>
-    <div class="flex justify-between items-center pt-4 border-t border-gray-200">
-      <span class="flex items-center gap-1 text-yellow-500">
-        <i class="fas fa-star"></i> 4.8 <span class="text-sm text-gray-500">(312)</span>
-      </span>
-      <span class="text-red-600 font-semibold text-lg">₹25,999</span>
-    </div>
-  </div>
-</div>
-
-<div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition">
-  <img src="https://images.unsplash.com/photo-1529271230144-e8c648ef570d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Vietnam Tour" class="w-full h-56 object-cover" />
-  <div class="p-6">
-    <div class="flex justify-between text-sm text-gray-500 mb-3">
-      <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-red-500"></i> Mekong Delta</span>
-      <span class="flex items-center gap-1"><i class="fas fa-calendar-alt text-red-500"></i> 2 Days</span>
-      <span class="flex items-center gap-1"><i class="fas fa-user text-red-500"></i> Group</span>
-    </div>
-    <h3 class="text-lg font-semibold text-gray-800 mb-4">Floating Markets Experience</h3>
-    <div class="flex justify-between items-center pt-4 border-t border-gray-200">
-      <span class="flex items-center gap-1 text-yellow-500">
-        <i class="fas fa-star"></i> 4.4 <span class="text-sm text-gray-500">(122)</span>
-      </span>
-      <span class="text-red-600 font-semibold text-lg">₹13,999</span>
-    </div>
-  </div>
-</div>
-
-<div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition">
-  <img src="https://images.unsplash.com/photo-1637578338935-dfa78f4f40bf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Vietnam Tour" class="w-full h-56 object-cover" />
-  <div class="p-6">
-    <div class="flex justify-between text-sm text-gray-500 mb-3">
-      <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-red-500"></i> Hue, Hoi An</span>
-      <span class="flex items-center gap-1"><i class="fas fa-calendar-alt text-red-500"></i> 6 Days</span>
-      <span class="flex items-center gap-1"><i class="fas fa-user text-red-500"></i> Culture</span>
-    </div>
-    <h3 class="text-lg font-semibold text-gray-800 mb-4">Vietnam Heritage Trail</h3>
-    <div class="flex justify-between items-center pt-4 border-t border-gray-200">
-      <span class="flex items-center gap-1 text-yellow-500">
-        <i class="fas fa-star"></i> 4.9 <span class="text-sm text-gray-500">(360)</span>
-      </span>
-      <span class="text-red-600 font-semibold text-lg">₹29,999</span>
-    </div>
-  </div>
-</div>
-
-<div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition">
-  <img src="https://images.unsplash.com/photo-1653914902751-30147988e291?q=80&w=734&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Vietnam Tour" class="w-full h-56 object-cover" />
-  <div class="p-6">
-    <div class="flex justify-between text-sm text-gray-500 mb-3">
-      <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-red-500"></i> Hanoi to Saigon</span>
-      <span class="flex items-center gap-1"><i class="fas fa-calendar-alt text-red-500"></i> 5 Days</span>
-      <span class="flex items-center gap-1"><i class="fas fa-user text-red-500"></i> Solo</span>
-    </div>
-    <h3 class="text-lg font-semibold text-gray-800 mb-4">Vietnam Express</h3>
-    <div class="flex justify-between items-center pt-4 border-t border-gray-200">
-      <span class="flex items-center gap-1 text-yellow-500">
-        <i class="fas fa-star"></i> 4.2 <span class="text-sm text-gray-500">(174)</span>
-      </span>
-      <span class="text-red-600 font-semibold text-lg">₹19,999</span>
-    </div>
-  </div>
-</div>
-
-<div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition">
-  <img src="https://plus.unsplash.com/premium_photo-1661963382350-506c8185c584?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Vietnam Tour" class="w-full h-56 object-cover" />
-  <div class="p-6">
-    <div class="flex justify-between text-sm text-gray-500 mb-3">
-      <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-red-500"></i> Hanoi + Ninh Binh</span>
-      <span class="flex items-center gap-1"><i class="fas fa-calendar-alt text-red-500"></i> 7 Days</span>
-      <span class="flex items-center gap-1"><i class="fas fa-user text-red-500"></i> Explorer</span>
-    </div>
-    <h3 class="text-lg font-semibold text-gray-800 mb-4">Northern Vietnam Explorer</h3>
-    <div class="flex justify-between items-center pt-4 border-t border-gray-200">
-      <span class="flex items-center gap-1 text-yellow-500">
-        <i class="fas fa-star"></i> 4.6 <span class="text-sm text-gray-500">(289)</span>
-      </span>
-      <span class="text-red-600 font-semibold text-lg">₹13,999</span>
-    </div>
-  </div>
-</div>
 
 
       <!-- More cards can be added similarly -->
-    </div>
+    <div id="homepage-tour-cards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6"></div>
+    <script>
+  async function renderHomepageTours() {
+    try {
+      const res = await fetch('./data/data.json');
+      const tours = await res.json();
+
+      const container = document.getElementById("homepage-tour-cards");
+
+      const selected = tours.slice(0, 9); // Only render first 9 tours
+
+      container.innerHTML = selected.map(tour => `
+        <div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition">
+          <img src="${tour.image}" alt="${tour.title}" class="w-full h-56 object-cover" />
+          <div class="p-6">
+            <div class="flex justify-between text-sm text-gray-500 mb-3">
+              <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-red-500"></i> ${tour.cities}</span>
+              <span class="flex items-center gap-1"><i class="fas fa-calendar-alt text-red-500"></i> ${tour.days} Days</span>
+              <span class="flex items-center gap-1"><i class="fas fa-user text-red-500"></i> ${tour.style}</span>
+            </div>
+    <h3 class="text-lg font-semibold text-gray-800 mb-4 whitespace-nowrap overflow-hidden text-ellipsis">
+  ${tour.title}
+</h3>
+
+            <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+              <span class="flex items-center gap-1 text-yellow-500">
+                <i class="fas fa-star"></i> ${tour.rating} <span class="text-sm text-gray-500">(Reviews)</span>
+              </span>
+              <span class="text-red-600 font-semibold text-lg">₹${tour.price.toLocaleString()}</span>
+            </div>
+            <button onclick='openContactModal(${JSON.stringify(tour)})' class="w-full mt-4 bg-red-600 hover:bg-red-700 text-white text-sm py-2 px-4 rounded-md">
+  Contact Us
+</button>
+
+          </div>
+        </div>
+      `).join("");
+
+    } catch (error) {
+      console.error("Failed to load homepage tours:", error);
+    }
+  }
+
+  // Run on page load
+  window.onload = () => {
+    renderHomepageTours();
+  };
+</script>
+
   </div>
 </section>
+
+<!-- Contact Modal -->
+<div id="contactModal" onclick="closeContactModal()" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <div onclick="event.stopPropagation()" class="bg-white w-full max-w-md mx-4 sm:mx-0 rounded-lg shadow-lg p-4 relative overflow-hidden">
+
+    <!-- Close Button -->
+    <button onclick="closeContactModal()" class="absolute top-3 right-4 text-gray-600 hover:text-red-500 text-2xl font-bold">
+      &times;
+    </button>
+
+    <!-- Tour Image -->
+    <img id="modalImage" src="" alt="Tour Image" class="w-full h-48 object-cover rounded-md mb-4">
+
+    <!-- Title -->
+    <h2 id="modalTitle" class="text-xl font-semibold text-gray-800 mb-2">Tour Inquiry</h2>
+
+    <!-- Tour Details with Icons -->
+    <div id="modalDetails" class="text-sm text-gray-700 space-y-2 mb-4">
+      <!-- Populated by JS -->
+    </div>
+
+    <!-- Contact Form -->
+    <form id="contactForm" class="space-y-3">
+      <input type="text" name="name" placeholder="Your Name" required class="w-full border border-gray-300 rounded px-4 py-2 text-sm" />
+      <input type="email" name="email" placeholder="Your Email" required class="w-full border border-gray-300 rounded px-4 py-2 text-sm" />
+      <textarea name="message" rows="3" placeholder="Your Message" required class="w-full border border-gray-300 rounded px-4 py-2 text-sm"></textarea>
+
+      <!-- Buttons Row -->
+      <div class="flex flex-col sm:flex-row gap-3 pt-2">
+        <button type="submit" class="w-full sm:w-1/2 bg-red-600 hover:bg-red-700 text-white py-2 rounded-md text-sm font-medium">
+          Submit
+        </button>
+        <a href="https://wa.me/919999999999" target="_blank"
+           class="w-full sm:w-1/2 bg-green-500 hover:bg-green-600 text-white py-2 rounded-md text-sm font-medium flex items-center justify-center gap-2">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
 
 <!--  -->
 <section class="bg-gray-50 py-16">
@@ -817,7 +775,37 @@
 
     // Attach event listeners AFTER inserting the header
 
-  });</script>
+  });
+  
+function openContactModal(tour) {
+  document.getElementById("modalTitle").textContent = tour.title;
+  document.getElementById("modalImage").src = tour.image;
+
+  document.getElementById("modalDetails").innerHTML = `
+    <div class="flex items-center gap-2">
+      <i class="fas fa-map-marker-alt text-red-500 w-5"></i> <span><strong>City:</strong> ${tour.city || tour.cities}</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <i class="fas fa-calendar-alt text-red-500 w-5"></i> <span><strong>Days:</strong> ${tour.days}</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <i class="fas fa-hiking text-red-500 w-5"></i> <span><strong>Style:</strong> ${tour.style}</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <i class="fas fa-rupee-sign text-red-500 w-5"></i> <span><strong>Price:</strong> ₹${tour.price.toLocaleString()}</span>
+    </div>
+  `;
+
+  document.getElementById("contactModal").classList.remove("hidden");
+}
+
+function closeContactModal() {
+  document.getElementById("contactModal").classList.add("hidden");
+}
+
+  
+  
+  </script>
 
 
 
