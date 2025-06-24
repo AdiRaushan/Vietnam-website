@@ -46,26 +46,43 @@ function applyFilters() {
 applyFilters();
 sortFilter.addEventListener('change', applyFilters);
 
+/*  */
 
 
 
 
+fetch("./components/header.html")
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('header').innerHTML = html;
 
+    // Attach event listeners AFTER inserting the header
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
 
-
-
-
-
-
-
-
-/* For header and footer */
-
-    async function loadComponent(id, file) {
-      const res = await fetch(file);
-      const html = await res.text();
-      document.getElementById(id).innerHTML = html;
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
     }
 
-    loadComponent("header", "./components/header.html");
-    loadComponent("footer", "./components/footer.html");
+    const dropdownToggle = document.getElementById("mobile-dropdown-toggle");
+    const dropdown = document.getElementById("mobile-dropdown");
+    const icon = document.getElementById("mobile-dropdown-icon");
+
+    if (dropdownToggle && dropdown && icon) {
+      dropdownToggle.addEventListener("click", () => {
+        dropdown.classList.toggle("hidden");
+        icon.classList.toggle("rotate-180");
+      });
+    }
+  });
+
+
+
+
+
+
+
+
+

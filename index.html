@@ -14,6 +14,109 @@
   </head>
   <body>
 <div id="header"></div>
+<!-- Mobile menu (page-specific) -->
+<!-- Mobile Navbar Wrapper (Visible only on small devices) -->
+<div class="block lg:hidden bg-white shadow-md border-b z-50 relative">
+
+  <!-- Top bar with logo and menu toggle -->
+  <div class="flex items-center justify-between px-4 py-3">
+    <!-- Logo -->
+    <a href="index.html" class="text-2xl font-bold text-red-600">
+      <span class="text-gray-900">WEBSITE DE</span>MO
+    </a>
+
+    <!-- Toggle Button -->
+    <button id="mobile-menu-toggle" class="text-gray-800 focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden px-4 pb-4 bg-white shadow-md border-t space-y-4">
+    <a href="index.html" class="block text-gray-800 font-medium hover:text-red-600">Home</a> 
+    <a href="contact.html" class="block text-gray-800 font-medium hover:text-red-600">About us</a>
+     <a href="contact.html" class="block text-gray-800 font-medium hover:text-red-600">Contact</a>
+     
+
+    <!-- Dropdown Section -->
+    <div class="border-t pt-2">
+      <button id="mobile-dropdown-toggle" class="w-full flex justify-between items-center text-gray-800 font-medium">
+        Tour Packages
+        <svg id="mobile-dropdown-icon" class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+    <div id="mobile-dropdown" class="hidden pl-4 mt-3 space-y-4 text-sm">
+
+  <!-- By Duration -->
+  <div>
+    <p class="text-gray-600 font-semibold mb-1">By Duration</p>
+    <div class="space-y-1">
+      <a href="days-page.html?days=4" class="block hover:text-red-600">4 Days</a>
+      <a href="days-page.html?days=5" class="block hover:text-red-600">5 Days</a>
+      <a href="days-page.html?days=6" class="block hover:text-red-600">6 Days</a>
+      <a href="days-page.html?days=7" class="block hover:text-red-600">7 Days</a>
+      <a href="days-page.html?days=8" class="block hover:text-red-600">8 Days</a>
+      <a href="days-page.html?days=9" class="block hover:text-red-600">9 Days</a>
+      <a href="days-page.html?days=10" class="block hover:text-red-600">10+ Days</a>
+    </div>
+  </div>
+
+  <!-- By Style -->
+  <div>
+    <p class="text-gray-600 font-semibold mb-1 mt-3">By Style</p>
+    <div class="space-y-1">
+      <a href="style.html?style=family" class="block hover:text-red-600">Family Tours</a>
+      <a href="style.html?style=honeymoon" class="block hover:text-red-600">Honeymoon</a>
+      <a href="style.html?style=luxury" class="block hover:text-red-600">Luxury</a>
+      <a href="style.html?style=cultural" class="block hover:text-red-600">Cultural</a>
+    </div>
+  </div>
+
+  <!-- By City -->
+  <div>
+    <p class="text-gray-600 font-semibold mb-1 mt-3">By City</p>
+    <div class="space-y-1">
+      <a href="city.html?city=hanoi" class="block hover:text-red-600">Hanoi</a>
+      <a href="city.html?city=danang" class="block hover:text-red-600">Da Nang</a>
+      <a href="city.html?city=halong" class="block hover:text-red-600">Halong</a>
+      <a href="city.html?city=cantho" class="block hover:text-red-600">Can Tho</a>
+      <a href="city.html?city=phuquoc" class="block hover:text-red-600">Phu Quoc</a>
+      <a href="city.html?city=sapa" class="block hover:text-red-600">Sapa</a>
+    </div>
+  </div>
+
+</div>
+
+    </div>
+
+   
+  </div>
+</div>
+
+<!-- JavaScript to toggle menu and dropdown -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("mobile-menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    const dropdownToggle = document.getElementById("mobile-dropdown-toggle");
+    const dropdown = document.getElementById("mobile-dropdown");
+    const icon = document.getElementById("mobile-dropdown-icon");
+
+    dropdownToggle.addEventListener("click", () => {
+      dropdown.classList.toggle("hidden");
+      icon.classList.toggle("rotate-180");
+    });
+  });
+</script>
 
 
 
@@ -707,19 +810,15 @@
 
 
 
+<script>fetch("./components/header.html")
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('header').innerHTML = html;
 
+    // Attach event listeners AFTER inserting the header
 
-  <script>
-        async function loadComponent(id, file) {
-      const res = await fetch(file);
-      const html = await res.text();
-      document.getElementById(id).innerHTML = html;
-    }
+  });</script>
 
-    loadComponent("header", "./components/header.html");
-    loadComponent("footer", "./components/footer.html");
-
-  </script>
 
 
   </body>
