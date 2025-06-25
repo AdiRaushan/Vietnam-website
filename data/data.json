@@ -7,7 +7,13 @@
     "price": 21499,
     "rating": 4,
     "image": "https://images.unsplash.com/photo-1561461221-959c3f16234b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "cities": "Hanoi - Ninh - Halong Bay"
+  "cities": "Hanoi - Ninh - Halong Bay",
+   "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
 
   },
   {
@@ -18,7 +24,13 @@
     "price": 24999,
     "rating": 4.7,
     "image": "https://images.unsplash.com/photo-1606801954050-be6b29588460?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Ho Chi Minh City"
+    "cities": "Ho Chi Minh City",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Hue Imperial Journey",
@@ -28,7 +40,13 @@
     "price": 18999,
     "rating": 4.5,
     "image": "https://images.unsplash.com/photo-1602646993875-70bc0ba52c87?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Hue - Hoi An"
+    "cities": "Hue - Hoi An",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Sapa Mountain Retreat",
@@ -38,7 +56,13 @@
     "price": 22999,
     "rating": 4.8,
     "image": "https://images.unsplash.com/photo-1521019795854-14e15f600980?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Sapa - Lao Cai"
+    "cities": "Sapa - Lao Cai",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Da Nang Coastal Escape",
@@ -48,7 +72,13 @@
     "price": 25999,
     "rating": 4.6,
     "image": "https://images.unsplash.com/photo-1464809142576-df63ca4ed7f0?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Da Nang - Hoi An"
+    "cities": "Da Nang - Hoi An",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Mekong Delta Adventure",
@@ -58,7 +88,13 @@
     "price": 17999,
     "rating": 4.4,
     "image": "https://images.unsplash.com/photo-1489659429806-4069d3fcde9a?q=80&w=1157&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Can Tho - Cai Rang"
+    "cities": "Can Tho - Cai Rang",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Halong Bay Cruise",
@@ -68,7 +104,13 @@
     "price": 28999,
     "rating": 4.9,
     "image": "https://plus.unsplash.com/premium_photo-1694475495121-cf6b8e57f219?q=80&w=1175&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Halong Bay"
+    "cities": "Halong Bay",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Ninh Binh Nature Tour",
@@ -78,7 +120,13 @@
     "price": 19999,
     "rating": 4.5,
     "image": "https://images.unsplash.com/photo-1555921015-5532091f6026?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Ninh Binh - Trang An"
+    "cities": "Ninh Binh - Trang An",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Hoi An Ancient Town",
@@ -88,7 +136,13 @@
     "price": 21999,
     "rating": 4.7,
     "image": "https://images.unsplash.com/photo-1533497394934-b33cd9695ba9?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Hoi An - My Son"
+    "cities": "Hoi An - My Son",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Phu Quoc Island Getaway",
@@ -98,7 +152,13 @@
     "price": 27999,
     "rating": 4.8,
     "image": "https://images.unsplash.com/photo-1516484681091-7d83961805f4?q=80&w=1356&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Phu Quoc"
+    "cities": "Phu Quoc",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Dalat Highland Escape",
@@ -108,7 +168,13 @@
     "price": 20999,
     "rating": 4.6,
     "image": "https://images.unsplash.com/photo-1603852452378-a4e8d84324a2?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Dalat - Langbiang"
+    "cities": "Dalat - Langbiang",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Phong Nha Cave Adventure",
@@ -118,7 +184,13 @@
     "price": 18999,
     "rating": 4.5,
     "image": "https://images.unsplash.com/photo-1503539680555-732099a55a56?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Phong Nha - Ke Bang"
+    "cities": "Phong Nha - Ke Bang",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Hanoi Foodie Tour",
@@ -128,7 +200,13 @@
     "price": 16999,
     "rating": 4.7,
     "image": "https://images.unsplash.com/photo-1521993117367-b7f70ccd029d?q=80&w=1140&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Hanoi"
+    "cities": "Hanoi",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Ha Giang Loop",
@@ -138,7 +216,13 @@
     "price": 23999,
     "rating": 4.8,
     "image": "https://images.unsplash.com/photo-1521993117367-b7f70ccd029d?q=80&w=1140&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Ha Giang - Dong Van"
+    "cities": "Ha Giang - Dong Van",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Con Dao Island Retreat",
@@ -148,7 +232,13 @@
     "price": 26999,
     "rating": 4.6,
     "image": "https://images.unsplash.com/photo-1553851919-596510268b99?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Con Dao"
+    "cities": "Con Dao",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Mai Chau Valley Trek",
@@ -158,7 +248,13 @@
     "price": 17999,
     "rating": 4.5,
     "image": "https://images.unsplash.com/photo-1555980483-93e7b3529e1a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Mai Chau"
+    "cities": "Mai Chau",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Ho Chi Minh City Nightlife",
@@ -168,7 +264,13 @@
     "price": 15999,
     "rating": 4.4,
     "image": "https://plus.unsplash.com/premium_photo-1692731798259-8ba525cef3ac?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Ho Chi Minh City"
+    "cities": "Ho Chi Minh City",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Ba Be Lake Discovery",
@@ -178,7 +280,13 @@
     "price": 20999,
     "rating": 4.6,
     "image": "https://images.unsplash.com/photo-1609412058473-c199497c3c5d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Ba Be - Bac Kan"
+    "cities": "Ba Be - Bac Kan",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Tam Coc Boat Ride",
@@ -188,7 +296,13 @@
     "price": 18999,
     "rating": 4.7,
     "image": "https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Ninh Binh - Tam Coc"
+    "cities": "Ninh Binh - Tam Coc",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Cat Ba Island Adventure",
@@ -198,7 +312,13 @@
     "price": 22999,
     "rating": 4.5,
     "image": "https://images.unsplash.com/photo-1480996408299-fc0e830b5db1?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Cat Ba - Halong Bay"
+    "cities": "Cat Ba - Halong Bay",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Hanoi Cultural Immersion",
@@ -208,7 +328,13 @@
     "price": 21999,
     "rating": 4.6,
     "image": "https://plus.unsplash.com/premium_photo-1719955781545-c60219441bfc?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Hanoi"
+    "cities": "Hanoi",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Da Lat ",
@@ -218,7 +344,13 @@
     "price": 17999,
     "rating": 4.5,
     "image": "https://images.unsplash.com/photo-1555979864-7a8f9b4fddf8?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Da Lat"
+    "cities": "Da Lat",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Phu Quoc ",
@@ -228,7 +360,13 @@
     "price": 24999,
     "rating": 4.7,
     "image": "https://images.unsplash.com/photo-1545172538-171a802bd867?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Phu Quoc"
+    "cities": "Phu Quoc",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Hoi An ",
@@ -238,7 +376,13 @@
     "price": 18999,
     "rating": 4.8,
     "image": "https://plus.unsplash.com/premium_photo-1690960644375-6f2399a08ebc?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Hoi An"
+    "cities": "Hoi An",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Sapa Rice Terrace Trek",
@@ -248,7 +392,13 @@
     "price": 22999,
     "rating": 4.6,
     "image": "https://images.unsplash.com/photo-1526139334526-f591a54b477c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Sapa"
+    "cities": "Sapa",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Hue Food Tour",
@@ -258,7 +408,13 @@
     "price": 16999,
     "rating": 4.7,
     "image": "https://images.unsplash.com/photo-1606801954050-be6b29588460?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Hue"
+    "cities": "Hue",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Halong Bay Kayaking",
@@ -268,7 +424,13 @@
     "price": 20999,
     "rating": 4.5,
     "image": "https://images.unsplash.com/photo-1583417319070-4a69db38a482?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Halong Bay"
+    "cities": "Halong Bay",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Mekong Delta Homestay",
@@ -278,7 +440,13 @@
     "price": 19999,
     "rating": 4.6,
     "image": "https://images.unsplash.com/photo-1504457047772-27faf1c00561?q=80&w=1247&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Can Tho - Vinh Long"
+    "cities": "Can Tho - Vinh Long",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Da Nang Marble Mountains",
@@ -288,7 +456,13 @@
     "price": 18999,
     "rating": 4.5,
     "image": "https://plus.unsplash.com/premium_photo-1661854008793-8ce54b2e622b?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Da Nang"
+    "cities": "Da Nang",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Hanoi Cyclo Tour",
@@ -298,7 +472,13 @@
     "price": 15999,
     "rating": 4.4,
     "image": "https://images.unsplash.com/photo-1531737212413-667205e1cda7?q=80&w=734&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Hanoi"
+    "cities": "Hanoi",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Phu Quoc Sunset Cruise",
@@ -308,7 +488,13 @@
     "price": 23999,
     "rating": 4.7,
     "image": "https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Phu Quoc"
+    "cities": "Phu Quoc",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Sapa Homestay Experience",
@@ -318,7 +504,13 @@
     "price": 20999,
     "rating": 4.6,
     "image": "https://plus.unsplash.com/premium_photo-1692731798248-58f1ffe9da0a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TmluaCUyMEJpbmh8ZW58MHx8MHx8fDA%3D",
-    "cities": "Sapa"
+    "cities": "Sapa",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Hoi An Cooking Class",
@@ -328,7 +520,13 @@
     "price": 17999,
     "rating": 4.8,
     "image": "https://images.unsplash.com/photo-1602646993875-70bc0ba52c87?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Hoi An"
+    "cities": "Hoi An",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Ninh Binh Pagoda Tour",
@@ -338,7 +536,13 @@
     "price": 18999,
     "rating": 4.5,
     "image": "https://plus.unsplash.com/premium_photo-1692731797858-bc29d2a2d6df?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Ninh Binh"
+    "cities": "Ninh Binh",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Halong Bay Luxury Cruise",
@@ -348,7 +552,13 @@
     "price": 29999,
     "rating": 4.9,
     "image": "https://images.unsplash.com/photo-1584227039542-1871579a7d16?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Halong Bay"
+    "cities": "Halong Bay",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Da Lat Waterfall Trek",
@@ -358,7 +568,13 @@
     "price": 18999,
     "rating": 4.6,
     "image": "https://images.unsplash.com/photo-1678099006439-dba9e4d3f9f5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Da Lat"
+    "cities": "Da Lat",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Hanoi Temple Tour",
@@ -368,7 +584,13 @@
     "price": 16999,
     "rating": 4.5,
     "image": "https://images.unsplash.com/photo-1555921015-5532091f6026?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Hanoi"
+    "cities": "Hanoi",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Phu Quoc Diving Adventure",
@@ -378,7 +600,13 @@
     "price": 25999,
     "rating": 4.7,
     "image": "https://plus.unsplash.com/premium_photo-1661963095864-01a3dbb82d90?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Phu Quoc"
+    "cities": "Phu Quoc",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Sapa Village Trek",
@@ -388,7 +616,13 @@
     "price": 21999,
     "rating": 4.6,
     "image": "https://images.unsplash.com/photo-1694083031889-19cbe295035d?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Sapa"
+    "cities": "Sapa",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Hoi An Bike Tour",
@@ -398,7 +632,13 @@
     "price": 17999,
     "rating": 4.5,
     "image": "https://images.unsplash.com/flagged/photo-1549874613-8ea0adee1a82?q=80&w=1214&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Hoi An"
+    "cities": "Hoi An",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Mekong Delta Bike Tour",
@@ -408,7 +648,13 @@
     "price": 18999,
     "rating": 4.6,
     "image": "https://images.unsplash.com/photo-1680711211916-195a00308786?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Can Tho"
+    "cities": "Can Tho",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Hue Citadel Exploration",
@@ -418,7 +664,13 @@
     "price": 17999,
     "rating": 4.5,
     "image": "https://images.unsplash.com/photo-1567272131881-8ce2275deb67?q=80&w=1174&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Hue"
+    "cities": "Hue",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Halong Bay Fishing Trip",
@@ -428,7 +680,13 @@
     "price": 20999,
     "rating": 4.6,
     "image": "https://images.unsplash.com/photo-1561461221-959c3f16234b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Halong Bay"
+    "cities": "Halong Bay",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Da Nang Golden Bridge",
@@ -438,7 +696,13 @@
     "price": 19999,
     "rating": 4.7,
     "image": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?q=80&w=1228&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Da Nang"
+    "cities": "Da Nang",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Hanoi Street Food Tour",
@@ -448,7 +712,13 @@
     "price": 15999,
     "rating": 4.8,
     "image": "https://images.unsplash.com/photo-1509030450996-dd1a26dda07a?q=80&w=1223&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Hanoi"
+    "cities": "Hanoi",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Phu Quoc Night Market",
@@ -458,7 +728,13 @@
     "price": 16999,
     "rating": 4.5,
     "image": "https://images.unsplash.com/photo-1693294603830-f44c9511d643?q=80&w=1333&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Phu Quoc"
+    "cities": "Phu Quoc",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Sapa Cultural Festival",
@@ -468,7 +744,13 @@
     "price": 22999,
     "rating": 4.6,
     "image": "https://images.unsplash.com/photo-1570366583862-f91883984fde?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Sapa"
+    "cities": "Sapa",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Hoi An Riverside Tour",
@@ -478,7 +760,13 @@
     "price": 17999,
     "rating": 4.7,
     "image": "https://images.unsplash.com/photo-1563354860-799d15199ac3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Hoi An"
+    "cities": "Hoi An",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Ninh Binh Countryside",
@@ -488,7 +776,13 @@
     "price": 18999,
     "rating": 4.5,
     "image": "https://images.unsplash.com/photo-1557750255-c76072a7aad1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Ninh Binh"
+    "cities": "Ninh Binh",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   },
   {
     "title": "Halong Bay Sunset Cruise",
@@ -498,6 +792,12 @@
     "price": 24999,
     "rating": 4.8,
     "image": "https://images.unsplash.com/photo-1643030595382-79273ae819d9?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "cities": "Halong Bay"
+    "cities": "Halong Bay",
+     "inclusions": [
+    { "label": "Flights", "icon": "fa-solid fa-plane" },
+    { "label": "Hotels", "icon": "fa-solid fa-hotel" },
+    { "label": "Meals", "icon": "fa-solid fa-utensils" },
+    { "label": "Sightseeing", "icon": "fa-solid fa-binoculars" }
+  ]
   }
 ]

@@ -83,6 +83,6 @@ fetch("./components/header.html")
 
 
 
-
+/* SLider for citys */
 
 

@@ -22,7 +22,7 @@
   <div class="flex items-center justify-between px-4 py-3">
     <!-- Logo -->
  <a href="index.html" class="inline-block">
-  <img src="./VRIS.png" alt="Website Logo" class="w-40 sm:w-48 md:w-56 lg:w-64 h-auto" />
+  <img src="./Screenshot_2025-06-25_154430-removebg-preview.png" alt="Website Logo" class="w-25 sm:w-48 md:w-56 lg:w-64 h-20" />
 </a>
 
     <!-- Toggle Button -->
@@ -162,7 +162,7 @@
 
   <!-- ✅ Booking Form Floating INSIDE Hero at Bottom -->
  <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-30 w-[95%] md:w-11/12 lg:w-4/5 xl:w-3/4">
-  <div class="bg-white shadow-xl rounded-xl px-4 py-4">
+  <div class="bg-white shadow-xl rounded-xl px-4 py-4 mb-16">
     <form id="homepage-filter-form" class="flex flex-col lg:flex-row items-center justify-between gap-4">
 
       <!-- Destination -->
@@ -238,7 +238,164 @@
 </section>
 
 
+<!-- Top Cities Section -->
+<section class="bg-white py-10 text-center px-6 lg:px-8 text-center">
+ <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4">Top Destination In Vietnam</h2>
+    <p class="text-gray-600 max-w-2xl mx-auto mb-12">Here’s why travelers choose us again and again.</p>
+  </div>
+  <div class="overflow-hidden relative group">
+    <div id="autoSlider" class="flex gap-6 w-max animate-slide whitespace-nowrap group-hover:[animation-play-state:paused]">
 
+      <!-- Linked City Slides -->
+      <a href="style.html?type=city&value=Hanoi">
+        <img src="/City-slider-banner.png" alt="Hanoi" class="rounded-lg w-80 h-52 object-cover" />
+      </a>
+
+      <a href="style.html?type=city&value=Hue">
+        <img src="/City-slider-banner.png"alt="Hue" class="rounded-lg w-80 h-52 object-cover" />
+      </a>
+
+      <a href="style.html?type=city&value=Sapa">
+        <img src="/City-slider-banner.png" alt="Sapa" class="rounded-lg w-80 h-52 object-cover" />
+      </a>
+
+      <a href="style.html?type=city&value=Da Nang">
+        <img src="/City-slider-banner.png" alt="Da Nang" class="rounded-lg w-80 h-52 object-cover" />
+      </a>
+
+      <a href="style.html?type=city&value=Can Tho">
+        <img src="/City-slider-banner.png" alt="Can Tho" class="rounded-lg w-80 h-52 object-cover" />
+      </a>
+
+      <a href="style.html?type=city&value=Halong">
+        <img src="/City-slider-banner.png" alt="Halong" class="rounded-lg w-80 h-52 object-cover" />
+      </a>
+
+      <a href="style.html?type=city&value=Ninh Binh">
+        <img src="/City-slider-banner.png" alt="Ninh Binh" class="rounded-lg w-80 h-52 object-cover" />
+      </a>
+
+      <a href="style.html?type=city&value=Hoi An">
+        <img src="/City-slider-banner.png" alt="Hoi An" class="rounded-lg w-80 h-52 object-cover" />
+      </a>
+
+      <!-- Optional Duplicate for Infinite Feel -->
+      <a href="style.html?type=city&value=Hanoi">
+        <img src="" alt="Hanoi" class="rounded-lg w-80 h-52 object-cover" />
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes scrollX {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-slide {
+    animation: scrollX 40s linear infinite;
+  }
+</style>
+
+
+
+
+<!-- Top Style Slider -->
+<section class="bg-gray-50 py-12">
+  <h2 class="text-3xl font-bold text-center text-gray-800 mb-8 px-4">Explore Tour Styles Across India</h2>
+
+  <div class="overflow-hidden relative">
+    <div class="flex gap-6 animate-slide px-6">
+
+      <!-- Card -->
+      <a href="style.html?style=goa" class="min-w-[260px] bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 shrink-0">
+        <img src="https://images.unsplash.com/photo-1732243395944-cb3ff9311091?q=80&w=1075&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ladakh" class="w-full h-40 object-cover" />
+        <div class="p-4">
+          <h3 class="font-semibold text-lg text-gray-800">Adventure Tours</h3>
+          <p class="text-sm text-gray-500">₹10,999/-</p>
+        </div>
+      </a>
+
+      <!-- Card -->
+      <a href="style.html?style=uttarakhand" class="min-w-[260px] bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 shrink-0">
+        <img src="https://images.unsplash.com/photo-1648850262706-a335e2369157?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Uttarakhand" class="w-full h-40 object-cover" />
+        <div class="p-4">
+          <h3 class="font-semibold text-lg text-gray-800">Private Group Tours</h3>
+          <p class="text-sm text-gray-500">₹12,999/-</p>
+        </div>
+      </a>
+
+      <!-- Card -->
+      <a href="style.html?style=kerala" class="min-w-[260px] bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 shrink-0">
+        <img src="https://images.unsplash.com/photo-1723821885976-8130a8a051c5?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Kerala" class="w-full h-40 object-cover" />
+        <div class="p-4">
+          <h3 class="font-semibold text-lg text-gray-800">Vietnam Luxury Tours</h3>
+          <p class="text-sm text-gray-500">₹29,999/-</p>
+        </div>
+      </a>
+
+      <!-- Card -->
+      <a href="style.html?style=northeast" class="min-w-[260px] bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 shrink-0">
+        <img src="https://images.unsplash.com/photo-1732243395944-cb3ff9311091?q=80&w=1075&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="North East" class="w-full h-40 object-cover" />
+        <div class="p-4">
+          <h3 class="font-semibold text-lg text-gray-800">Vietnam Beach Holidays</h3>
+          <p class="text-sm text-gray-500">₹37,999/-</p>
+        </div>
+      </a>
+
+      <!-- Card -->
+      <a href="style.html?style=ladakh" class="min-w-[260px] bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 shrink-0">
+        <img src="https://images.unsplash.com/photo-1671249819245-4a8f1c4d724e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ladakh" class="w-full h-40 object-cover" />
+        <div class="p-4">
+          <h3 class="font-semibold text-lg text-gray-800">Vietnam Honeymoon</h3>
+          <p class="text-sm text-gray-500">₹41,999/-</p>
+        </div>
+      </a>
+     <a href="style.html?style=ladakh" class="min-w-[260px] bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 shrink-0">
+        <img src="https://images.unsplash.com/photo-1743693812757-0bb3c3bd45a5?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ladakh" class="w-full h-40 object-cover" />
+        <div class="p-4">
+          <h3 class="font-semibold text-lg text-gray-800">Vietnam Classic Tours</h3>
+          <p class="text-sm text-gray-500">₹41,999/-</p>
+        </div>
+      </a>     <a href="style.html?style=ladakh" class="min-w-[260px] bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 shrink-0">
+        <img src="https://images.unsplash.com/photo-1557051310-6cbf61ae9efb?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ladakh" class="w-full h-40 object-cover" />
+        <div class="p-4">
+          <h3 class="font-semibold text-lg text-gray-800">Vietnam Family Holidays</h3>
+          <p class="text-sm text-gray-500">₹41,999/-</p>
+        </div>
+      </a>     <a href="style.html?style=ladakh" class="min-w-[260px] bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 shrink-0">
+        <img src="https://images.unsplash.com/photo-1732243395944-cb3ff9311091?q=80&w=1075&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ladakh" class="w-full h-40 object-cover" />
+        <div class="p-4">
+          <h3 class="font-semibold text-lg text-gray-800">Vietnam Beach Holidays</h3>
+          <p class="text-sm text-gray-500">₹41,999/-</p>
+        </div>
+      </a>     <a href="style.html?style=ladakh" class="min-w-[260px] bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 shrink-0">
+        <img src="https://images.unsplash.com/photo-1732243395944-cb3ff9311091?q=80&w=1075&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ladakh" class="w-full h-40 object-cover" />
+        <div class="p-4">
+          <h3 class="font-semibold text-lg text-gray-800">Adventure Tour</h3>
+          <p class="text-sm text-gray-500">₹41,999/-</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+@keyframes slide {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-slide {
+  animation: slide 40s linear infinite;
+}
+</style>
+
+
+
+<!--  -->
 
 
 
@@ -301,6 +458,115 @@
 </section>
 
 
+<!-- day slider -->
+
+<section class="bg-white py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto text-center">
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-800 mb-4">Top Destinations in Vietnam</h2>
+    <p class="text-gray-600 max-w-2xl mx-auto mb-10">Explore the beauty of Vietnam with our exclusive 4-day holiday packages.</p>
+
+    <div class="overflow-hidden relative">
+      <div id="autoSlider" class="flex gap-4 sm:gap-6 w-max animate-slide whitespace-nowrap">
+
+        <!-- Destination Card -->
+        <a href="style.html?type=city&value=Hanoi" class="relative group block w-64 sm:w-72 md:w-80 h-48 sm:h-52 rounded-lg overflow-hidden">
+          <span class="absolute top-2 left-2 bg-white text-black text-xs font-semibold px-2 py-1 rounded shadow">
+  4 Days
+</span>
+
+        <img src="https://plus.unsplash.com/premium_photo-1691960159290-6f4ace6e6c4c?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hanoi" class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-80" />
+          <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300">
+            <p class="text-white text-sm sm:text-base font-medium mb-3">4 Days Package – ₹18,499/-</p>
+<button class="bg-white text-black text-sm font-semibold px-4 py-2 rounded hover:bg-red-500 hover:text-white transition">Check Packages</button>          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="style.html?type=city&value=Hue" class="relative group block w-64 sm:w-72 md:w-80 h-48 sm:h-52 rounded-lg overflow-hidden">
+          <span class="absolute top-2 left-2 bg-white text-black text-xs font-semibold px-2 py-1 rounded shadow">
+  5 Days
+</span>
+
+        <img src="https://images.unsplash.com/photo-1709064159097-91b634741c96?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hue" class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-80" />
+          <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300">
+            <p class="text-white text-sm sm:text-base font-medium mb-3">5 Days Package – ₹17,999/-</p>
+<button class="bg-white text-black text-sm font-semibold px-4 py-2 rounded hover:bg-red-500 hover:text-white transition">Check Packages</button>          </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="style.html?type=city&value=Sapa" class="relative group block w-64 sm:w-72 md:w-80 h-48 sm:h-52 rounded-lg overflow-hidden">
+          <span class="absolute top-2 left-2 bg-white text-black text-xs font-semibold px-2 py-1 rounded shadow">
+  6 Days
+</span>
+
+          <img src="https://images.unsplash.com/photo-1718942901264-2fd48f7da75f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sapa" class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-80" />
+          <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300">
+            <p class="text-white text-sm sm:text-base font-medium mb-3">6 Days Package – ₹19,499/-</p>
+            <button class="bg-white text-black text-sm font-semibold px-4 py-2 rounded hover:bg-red-500 hover:text-white transition">Check Packages</button>
+          </div>
+        </a>
+        <!-- Card 3 -->
+        <a href="style.html?type=city&value=Sapa" class="relative group block w-64 sm:w-72 md:w-80 h-48 sm:h-52 rounded-lg overflow-hidden">
+          <span class="absolute top-2 left-2 bg-white text-black text-xs font-semibold px-2 py-1 rounded shadow">
+  7 Days
+</span>
+
+          <img src="https://images.unsplash.com/photo-1503300806790-80dde376911e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sapa" class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-80" />
+          <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300">
+            <p class="text-white text-sm sm:text-base font-medium mb-3">7 Days Package – ₹19,499/-</p>
+            <button class="bg-white text-black text-sm font-semibold px-4 py-2 rounded hover:bg-red-500 hover:text-white transition">Check Packages</button>
+          </div>
+        </a><!-- Card 3 -->
+        <a href="style.html?type=city&value=Sapa" class="relative group block w-64 sm:w-72 md:w-80 h-48 sm:h-52 rounded-lg overflow-hidden">
+          <span class="absolute top-2 left-2 bg-white text-black text-xs font-semibold px-2 py-1 rounded shadow">
+  8 Days
+</span>
+
+          <img src="https://images.unsplash.com/photo-1625396836163-80c0d3d7eb86?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sapa" class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-80" />
+          <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300">
+            <p class="text-white text-sm sm:text-base font-medium mb-3">8 Days Package – ₹19,499/-</p>
+            <button class="bg-white text-black text-sm font-semibold px-4 py-2 rounded hover:bg-red-500 hover:text-white transition">Check Packages</button>
+          </div>
+        </a><!-- Card 3 -->
+        <a href="style.html?type=city&value=Sapa" class="relative group block w-64 sm:w-72 md:w-80 h-48 sm:h-52 rounded-lg overflow-hidden">
+          <span class="absolute top-2 left-2 bg-white text-black text-xs font-semibold px-2 py-1 rounded shadow">
+  9 Days
+</span>
+
+          <img src="https://images.unsplash.com/photo-1528195135899-cf5d190bb3a1?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sapa" class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-80" />
+          <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300">
+            <p class="text-white text-sm sm:text-base font-medium mb-3">9 Days Package – ₹19,499/-</p>
+            <button class="bg-white text-black text-sm font-semibold px-4 py-2 rounded hover:bg-red-500 hover:text-white transition">Check Packages</button>
+          </div>
+        </a><!-- Card 3 -->
+        <a href="style.html?type=city&value=Sapa" class="relative group block w-64 sm:w-72 md:w-80 h-48 sm:h-52 rounded-lg overflow-hidden">
+          <span class="absolute top-2 left-2 bg-white text-black text-xs font-semibold px-2 py-1 rounded shadow">
+  10+ Days
+</span>
+
+          <img src="https://plus.unsplash.com/premium_photo-1661963095864-01a3dbb82d90?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sapa" class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-80" />
+          <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300">
+            <p class="text-white text-sm sm:text-base font-medium mb-3">10+ Days Package – ₹19,499/-</p>
+            <button class="bg-white text-black text-sm font-semibold px-4 py-2 rounded hover:bg-red-500 hover:text-white transition">Check Packages</button>
+          </div>
+        </a>
+
+        <!-- Add more cities as needed -->
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+@keyframes slide {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-slide {
+  animation: slide 40s linear infinite;
+}
+</style>
+
 
 
 
@@ -314,12 +580,10 @@
     </div>
 
     <!-- Cards Grid -->
-
-
-
-      <!-- More cards can be added similarly -->
     <div id="homepage-tour-cards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6"></div>
-    <script>
+  </div>
+</section>
+<script>
   async function renderHomepageTours() {
     try {
       const res = await fetch('./data/data.json');
@@ -327,7 +591,7 @@
 
       const container = document.getElementById("homepage-tour-cards");
 
-      const selected = tours.slice(0, 9); // Only render first 9 tours
+      const selected = tours.slice(0, 9);
 
       container.innerHTML = selected.map(tour => `
         <div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition">
@@ -338,9 +602,23 @@
               <span class="flex items-center gap-1"><i class="fas fa-calendar-alt text-red-500"></i> ${tour.days} Days</span>
               <span class="flex items-center gap-1"><i class="fas fa-user text-red-500"></i> ${tour.style}</span>
             </div>
-    <h3 class="text-lg font-semibold text-gray-800 mb-4 whitespace-nowrap overflow-hidden text-ellipsis">
-  ${tour.title}
-</h3>
+
+            <h3 class="text-lg font-semibold text-gray-800 mb-4 whitespace-nowrap overflow-hidden text-ellipsis">
+              ${tour.title}
+            </h3>
+
+            ${tour.inclusions ? `
+            <div class="border rounded-md p-3 mb-4">
+              <h4 class="text-xs font-semibold text-gray-700 mb-2">INCLUSIONS</h4>
+              <div class="grid grid-cols-3 gap-3 text-center text-xs text-gray-600">
+                ${tour.inclusions.map(item => `
+                  <div>
+                    <i class="${item.icon} text-red-500 text-base mb-1"></i>
+                    <div>${item.label}</div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>` : ''}
 
             <div class="flex justify-between items-center pt-4 border-t border-gray-200">
               <span class="flex items-center gap-1 text-yellow-500">
@@ -348,10 +626,25 @@
               </span>
               <span class="text-red-600 font-semibold text-lg">₹${tour.price.toLocaleString()}</span>
             </div>
-            <button onclick='openContactModal(${JSON.stringify(tour)})' class="w-full mt-4 bg-red-600 hover:bg-red-700 text-white text-sm py-2 px-4 rounded-md">
-  Contact Us
-</button>
 
+            <div class="mt-4 flex items-center justify-between gap-3 flex-wrap">
+   <button onclick='openContactModal(${JSON.stringify(tour).replace(/'/g, "&apos;")})'
+    class="flex-1 bg-red-600 hover:bg-red-700 text-white text-sm py-2 px-4 rounded-md h-[40px]">
+    Contact Us
+  </button>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/84948333087" target="_blank"
+    class="bg-green-500 hover:bg-green-600 text-white w-10 h-[40px] flex items-center justify-center rounded-md shadow">
+    <i class="fab fa-whatsapp text-lg"></i>
+  </a>
+
+  <!-- Phone -->
+  <a href="tel:+84948333087"
+    class="bg-blue-500 hover:bg-blue-600 text-white w-10 h-[40px] flex items-center justify-center rounded-md shadow">
+    <i class="fas fa-phone text-lg"></i>
+  </a>
+</div>
           </div>
         </div>
       `).join("");
@@ -361,14 +654,12 @@
     }
   }
 
-  // Run on page load
+  // Load on page
   window.onload = () => {
     renderHomepageTours();
   };
 </script>
 
-  </div>
-</section>
 
 <!-- Contact Modal -->
 <div id="contactModal" onclick="closeContactModal()" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
@@ -752,7 +1043,84 @@
   </div>
 </section>
 
+<!-- Contact Section  -->
+<section class=" py-20 px-6 md:px-12 lg:px-24">
+  <div class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-14">
 
+    <!-- ✅ Left: Text + CTA + Contact -->
+    <div class="flex-1 text-center lg:text-left">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-snug mb-3">
+        Let Vietnam Experts Customize Your Trip
+      </h2>
+      <p class="text-gray-600 text-base md:text-lg mb-6">
+        100% Personalized itineraries. Talk to real humans. Indian-friendly tours.
+      </p>
+
+      <!-- ✅ Trust Bullets -->
+      <ul class="space-y-2 mb-8 text-sm md:text-base text-gray-600">
+        <li class="flex items-start gap-2">
+          <span class="text-red-600"><i class="fa-solid fa-check-circle"></i></span> 4.9⭐ Google Rated Support
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-red-600"><i class="fa-solid fa-check-circle"></i></span> WhatsApp + Phone Support 24/7
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-red-600"><i class="fa-solid fa-check-circle"></i></span> No Hidden Costs or Delays
+        </li>
+      </ul>
+
+      <!-- ✅ CTA Button + Contacts -->
+      <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+        <button
+          @click="$dispatch('open-customize-modal')"
+          class="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-full shadow transition w-full sm:w-auto"
+        >
+          <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> Customize Your Trip
+        </button>
+
+        <div class="text-sm text-gray-700 space-y-1">
+          <p>
+            <i class="fa-brands fa-whatsapp text-green-500 mr-1"></i>
+            <a href="https://wa.me/84948333087" target="_blank" class="text-red-600 font-medium hover:underline">
+              +84 948333087
+            </a>
+          </p>
+          <p>
+            <i class="fa-solid fa-phone text-blue-500 mr-1"></i>
+            <a href="tel:+84948333087" class="text-red-600 font-medium hover:underline">
+              Tap to Call Now
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ Right: Client Logos & Trust -->
+   <!-- ✅ Right: Client Logos & Trust -->
+<div class="flex-1 text-center lg:text-right">
+  <!-- Avatar Group -->
+  <div class="flex justify-center lg:justify-end -space-x-3 mb-3">
+    <img src="https://i1.rgstatic.net/ii/profile.image/1065366356766721-1631014541334_Q512/Justin-Utzig.jpg" class="h-12 w-12 rounded-full border-2 border-white object-cover shadow">
+    <img src="https://www.pngitem.com/pimgs/m/404-4042710_circle-profile-picture-png-transparent-png.png" class="h-12 w-12 rounded-full border-2 border-white object-cover shadow">
+    <img src="https://i1.rgstatic.net/ii/profile.image/1055702323822592-1628710456643_Q512/Noel-Israel.jpg" class="h-12 w-12 rounded-full border-2 border-white object-cover shadow">
+    <img src="https://www.xwhos.com/photo/whois_luka_milovanovic_profile_3661154.webp" class="h-12 w-12 rounded-full border-2 border-white object-cover shadow">
+  </div>
+
+  <!-- Trust Text -->
+  <p class="text-sm md:text-base text-gray-700 whitespace-nowrap">
+    Trusted by <span class="text-red-600 font-bold">1500+ Indian Travelers</span>
+  </p>
+
+  <!-- Safety Badge -->
+  <div class="flex items-center justify-center lg:justify-end gap-2 mt-2">
+    <i class="fa-solid fa-shield-heart text-green-600 text-lg"></i>
+    <span class="text-green-700 font-semibold text-sm md:text-base">Safe & Verified Travel Partner</span>
+  </div>
+</div>
+
+
+  </div>
+</section>
 
 <!--  -->
 
@@ -768,14 +1136,19 @@
 
 
 
-<script>fetch("./components/header.html")
-  .then(res => res.text())
-  .then(html => {
-    document.getElementById('header').innerHTML = html;
+<script>// Load Header
+  fetch("./components/header.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('header').innerHTML = html;
+    });
 
-    // Attach event listeners AFTER inserting the header
-
-  });
+  // Load Footer
+  fetch("./components/footer.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('footer').innerHTML = html;
+    });
   
 function openContactModal(tour) {
   document.getElementById("modalTitle").textContent = tour.title;
@@ -804,11 +1177,23 @@ function closeContactModal() {
 }
 
   
+
+/* city Slider  */
+
+ /*  const slider = document.getElementById("sliderWrapper"); */
+
+  // Clone all images for infinite scroll effect
+
+/* style slider */
+
   
+
+
   </script>
 
 
   <div id="footer"></div>
+
 
   </body>
 </html>
