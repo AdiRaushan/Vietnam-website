@@ -1,4 +1,5 @@
-<header id="main-header"
+<header
+  id="main-header"
   x-data="{ scrolled: false }"
   x-init="window.addEventListener('scroll', () => scrolled = window.scrollY > 10)"
   :class="{ 'bg-white shadow-md': scrolled, 'bg-transparent': !scrolled }"
@@ -6,11 +7,13 @@
 >
   <div class="max-w-7xl mx-auto px-4">
     <div class="flex items-center justify-between py-4">
-      
       <!-- Logo -->
       <a href="#" class="flex items-center gap-2">
-        <img src="/Screenshot_2025-06-25_154430-removebg-preview.png" alt="VRIS Logo"
-          class="h-16 w-auto object-contain mt-1" />
+        <img
+          src="/Screenshot_2025-06-25_154430-removebg-preview.png"
+          alt="VRIS Logo"
+          class="h-16 w-auto object-contain mt-1"
+        />
       </a>
 
       <!-- Nav -->
@@ -25,57 +28,210 @@
         <div class="relative group">
           <button class="flex items-center space-x-1 hover:text-red-500">
             <span>Tour Packages</span>
-            <svg class="w-4 h-4 transform group-hover:rotate-180 transition" fill="none" stroke="currentColor"
-              viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            <svg
+              class="w-4 h-4 transform group-hover:rotate-180 transition"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </button>
 
           <!-- Mega Menu Dropdown -->
-          <div class="absolute left-1/2 -translate-x-1/2 mt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out bg-white shadow-lg border border-gray-200 rounded-md z-50 w-[90vw] max-w-4xl p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-h-[400px] overflow-y-auto text-gray-700">
+          <div
+            class="absolute left-1/2 -translate-x-1/2 mt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out bg-white shadow-lg border border-gray-200 rounded-md z-50 w-[90vw] max-w-4xl p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-h-[400px] overflow-y-auto text-gray-700"
+          >
             <!-- Duration -->
             <div class="min-w-[180px]">
-              <h3 class="font-semibold text-gray-900 mb-3 uppercase text-xs border-b pb-1">By Duration</h3>
+              <h3
+                class="font-semibold text-gray-900 mb-3 uppercase text-xs border-b pb-1"
+              >
+                By Duration
+              </h3>
               <ul class="space-y-2 text-sm">
-                <li><a href="days-page.html?days=2" class="hover:text-red-600">2 Days</a></li>
-                <li><a href="days-page.html?days=3" class="hover:text-red-600">3 Days</a></li>
-                <li><a href="days-page.html?days=4" class="hover:text-red-600">4 Days</a></li>
-                <li><a href="days-page.html?days=5" class="hover:text-red-600">5 Days</a></li>
-                <li><a href="days-page.html?days=6" class="hover:text-red-600">6 Days</a></li>
-                <li><a href="days-page.html?days=7" class="hover:text-red-600">7 Days</a></li>
-                <li><a href="days-page.html?days=8" class="hover:text-red-600">8 Days</a></li>
-                <li><a href="days-page.html?days=9" class="hover:text-red-600">9 Days</a></li>
-                <li><a href="days-page.html?days=10" class="hover:text-red-600">10 Days</a></li>
-                <li><a href="days-page.html?days=12" class="hover:text-red-600">Above 10 Days</a></li>
+                <li>
+                  <a href="days-page.html?days=2" class="hover:text-red-600"
+                    >2 Days</a
+                  >
+                </li>
+                <li>
+                  <a href="days-page.html?days=3" class="hover:text-red-600"
+                    >3 Days</a
+                  >
+                </li>
+                <li>
+                  <a href="days-page.html?days=4" class="hover:text-red-600"
+                    >4 Days</a
+                  >
+                </li>
+                <li>
+                  <a href="days-page.html?days=5" class="hover:text-red-600"
+                    >5 Days</a
+                  >
+                </li>
+                <li>
+                  <a href="days-page.html?days=6" class="hover:text-red-600"
+                    >6 Days</a
+                  >
+                </li>
+                <li>
+                  <a href="days-page.html?days=7" class="hover:text-red-600"
+                    >7 Days</a
+                  >
+                </li>
+                <li>
+                  <a href="days-page.html?days=8" class="hover:text-red-600"
+                    >8 Days</a
+                  >
+                </li>
+                <li>
+                  <a href="days-page.html?days=9" class="hover:text-red-600"
+                    >9 Days</a
+                  >
+                </li>
+                <li>
+                  <a href="days-page.html?days=10" class="hover:text-red-600"
+                    >10 Days</a
+                  >
+                </li>
+                <li>
+                  <a href="days-page.html?days=12" class="hover:text-red-600"
+                    >Above 10 Days</a
+                  >
+                </li>
               </ul>
             </div>
 
             <!-- Style -->
             <div class="min-w-[180px]">
-              <h3 class="font-semibold text-gray-900 mb-3 uppercase text-xs border-b pb-1">By Style</h3>
+              <h3
+                class="font-semibold text-gray-900 mb-3 uppercase text-xs border-b pb-1"
+              >
+                By Style
+              </h3>
               <ul class="space-y-2 text-sm">
-                <li><a href="../days-page.html?style=Cultural" class="hover:text-red-600">Vietnam Classic Tours</a></li>
-                <li><a href="../days-page.html?style=Family" class="hover:text-red-600">Vietnam Family Holidays</a></li>
-                <li><a href="../days-page.html?style=Beach" class="hover:text-red-600">Vietnam Beach Holidays</a></li>
-                <li><a href="../days-page.html?style=Honeymoon" class="hover:text-red-600">Vietnam Honeymoon</a></li>
-                <li><a href="../days-page.html?style=Luxury" class="hover:text-red-600">Vietnam Luxury Tours</a></li>
-                <li><a href="../days-page.html?style=Private" class="hover:text-red-600">Private Group Tours</a></li>
-                <li><a href="../days-page.html?style=Adventure" class="hover:text-red-600">Adventure Tours</a></li>
+                <li>
+                  <a
+                    href="../days-page.html?style=Cultural"
+                    class="hover:text-red-600"
+                    >Vietnam Classic Tours</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../days-page.html?style=Family"
+                    class="hover:text-red-600"
+                    >Vietnam Family Holidays</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../days-page.html?style=Beach"
+                    class="hover:text-red-600"
+                    >Vietnam Beach Holidays</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../days-page.html?style=Honeymoon"
+                    class="hover:text-red-600"
+                    >Vietnam Honeymoon</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../days-page.html?style=Luxury"
+                    class="hover:text-red-600"
+                    >Vietnam Luxury Tours</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../days-page.html?style=Private"
+                    class="hover:text-red-600"
+                    >Private Group Tours</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../days-page.html?style=Adventure"
+                    class="hover:text-red-600"
+                    >Adventure Tours</a
+                  >
+                </li>
               </ul>
             </div>
 
             <!-- Cities -->
             <div class="min-w-[180px]">
-              <h3 class="font-semibold text-gray-900 mb-3 uppercase text-xs border-b pb-1">By City</h3>
+              <h3
+                class="font-semibold text-gray-900 mb-3 uppercase text-xs border-b pb-1"
+              >
+                By City
+              </h3>
               <ul class="space-y-2 text-sm">
-                <li><a href="../days-page.html?city=hanoi" class="hover:text-red-600">Hanoi</a></li>
-                <li><a href="../days-page.html?city=Ho Chi Minh City" class="hover:text-red-600">Ho Chi Minh City</a></li>
-                <li><a href="../days-page.html?city=Sapa" class="hover:text-red-600">Sapa</a></li>
-                <li><a href="../days-page.html?city=Da Nang" class="hover:text-red-600">Da Nang</a></li>
-                <li><a href="../days-page.html?city=Can Tho" class="hover:text-red-600">Can Tho</a></li>
-                <li><a href="../days-page.html?city=Halong" class="hover:text-red-600">Halong</a></li>
-                <li><a href="../days-page.html?city=Hoi An" class="hover:text-red-600">Hoi An</a></li>
-                <li><a href="../days-page.html?city=Hue" class="hover:text-red-600">Hue</a></li>
+                <li>
+                  <a
+                    href="../days-page.html?city=hanoi"
+                    class="hover:text-red-600"
+                    >Hanoi</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../days-page.html?city=Ho Chi Minh City"
+                    class="hover:text-red-600"
+                    >Ho Chi Minh City</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../days-page.html?city=Sapa"
+                    class="hover:text-red-600"
+                    >Sapa</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../days-page.html?city=Da Nang"
+                    class="hover:text-red-600"
+                    >Da Nang</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../days-page.html?city=Can Tho"
+                    class="hover:text-red-600"
+                    >Can Tho</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../days-page.html?city=Halong"
+                    class="hover:text-red-600"
+                    >Halong</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../days-page.html?city=Hoi An"
+                    class="hover:text-red-600"
+                    >Hoi An</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../days-page.html?city=Hue"
+                    class="hover:text-red-600"
+                    >Hue</a
+                  >
+                </li>
               </ul>
             </div>
           </div>
@@ -86,18 +242,18 @@
         <a href="/esim.html" class="hover:text-red-500">Travel eSIM</a>
         <a href="things-todo.html" class="hover:text-red-500">Things To Do</a>
         <a href="../About.html" class="hover:text-red-500">About Us</a>
-      
-        <a href="../happy-travellers.html" class="hover:text-red-500">Happy Travelers</a>
-        <a href="../contact.html" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
-  Contact Us
-</a>
 
+        
       </nav>
+       <button
+          href="../contact.html"
+          class="bg-red-500 text-white px-5 py-2 rounded-full hover:bg-red-600 text-sm font-medium transition duration-200"
+        >
+          Contact Us
+      </button>
     </div>
   </div>
 </header>
-
-
 
 <script>
   window.addEventListener("scroll", function () {
