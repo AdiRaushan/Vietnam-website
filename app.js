@@ -101,7 +101,18 @@ fetch("./components/header.html")
 
 
 
+fetch("./components/header.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('header').innerHTML = html;
+    });
 
+  // Load Footer
+  fetch("./components/footer.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('footer').innerHTML = html;
+    });
 
 
 /* SLider for citys */
