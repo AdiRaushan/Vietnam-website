@@ -1,138 +1,114 @@
-<div class="hidden md:block">
-  <div class="hidden lg:block bg-gray-100 py-3">
-    <div
-      class="max-w-7xl mx-auto px-4 flex justify-between items-center text-sm text-gray-700"
-    >
-      <!-- Left: Contact Info -->
-      <div class="flex items-center space-x-4">
-        <p class="flex items-center">
-          <i class="fas fa-envelope mr-2 text-red-600"></i> info@example.com
-        </p>
-        <span class="text-gray-400">|</span>
-        <p class="flex items-center">
-          <i class="fas fa-phone-alt mr-2 text-red-600"></i> +012 345 6789
-        </p>
-      </div>
-
-      <!-- Right: Social Icons -->
-      <div class="flex items-center space-x-4">
-        <a href="#" class="text-red-600 hover:text-red-800"
-          ><i class="fab fa-facebook-f"></i
-        ></a>
-        <a href="#" class="text-red-600 hover:text-red-800"
-          ><i class="fab fa-linkedin-in"></i
-        ></a>
-        <a href="#" class="text-red-600 hover:text-red-800"
-          ><i class="fab fa-instagram"></i
-        ></a>
-        <a href="#" class="text-red-600 hover:text-red-800"
-          ><i class="fab fa-youtube"></i
-        ></a>
-        <a href="#" class="text-red-600 hover:text-red-800"
-          ><i class="fab fa-twitter"></i
-        ></a>
-      </div>
-    </div>
-  </div>
-
-  <header class="sticky top-0 z-50 bg-white shadow-md">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="flex items-center justify-between py-4">
-        <!-- Logo -->
-      <a href="#" class="flex items-center gap-2">
-  <img src="/Screenshot_2025-06-25_154430-removebg-preview.png" alt="VRIS Logo" class="h-20 w-auto object-contain">
-  
-</a>
-
-
-        <!-- Desktop Nav -->
-        <nav
-          id="main-nav"
-          class="hidden md:flex space-x-6 font-medium text-gray-700"
-        >
-          <a href="index.html" class="hover:text-red-600">Home</a>
-          <div class="relative group">
-            <button class="flex items-center space-x-1 hover:text-red-600">
-              <span>Tour Packages</span>
-              <svg
-                class="w-4 h-4 transform group-hover:rotate-180 transition"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-
-            <div
-  class="absolute left-1/2 -translate-x-1/2 mt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out bg-white shadow-lg border border-gray-200 rounded-md z-50 w-[90vw] max-w-4xl p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-h-[400px] overflow-y-auto"
+<header id="main-header"
+  x-data="{ scrolled: false }"
+  x-init="window.addEventListener('scroll', () => scrolled = window.scrollY > 10)"
+  :class="{ 'bg-white shadow-md': scrolled, 'bg-transparent': !scrolled }"
+  class="fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out"
 >
-  <!-- By Duration -->
-  <div class="min-w-[180px]">
-    <h3 class="font-semibold text-gray-900 mb-3 uppercase text-xs border-b pb-1">
-      By Duration
-    </h3>
-    <ul class="space-y-2 text-gray-700 text-sm">
-      <li><a href="days-page.html?days=2" class="hover:text-red-600">2 Days</a></li>
-      <li><a href="days-page.html?days=3" class="hover:text-red-600">3 Days</a></li>
-      <li><a href="days-page.html?days=4" class="hover:text-red-600">4 Days</a></li>
-      <li><a href="days-page.html?days=5" class="hover:text-red-600">5 Days</a></li>
-      <li><a href="days-page.html?days=6" class="hover:text-red-600">6 Days</a></li>
-      <li><a href="days-page.html?days=7" class="hover:text-red-600">7 Days</a></li>
-      <li><a href="days-page.html?days=8" class="hover:text-red-600">8 Days</a></li>
-      <li><a href="days-page.html?days=9" class="hover:text-red-600">9 Days</a></li>
-      <li><a href="days-page.html?days=10" class="hover:text-red-600">10 Days</a></li>
-      <li><a href="days-page.html?days=12" class="hover:text-red-600">Above 10 Days</a></li>
-    </ul>
-  </div>
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex items-center justify-between py-4">
+      
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2">
+        <img src="/Screenshot_2025-06-25_154430-removebg-preview.png" alt="VRIS Logo"
+          class="h-16 w-auto object-contain mt-1" />
+      </a>
 
-  <!-- By Style -->
-  <div class="min-w-[180px]">
-    <h3 class="font-semibold text-gray-900 mb-3 uppercase text-xs border-b pb-1">
-      By Style
-    </h3>
-    <ul class="space-y-2 text-gray-700 text-sm">
-      <li><a href="style.html?type=style&value=Cultural" class="hover:text-red-600">Vietnam Classic Tours</a></li>
-      <li><a href="style.html?type=style&value=Family" class="hover:text-red-600">Vietnam Family Holidays</a></li>
-      <li><a href="style.html?type=style&value=Beach" class="hover:text-red-600">Vietnam Beach Holidays</a></li>
-      <li><a href="style.html?type=style&value=Honeymoon" class="hover:text-red-600">Vietnam Honeymoon</a></li>
-      <li><a href="style.html?type=style&value=Luxury" class="hover:text-red-600">Vietnam Luxury Tours</a></li>
-      <li><a href="style.html?type=style&value=Group" class="hover:text-red-600">Private Group Tours</a></li>
-       <li><a href="style.html?type=style&value=Adventure" class="hover:text-red-600">Adventure Tours</a></li>
-    </ul>
-  </div>
+      <!-- Nav -->
+      <nav id="main-nav"
+        class="hidden md:flex space-x-5 font-medium transition-colors duration-300"
+        :class="{ 'text-gray-800': scrolled, 'text-white': !scrolled }"
+      >
+        <a href="index.html" class="hover:text-red-500">Home</a>
 
-  <!-- By City -->
-  <div class="min-w-[180px]">
-    <h3 class="font-semibold text-gray-900 mb-3 uppercase text-xs border-b pb-1">
-      By City
-    </h3>
-    <ul class="space-y-2 text-gray-700 text-sm">
-      <li><a href="style.html?type=city&value=Hanoi" class="hover:text-red-600">Hanoi</a></li>
-      <li><a href="style.html?type=city&value=Ho Chi Minh City" class="">Ho Chi Minh City</a></li>
-      <li><a href="style.html?type=city&value=Sapa" class="hover:text-red-600">Sapa</a></li>
-      <li><a href="style.html?type=city&value=Da Nang" class="hover:text-red-600">Da Nang</a></li>
-      <li><a href="style.html?type=city&value=Can Tho" class="hover:text-red-600">Can Tho</a></li>
-      <li><a href="style.html?type=city&value=Halong" class="hover:text-red-600">Halong</a></li>
-      <li><a href="style.html?type=city&value=Hoi An" class="hover:text-red-600">Hoi An</a></li>
-      <li><a href="style.html?type=city&value=Hue" class="hover:text-red-600">Hue</a></li>
-    </ul>
-  </div>
-</div>
+        <!-- Tour Packages with Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center space-x-1 hover:text-red-500">
+            <span>Tour Packages</span>
+            <svg class="w-4 h-4 transform group-hover:rotate-180 transition" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
 
+          <!-- Mega Menu Dropdown -->
+          <div class="absolute left-1/2 -translate-x-1/2 mt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out bg-white shadow-lg border border-gray-200 rounded-md z-50 w-[90vw] max-w-4xl p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-h-[400px] overflow-y-auto text-gray-700">
+            <!-- Duration -->
+            <div class="min-w-[180px]">
+              <h3 class="font-semibold text-gray-900 mb-3 uppercase text-xs border-b pb-1">By Duration</h3>
+              <ul class="space-y-2 text-sm">
+                <li><a href="days-page.html?days=2" class="hover:text-red-600">2 Days</a></li>
+                <li><a href="days-page.html?days=3" class="hover:text-red-600">3 Days</a></li>
+                <li><a href="days-page.html?days=4" class="hover:text-red-600">4 Days</a></li>
+                <li><a href="days-page.html?days=5" class="hover:text-red-600">5 Days</a></li>
+                <li><a href="days-page.html?days=6" class="hover:text-red-600">6 Days</a></li>
+                <li><a href="days-page.html?days=7" class="hover:text-red-600">7 Days</a></li>
+                <li><a href="days-page.html?days=8" class="hover:text-red-600">8 Days</a></li>
+                <li><a href="days-page.html?days=9" class="hover:text-red-600">9 Days</a></li>
+                <li><a href="days-page.html?days=10" class="hover:text-red-600">10 Days</a></li>
+                <li><a href="days-page.html?days=12" class="hover:text-red-600">Above 10 Days</a></li>
+              </ul>
+            </div>
+
+            <!-- Style -->
+            <div class="min-w-[180px]">
+              <h3 class="font-semibold text-gray-900 mb-3 uppercase text-xs border-b pb-1">By Style</h3>
+              <ul class="space-y-2 text-sm">
+                <li><a href="style.html?type=style&value=Cultural" class="hover:text-red-600">Vietnam Classic Tours</a></li>
+                <li><a href="style.html?type=style&value=Family" class="hover:text-red-600">Vietnam Family Holidays</a></li>
+                <li><a href="style.html?type=style&value=Beach" class="hover:text-red-600">Vietnam Beach Holidays</a></li>
+                <li><a href="style.html?type=style&value=Honeymoon" class="hover:text-red-600">Vietnam Honeymoon</a></li>
+                <li><a href="style.html?type=style&value=Luxury" class="hover:text-red-600">Vietnam Luxury Tours</a></li>
+                <li><a href="style.html?type=style&value=Group" class="hover:text-red-600">Private Group Tours</a></li>
+                <li><a href="style.html?type=style&value=Adventure" class="hover:text-red-600">Adventure Tours</a></li>
+              </ul>
+            </div>
+
+            <!-- Cities -->
+            <div class="min-w-[180px]">
+              <h3 class="font-semibold text-gray-900 mb-3 uppercase text-xs border-b pb-1">By City</h3>
+              <ul class="space-y-2 text-sm">
+                <li><a href="style.html?type=city&value=Hanoi" class="hover:text-red-600">Hanoi</a></li>
+                <li><a href="style.html?type=city&value=Ho Chi Minh City" class="hover:text-red-600">Ho Chi Minh City</a></li>
+                <li><a href="style.html?type=city&value=Sapa" class="hover:text-red-600">Sapa</a></li>
+                <li><a href="style.html?type=city&value=Da Nang" class="hover:text-red-600">Da Nang</a></li>
+                <li><a href="style.html?type=city&value=Can Tho" class="hover:text-red-600">Can Tho</a></li>
+                <li><a href="style.html?type=city&value=Halong" class="hover:text-red-600">Halong</a></li>
+                <li><a href="style.html?type=city&value=Hoi An" class="hover:text-red-600">Hoi An</a></li>
+                <li><a href="style.html?type=city&value=Hue" class="hover:text-red-600">Hue</a></li>
+              </ul>
+            </div>
           </div>
-          <a href="../About.html" class="hover:text-red-600">About</a>
-          <a href="service.html" class="hover:text-red-600">Services</a>
-          <a href="../contact.html" class="hover:text-red-600">Contact</a>
-        </nav>
-      </div>
-    </div>
-  </header>
-</div>
+        </div>
 
-<script src="/app.js"></script>
+        <!-- Other Nav Items -->
+        <a href="deals.html" class="hover:text-red-500">Deals & Offers</a>
+        <a href="/esim.html" class="hover:text-red-500">Travel eSIM</a>
+        <a href="things-to-do.html" class="hover:text-red-500">Things To Do</a>
+        <a href="../About.html" class="hover:text-red-500">About Us</a>
+        <a href="../contact.html" class="hover:text-red-500">Contact Us</a>
+        <a href="#happy-travelers" class="hover:text-red-500">Happy Travelers</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+
+<script>
+  window.addEventListener("scroll", function () {
+    const header = document.getElementById("main-header");
+    const nav = document.getElementById("main-nav");
+
+    if (window.scrollY > 10) {
+      header.classList.remove("bg-transparent");
+      header.classList.add("bg-white", "shadow-md");
+      nav.classList.remove("text-white");
+      nav.classList.add("text-gray-800");
+    } else {
+      header.classList.remove("bg-white", "shadow-md");
+      header.classList.add("bg-transparent");
+      nav.classList.remove("text-gray-800");
+      nav.classList.add("text-white");
+    }
+  });
+</script>

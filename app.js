@@ -82,6 +82,27 @@ fetch("./components/header.html")
 
 
 
+  window.addEventListener("scroll", function () {
+    const header = document.getElementById("main-header");
+    const nav = document.getElementById("main-nav");
+
+    if (window.scrollY > 10) {
+      header.classList.remove("bg-transparent");
+      header.classList.add("bg-white", "shadow-md");
+      nav.classList.remove("text-white");
+      nav.classList.add("text-gray-800");
+    } else {
+      header.classList.remove("bg-white", "shadow-md");
+      header.classList.add("bg-transparent");
+      nav.classList.remove("text-gray-800");
+      nav.classList.add("text-white");
+    }
+  });
+
+
+
+
+
 
 /* SLider for citys */
 

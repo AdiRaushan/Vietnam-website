@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>eSIM Travel Sections</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Roboto', sans-serif; }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+
+
+    <div class="hidden md:block">
+  <!-- Top Info Bar -->
+ 
+
+  <!-- Header -->
+<header id="main-header" class="fixed top-0 left-0 w-full z-50 bg-transparent transition-all duration-300 ease-in-out">
+  <div class="max-w-7xl mx-auto px-4 ">
+    <div class="flex items-center justify-between py-4">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2">
+        <img src="/Screenshot_2025-06-25_154430-removebg-preview.png" alt="VRIS Logo"
+          class="h-16 w-auto object-contain mt-1" />
+      </a>
+
+      <!-- Nav -->
+      <nav id="main-nav" class="hidden md:flex space-x-6 font-medium text-white transition-colors duration-300">
+        <a href="index.html" class="hover:text-red-500">Home</a>
+        <div class="relative group">
+          <button class="flex items-center space-x-1 hover:text-red-500">
+            <span>Tour Packages</span>
+            <svg class="w-4 h-4 transform group-hover:rotate-180 transition" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <!-- Dropdown stays unchanged -->
+            <div class="absolute left-1/2 -translate-x-1/2 mt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out bg-white shadow-lg border border-gray-200 rounded-md z-50 w-[90vw] max-w-4xl p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-h-[400px] overflow-y-auto">
+              <!-- By Duration -->
+              <div class="min-w-[180px]">
+                <h3 class="font-semibold text-gray-900 mb-3 uppercase text-xs border-b pb-1">By Duration</h3>
+                <ul class="space-y-2 text-gray-700 text-sm">
+                  <li><a href="days-page.html?days=2" class="hover:text-red-600">2 Days</a></li>
+                  <li><a href="days-page.html?days=3" class="hover:text-red-600">3 Days</a></li>
+                  <li><a href="days-page.html?days=4" class="hover:text-red-600">4 Days</a></li>
+                  <li><a href="days-page.html?days=5" class="hover:text-red-600">5 Days</a></li>
+                  <li><a href="days-page.html?days=6" class="hover:text-red-600">6 Days</a></li>
+                  <li><a href="days-page.html?days=7" class="hover:text-red-600">7 Days</a></li>
+                  <li><a href="days-page.html?days=8" class="hover:text-red-600">8 Days</a></li>
+                  <li><a href="days-page.html?days=9" class="hover:text-red-600">9 Days</a></li>
+                  <li><a href="days-page.html?days=10" class="hover:text-red-600">10 Days</a></li>
+                  <li><a href="days-page.html?days=12" class="hover:text-red-600">Above 10 Days</a></li>
+                </ul>
+              </div>
+
+              <!-- By Style -->
+              <div class="min-w-[180px]">
+                <h3 class="font-semibold text-gray-900 mb-3 uppercase text-xs border-b pb-1">By Style</h3>
+                <ul class="space-y-2 text-gray-700 text-sm">
+                  <li><a href="style.html?type=style&value=Cultural" class="hover:text-red-600">Vietnam Classic Tours</a></li>
+                  <li><a href="style.html?type=style&value=Family" class="hover:text-red-600">Vietnam Family Holidays</a></li>
+                  <li><a href="style.html?type=style&value=Beach" class="hover:text-red-600">Vietnam Beach Holidays</a></li>
+                  <li><a href="style.html?type=style&value=Honeymoon" class="hover:text-red-600">Vietnam Honeymoon</a></li>
+                  <li><a href="style.html?type=style&value=Luxury" class="hover:text-red-600">Vietnam Luxury Tours</a></li>
+                  <li><a href="style.html?type=style&value=Group" class="hover:text-red-600">Private Group Tours</a></li>
+                  <li><a href="style.html?type=style&value=Adventure" class="hover:text-red-600">Adventure Tours</a></li>
+                </ul>
+              </div>
+
+              <!-- By City -->
+              <div class="min-w-[180px]">
+                <h3 class="font-semibold text-gray-900 mb-3 uppercase text-xs border-b pb-1">By City</h3>
+                <ul class="space-y-2 text-gray-700 text-sm">
+                  <li><a href="style.html?type=city&value=Hanoi" class="hover:text-red-600">Hanoi</a></li>
+                  <li><a href="style.html?type=city&value=Ho Chi Minh City" class="hover:text-red-600">Ho Chi Minh City</a></li>
+                  <li><a href="style.html?type=city&value=Sapa" class="hover:text-red-600">Sapa</a></li>
+                  <li><a href="style.html?type=city&value=Da Nang" class="hover:text-red-600">Da Nang</a></li>
+                  <li><a href="style.html?type=city&value=Can Tho" class="hover:text-red-600">Can Tho</a></li>
+                  <li><a href="style.html?type=city&value=Halong" class="hover:text-red-600">Halong</a></li>
+                  <li><a href="style.html?type=city&value=Hoi An" class="hover:text-red-600">Hoi An</a></li>
+                  <li><a href="style.html?type=city&value=Hue" class="hover:text-red-600">Hue</a></li>
+                </ul>
+              </div>
+            </div>
+        </div>
+        <a href="../About.html" class="hover:text-red-500">About</a>
+        <a href="service.html" class="hover:text-red-500">Services</a>
+        <a href="../contact.html" class="hover:text-red-500">Contact</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+<script>
+  window.addEventListener("scroll", function () {
+    const header = document.getElementById("main-header");
+    const nav = document.getElementById("main-nav");
+
+    if (window.scrollY > 10) {
+      header.classList.remove("bg-transparent");
+      header.classList.add("bg-white", "shadow-md");
+      nav.classList.remove("text-white");
+      nav.classList.add("text-gray-800");
+    } else {
+      header.classList.remove("bg-white", "shadow-md");
+      header.classList.add("bg-transparent");
+      nav.classList.remove("text-gray-800");
+      nav.classList.add("text-white");
+    }
+  });
+</script>
+
+
+  <!-- Hero Slider Section -->
+    <section class="relative h-screen bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/26559664/pexels-photo-26559664.jpeg');">
+    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+    <div class="relative z-10 flex flex-col justify-center items-center h-full text-center text-white px-4">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">eSIM for Travel</h1>
+      <p class="text-lg md:text-xl max-w-2xl">Travel anywhere without swapping SIM cards. Stay connected effortlessly with our digital eSIM solution.</p>
+    </div>
+  </section>
+ <section class="py-20 px-4 bg-white text-center">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12">How to Set Up Your eSIM</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div>
+          <i class="fas fa-sim-card text-red-500 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Step 1: Choose a Plan</h3>
+          <p class="text-sm text-gray-600">Pick an eSIM plan that suits your travel destination and data needs.</p>
+        </div>
+        <div>
+          <i class="fas fa-qrcode text-red-500 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Step 2: Install eSIM</h3>
+          <p class="text-sm text-gray-600">Follow the installation guide or scan the QR code to activate your eSIM.</p>
+        </div>
+        <div>
+          <i class="fas fa-cog text-red-500 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Step 3: Configure Settings</h3>
+          <p class="text-sm text-gray-600">Adjust your mobile settings as per instructions to enable eSIM service.</p>
+        </div>
+        <div>
+          <i class="fas fa-wifi text-red-500 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Step 4: Go Online</h3>
+          <p class="text-sm text-gray-600">Start browsing, calling, and enjoying seamless connectivity on the go.</p>
+        </div>
+        <div>
+          <i class="fas fa-plane-departure text-red-500 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Step 5: Enjoy Travel</h3>
+          <p class="text-sm text-gray-600">Explore your destination worry-free with your active eSIM plan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Grid Image Section -->
+  <!-- Image Grid Section (4 images with hover effect) -->
+  <section class="py-16 px-4 bg-gray-50">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
+      <!-- Rectangle Image with Hover Effect -->
+      <div class="relative group h-64 md:h-80 overflow-hidden rounded-lg shadow-md">
+        <img src="https://images.pexels.com/photos/4429453/pexels-photo-4429453.jpeg" alt="Travel 1" class="w-full h-full object-cover transition duration-500 group-hover:brightness-75" />
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+          <h3 class="text-white text-xl font-semibold">Explore More with eSIM</h3>
+        </div>
+      </div>
+
+      <!-- Square Image -->
+  
+
+      <!-- Rectangle Image Reversed Order -->
+      <div class="relative group h-64 md:h-80 overflow-hidden rounded-lg shadow-md">
+        <img src="https://images.pexels.com/photos/3962218/pexels-photo-3962218.jpeg" alt="Travel 3" class="w-full h-full object-cover transition duration-500 group-hover:brightness-75" />
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+          <h3 class="text-white text-xl font-semibold">Seamless Roaming</h3>
+        </div>
+      </div>
+
+      <!-- Square Image -->
+     </section>
+
+  <!-- Section: What is an eSIM -->
+  <section class="bg-gray-50 py-12 px-6 rounded-xl">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h2 class="text-3xl font-bold mb-4">What is an eSIM?</h2>
+        <p class="text-gray-600 mb-4">An eSIM is a virtual or digital SIM card that allows you to connect to mobile networks without a physical SIM card. You can store multiple eSIMs, accessing different carriers, numbers, and data plans—ideal for travel or everyday use. Activate it on your phone to get online in minutes.</p>
+        <div class="flex flex-wrap gap-6 text-sm text-gray-800">
+          <span class="flex items-center gap-2">❤ easy to use</span>
+          <span class="flex items-center gap-2">📁 easy to install</span>
+          <span class="flex items-center gap-2">😊 easy to enjoy</span>
+        </div>
+      </div>
+      <img src="https://images.pexels.com/photos/20805605/pexels-photo-20805605.jpeg" alt="eSIM Phone" class="rounded-2xl w-full" />
+    </div>
+  </section>
+
+  <!-- Section: Trust & Stats -->
+  <section class="py-12 text-center">
+    <div class="flex flex-col md:flex-row justify-center gap-10 items-center">
+      <div>
+        <p class="text-3xl font-bold text-red-500">4.5/5 <span class="text-green-500">★</span></p>
+        <p class="text-sm text-gray-600">Based on 57000+ reviews on <a href="#" class="underline">Trustpilot</a></p>
+      </div>
+      <div>
+        <p class="text-3xl font-bold text-red-500">+10M</p>
+        <p class="text-sm text-gray-600">Travelers who trust us worldwide</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Features Grid -->
+  <section class="bg-white py-12 px-6 text-center">
+    <h2 class="text-2xl font-bold mb-10">Why Choose Our eSIM</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div>
+        <i class="fas fa-infinity text-red-500 text-3xl mb-2"></i>
+        <h3 class="font-semibold text-md">Unlimited Data</h3>
+      </div>
+      <div>
+        <i class="fas fa-mobile-alt text-red-500 text-3xl mb-2"></i>
+        <h3 class="font-semibold text-md">Use Your Favorite Apps</h3>
+      </div>
+      <div>
+        <i class="fab fa-whatsapp text-red-500 text-3xl mb-2"></i>
+        <h3 class="font-semibold text-md">Keep WhatsApp Number</h3>
+      </div>
+      <div>
+        <i class="fas fa-headset text-red-500 text-3xl mb-2"></i>
+        <h3 class="font-semibold text-md">24/7 Support</h3>
+      </div>
+      <div>
+        <i class="fas fa-rocket text-red-500 text-3xl mb-2"></i>
+        <h3 class="font-semibold text-md">Fast & Reliable</h3>
+      </div>
+      <div>
+        <i class="fas fa-signal text-red-500 text-3xl mb-2"></i>
+        <h3 class="font-semibold text-md">Dual SIM Ready</h3>
+      </div>
+    </div>
+    <button class="mt-10 px-6 py-3 bg-red-500 text-white rounded-full font-medium hover:bg-red-600 transition">I want my eSIM</button>
+  </section>
+
+</body>
+</html>

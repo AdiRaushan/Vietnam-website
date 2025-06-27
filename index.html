@@ -14,6 +14,25 @@
   </head>
   <body>
 <div id="header"></div>
+
+<script>
+  window.addEventListener("scroll", function () {
+    const header = document.getElementById("main-header");
+    const nav = document.getElementById("main-nav");
+
+    if (window.scrollY > 10) {
+      header.classList.remove("bg-transparent");
+      header.classList.add("bg-white", "shadow-md");
+      nav.classList.remove("text-white");
+      nav.classList.add("text-gray-800");
+    } else {
+      header.classList.remove("bg-white", "shadow-md");
+      header.classList.add("bg-transparent");
+      nav.classList.remove("text-gray-800");
+      nav.classList.add("text-white");
+    }
+  });
+</script>
 <!-- Mobile menu (page-specific) -->
 <!-- Mobile Navbar Wrapper (Visible only on small devices) -->
 <div class="block lg:hidden bg-white shadow-md border-b z-50 relative">
@@ -121,12 +140,32 @@
 
 
 <!-- Hero Section with Alpine Slider -->
-<section class="relative w-full h-[90vh] overflow-hidden" x-data="{ activeSlide: 0, slides: [
-  'https://images.unsplash.com/photo-1555979864-7a8f9b4fddf8?q=80&w=1171&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1557750255-c76072a7aad1?q=80&w=1170&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1526139334526-f591a54b477c?q=80&w=1170&auto=format&fit=crop'
-] }">
-
+<section
+  class="relative w-full h-[90vh] overflow-hidden"
+  x-data="{
+    activeSlide: 0,
+    slides: [
+       {
+     type: 'video',
+     src: 'hero-video.mp4',
+     title: 'Discover Ha Long Bay Wonders',
+     subtitle: 'Explore Vietnam'
+     },
+      {
+        type: 'image',
+        src: 'https://images.unsplash.com/photo-1555979864-7a8f9b4fddf8?q=80&w=1171&auto=format&fit=crop',  // replace with your video URL
+        title: 'Sail through Ninh Binh Landscapes',
+        subtitle: 'Explore Vietnam'
+      },
+      {
+        type: 'image',
+        src: 'https://images.unsplash.com/photo-1526139334526-f591a54b477c?q=80&w=1170&auto=format&fit=crop',
+        title: 'Experience Vietnam’s Hidden Beauty',
+        subtitle: 'Explore Vietnam'
+      }
+    ]
+  }"
+>
   <!-- Slides -->
   <div class="relative w-full h-full">
     <template x-for="(slide, index) in slides" :key="index">
@@ -135,15 +174,28 @@
         class="absolute inset-0 transition-opacity duration-700 ease-in-out"
         :class="{ 'opacity-100 z-10': activeSlide === index, 'opacity-0 z-0': activeSlide !== index }"
       >
-        <img :src="slide" class="w-full h-full object-cover" />
+        <template x-if="slide.type === 'image'">
+          <img :src="slide.src" class="w-full h-full object-cover" />
+        </template>
+
+        <template x-if="slide.type === 'video'">
+       <video
+  autoplay muted loop playsinline
+  class="w-full h-full object-cover"
+  x-init="$el.play()"
+>
+  <source :src="slide.src" type="video/mp4" />
+</video>
+        </template>
+
+        <!-- Overlay -->
         <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-center px-4">
           <div>
-            <h4 class="text-white text-sm md:text-lg uppercase mb-2">Explore Vietnam</h4>
-            <h1 class="text-white text-3xl md:text-5xl font-bold mb-4"
-              x-text="index === 0 ? 'Discover Ha Long Bay Wonders' :
-                      index === 1 ? 'Sail through Ninh Binh Landscapes' :
-                      'Experience Vietnam’s Hidden Beauty'"></h1>
-            <a href="#" class="inline-block bg-red-600 text-white px-6 py-3 rounded-md hover:bg-red-700 transition">Book Now</a>
+            <h4 class="text-white text-sm md:text-lg uppercase mb-2" x-text="slide.subtitle"></h4>
+            <h1 class="text-white text-3xl md:text-5xl font-bold mb-4" x-text="slide.title"></h1>
+            <a href="#"
+              class="inline-block bg-red-600 text-white px-6 py-3 rounded-md hover:bg-red-700 transition">Book
+              Now</a>
           </div>
         </div>
       </div>
@@ -159,86 +211,122 @@
     class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800/70 text-white p-2 rounded-full hover:bg-gray-700 z-20">
     &#10095;
   </button>
-<!-- ✅ Booking Form Floating INSIDE Hero at Bottom -->
-<div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-30 w-[95%] sm:w-11/12 lg:w-4/5 xl:w-3/4 px-2">
-  <div class="bg-white shadow-xl rounded-xl px-4 py-4">
-    <form id="homepage-filter-form" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
-      <!-- Destination -->
-      <div>
-        <select id="filter-city" class="w-full rounded-md border border-gray-300 px-4 py-2 text-sm">
-          <option selected>Destination</option>
-          <option>Hanoi</option>
-          <option>Da Nang</option>
-          <option>Ha Long Bay</option>
-          <option>Sapa</option>
-        </select>
-      </div>
-
-      <!-- Tour Style -->
-      <div>
-        <select id="filter-style" class="w-full rounded-md border border-gray-300 px-4 py-2 text-sm">
-          <option selected>Tour Style</option>
-          <option>Honeymoon</option>
-          <option>Family</option>
-          <option>Adventure</option>
-          <option>Cultural</option>
-          <option>Luxury</option>
-        </select>
-      </div>
-
-      <!-- Duration -->
-      <div>
-        <select id="filter-duration" class="w-full rounded-md border border-gray-300 px-4 py-2 text-sm">
-          <option selected>Tour Duration</option>
-          <option>1 Day</option>
-          <option>3 Days</option>
-          <option>5+ Days</option>
-        </select>
-      </div>
-
-      <!-- Explore Button -->
-      <div class="text-center sm:text-left">
-        <button type="button" id="explore-btn" class="w-full bg-red-600 text-white px-5 py-2 rounded-md hover:bg-red-700 transition text-sm font-medium">
-          Explore Vietnam
-        </button>
-      </div>
-
-    </form>
+  <!-- ✅ Floating Booking Form (unchanged) -->
+  <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-30 w-[95%] sm:w-11/12 lg:w-4/5 xl:w-3/4 px-2">
+    <div class="bg-white shadow-xl rounded-xl px-4 py-4">
+      <form id="homepage-filter-form" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div>
+          <select id="filter-city" class="w-full rounded-md border border-gray-300 px-4 py-2 text-sm">
+            <option selected>Destination</option>
+            <option>Hanoi</option>
+            <option>Da Nang</option>
+            <option>Ha Long Bay</option>
+            <option>Sapa</option>
+          </select>
+        </div>
+        <div>
+          <select id="filter-style" class="w-full rounded-md border border-gray-300 px-4 py-2 text-sm">
+            <option selected>Tour Style</option>
+            <option>Honeymoon</option>
+            <option>Family</option>
+            <option>Adventure</option>
+            <option>Cultural</option>
+            <option>Luxury</option>
+          </select>
+        </div>
+        <div>
+          <select id="filter-duration" class="w-full rounded-md border border-gray-300 px-4 py-2 text-sm">
+            <option selected>Tour Duration</option>
+            <option>1 Day</option>
+            <option>3 Days</option>
+            <option>5+ Days</option>
+          </select>
+        </div>
+        <div class="text-center sm:text-left">
+          <button type="button" id="explore-btn"
+            class="w-full bg-red-600 text-white px-5 py-2 rounded-md hover:bg-red-700 transition text-sm font-medium">
+            Explore Vietnam
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
 
+  <!-- JS stays same -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const exploreBtn = document.getElementById("explore-btn");
+      if (exploreBtn) {
+        exploreBtn.addEventListener("click", () => {
+          const city = document.getElementById("filter-city").value;
+          const style = document.getElementById("filter-style").value;
+          const duration = document.getElementById("filter-duration").value;
+          const params = new URLSearchParams();
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const exploreBtn = document.getElementById("explore-btn");
+          if (city && city !== "Destination") params.append("city", city);
+          if (style && style !== "Tour Style") params.append("style", style);
+          if (duration && duration !== "Tour Duration") {
+            const daysValue = duration.includes("1") ? 1 : duration.includes("3") ? 3 : 5;
+            params.append("days", daysValue);
+          }
 
-    if (exploreBtn) {
-      exploreBtn.addEventListener("click", () => {
-        const city = document.getElementById("filter-city").value;
-        const style = document.getElementById("filter-style").value;
-        const duration = document.getElementById("filter-duration").value;
-
-        const params = new URLSearchParams();
-
-        if (city && city !== "Destination") params.append("city", city);
-        if (style && style !== "Tour Style") params.append("style", style);
-        if (duration && duration !== "Tour Duration") {
-          const daysValue = duration.includes("1") ? 1 : duration.includes("3") ? 3 : 5;
-          params.append("days", daysValue);
-        }
-
-        // Redirect to tours page with query
-        window.location.href = `days-page.html?${params.toString()}`;
-      });
-    }
-  });
-</script>
-
-
+          window.location.href = `days-page.html?${params.toString()}`;
+        });
+      }
+    });
+  </script>
 </section>
 
+<!--  -->
+<section class="bg-white py-6 px-4 rounded-3xl shadow-md max-w-5xl mx-auto my-10">
+  <div class="flex flex-wrap justify-around items-center gap-6">
 
+    <!-- Facebook Review -->
+    <div class="flex items-center space-x-4">
+      <div class="bg-[#3b5998] text-white rounded-lg p-2">
+        <i class="fab fa-facebook-f text-xl"></i>
+      </div>
+      <div>
+        <div class="text-lg font-semibold text-gray-800 flex items-center gap-1">
+          4.7 <i class="fas fa-star text-yellow-500"></i>
+        </div>
+        <p class="text-sm text-gray-500">from 1400+ travellers</p>
+      </div>
+    </div>
+
+    <!-- Google Review -->
+    <div class="flex items-center space-x-4">
+      <div class="bg-gray-100 rounded-lg p-2">
+           <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEkUlEQVR4nO2Zb0wbZRzHn3taesUtRpOJYbo/DoQM5c/GMgryzxkYxbGBiQsbNBCEFGaIY8zCCuaUMSiQAQMGQWAgcSY2GeuNuzpc8NqNvRoCItE3841Dthj3ToNzbX+mVRBI197Zo2VJv8n3XZ+nn89dn6dPrwj5448/HgcoJIWqgGIoxywU4HuQTfwJSsIKBxBAKgJIQzbIJhZBhX+BE/g6VAUU2ccgXwc0UgWU4tvwNmGBJASCqiQsoMa3QRsQ433wOlk4qPEsvCkQ2llTEUAxnoEaFOIdeA3RCumEzWPwtT2IrHCK0K0f+HkUCMX4B9HBk9b0PTwNFJKJC9+NngcVfrDu8En/toJoFw9+EMnhOPGr1+DLCE40eIeAGn/vPXgsMvyHRIfgrbEMT0IlroUmaQpQaAtQKAjOSN6C05hy7Db21zgbW4pN4sI3kyGQQVh5g5+W9PJZfEChZ+ADydAqkVKR4R1vVIHv8IIvwPNwDr0oeP4aFAJ5+P76wJvl22CcfAQaCUCyC/gSPAV6JEEbLWAmdWAmwdHeAIB0wvmV35DweiQBs2x+WcDeURmACv8Hn0lYoAK9hDZiwCSPXwW/VI4E0En/ObuclPSjjRowybROBZY6FPAAyhGJNmrATF5xKWCSdQiZL1gzC2I0XDthO9rUd9e9gImccynAkRm+EAjWzMIbddcW+Qg8dCMQ6iuB3TW3rHwEHrkWQJt9JbCjehKeaoHtVd+C5x+hm7IwXwns1t60Pd2L+JNRHovYTI642UY7fSVwRDc8z0NAduZJ8A+5Z6Geif/jvF4RiEROy3D+puiPvrG4Eii/0DjqXoALVDiDnx0PBhWthENXs6HDGHtJbIGTnfX97u6Arq/iuHsBQBjMsntL4DYzCfRYOGQbDjvg7c2jlZaL11/bJhZ8W496Z2SNyeoK/vVas4XiKH5P88BENtrhfzdthrNMwjL4ylaPJi9wXIrHjwcpjpIeafxswd3VL2lrm+A9KXCBL98df+GvEjrdKfxSP2YTZjyRoDhKmt/SM+d2/6+egsbuylhBkzcwihlX8CvvRP/X4VuFwvfeiNhe1lX3E5/d51hz75zQ+RE9FvZKPq208pHIp5WWzq/2DlCDKXJ38w6PRW1qZ/b15RmU1pyRHDja2uH2FEp9ekrQl+dyutmY1iweAitFGljFdJdxL6VnIw5cGdsVdJkL2zJgjEq8aNxTV8ckTNpfs3JM1kgOFPZQsLXqO6cC77c3dSNPomPjpvkKeNKiwXLYWX1nFfy7TQM/Ik+j10fINHTqfW9IFH5RCJG1Jgd8ev2Xv53o6hJ0cHxiOG7HczVM4oI3JI7pc0HVemGeGq4MEgV+hYT8LBM/K2RN/J+eYxXTRmPo+v3m7jNGNecaMq2iX3lDprWXjWlG3sgwvSe0gY2beseQ5TF4ztXDjqt++caru5C3MzQWGdvM7L9VZDj4WCh4AZ3xuJGJm/icifb+n3xrowck6WeiC1uN+0a1TOLPajptUWVQWu13yH4IzDVk2tSGtMWqa8nzLex+ts8YU2Afg/zxxx/kaf4GzSVnCicBYF0AAAAASUVORK5CYII=" alt="google-logo" class="h-6 w-6">
+
+      </div>
+      <div>
+        <div class="text-lg font-semibold text-gray-800 flex items-center gap-1">
+          4.5 <i class="fas fa-star text-yellow-500"></i>
+        </div>
+        <p class="text-sm text-gray-500">from 5200+ travellers</p>
+      </div>
+    </div>
+
+    <!-- Trustpilot Review -->
+    <div class="flex items-center space-x-4">
+      <div class="bg-[#FAF9F6] rounded-lg p-2">
+             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC4klEQVR4nO2ZbYhMURjH/15X0fKNRL6I3VVeEkJRsptN0WRX2bRlFaXWYo2557mbS3zwEqVIsSUbLbvY1H3OjJU2H3xaREkKpRTRllhNovbo3lmzmtl525l7596aX51vt3P+//Occ5/nnAOUKOFhFMbh6Z5J8C0RWgmmWvgWSafB1A7fwuIdmAbQZ0yE7zBpKSQpu7G+Ab6D6cSIAXEJvkOK13EDkj7DMMbDN0hR9Z/4f1FYC98gxdFkA3QevoHp5SgGPtqJzfNEtPlJ4uNNWwHPI4WW0gCLU/A8UvSnNkBv4Wki+lwwDaVeQlYTi+FZWD+UXrwdhePwLFI8yWxAvHJOgElb7eIrk4jitShYtGSYxSNzIMVjD4hVCZF7BtYWZBcJq26xnDL9Lr5wGgKLC5DNZWNYUtoqSHpfRPFfEabNyIuHoelg6nTfgHiE3uBsFAymRjD9dGGt/wGLY86U32ZbJZheODjrH2Dqa+AofcYUe1NlzLg5r/du9Bgz4BqFyxnRzP92pwi3LcxLfMc+hfamPP8yeRnQ68e4XBTObFfYVqUQqr5RPANS3MpZ/L1Whf3rFQIVsbZ39UBxxMc28/ecxF/ZrdCwZER8oEKhbpHC2aZ57huwNnG2wk2hcDKgEKiMiW5crkC1ChcbFXqCCqztct+ApI6sxN8+oBCsUQhWK5zboXDn4GjJy3RXfJcxGVJ8yyIxXUd3y9WMOYPpF6RR7p4B68o8vfgfkGJn/Hup1di3c2lNiAY3DbSnmfV++2olkftiJlhE0kThrjviu+on2GVuqrrdWl6psC62Up8zonjQOtV5A2F94yjh/wJT25R1H9YFl/V2IJOiV+eo9tjg4nLCwL0wD8/KvR+jHJJuJkSxE44SO2p+GvlzUCjvup2tc4YYHI7koJ0gHcPU1w0P9AYytKygRSHTc7vvsLYFjmEfrqkDfca0gvctm8vsu1MW1+AYbjxSsJ8eQkqUQNH5C1AO+GrPuY+mAAAAAElFTkSuQmCC" alt="trustpilot" class="h-6 w-6">
+
+      </div>
+      <div>
+        <div class="text-lg font-semibold text-gray-800 flex items-center gap-1">
+          4.8 <i class="fas fa-star text-yellow-500"></i>
+        </div>
+        <p class="text-sm text-gray-500">from 1100+ travellers</p>
+      </div>
+    </div>
+
+
+
+  </div>
+</section>
 
 <!--  -->
 <section class="bg-white py-12 px-4 text-center">
