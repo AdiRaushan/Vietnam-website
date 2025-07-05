@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Offers and deals</title>
+    <link rel="stylesheet" href="tailwind.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <style>
+    body { font-family: 'Roboto', sans-serif; }
+  </style>
+
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <div id="header" class="hidden md:block" ></div>
+    
+
+<script>
+  fetch("./components/header.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('header').innerHTML = html;
+    });
+
+  // Load Footer
+  fetch("./components/footer.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('footer').innerHTML = html;
+    });
+  window.addEventListener("scroll", function () {
+    const header = document.getElementById("main-header");
+    const nav = document.getElementById("main-nav");
+
+    if (window.scrollY > 10) {
+      header.classList.remove("bg-transparent");
+      header.classList.add("bg-white", "shadow-md");
+      nav.classList.remove("text-white");
+      nav.classList.add("text-gray-800");
+    } else {
+      header.classList.remove("bg-white", "shadow-md");
+      header.classList.add("bg-transparent");
+      nav.classList.remove("text-gray-800");
+      nav.classList.add("text-white");
+    }
+  });
+</script>
+<!-- Mobile menu (page-specific) -->
+<!-- Mobile Navbar Wrapper (Visible only on small devices) -->
+<div class="block lg:hidden bg-white shadow-md border-b z-50 relative">
+
+  <!-- Top bar with logo and menu toggle -->
+  <div class="flex items-center justify-between px-4 py-3">
+    <!-- Logo -->
+ <a href="index.html" class="inline-block">
+  <img src="/images/Screenshot_2025-06-25_154430-removebg-preview.png" alt="Website Logo" class="w-25 sm:w-48 md:w-56 lg:w-64 h-20" />
+</a>
+
+    <!-- Toggle Button -->
+    <button id="mobile-menu-toggle" class="text-gray-800 focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden px-4 pb-4 bg-white shadow-md border-t space-y-4">
+    <a href="index.html" class="block text-gray-800 font-medium hover:text-red-600">Home</a> 
+    <a href="contact.html" class="block text-gray-800 font-medium hover:text-red-600">About us</a>
+     <a href="contact.html" class="block text-gray-800 font-medium hover:text-red-600">Contact</a>
+      <a href="esim.html" class="block text-gray-800 font-medium hover:text-red-600">eSIM</a> 
+    <a href="things-todo.html" class="block text-gray-800 font-medium hover:text-red-600">Things To Do</a>
+     <a href="offer&deals.html" class="block text-gray-800 font-medium hover:text-red-600">Offer and Deals </a>
+     
+
+    <!-- Dropdown Section -->
+    <div class="border-t pt-2">
+      <button id="mobile-dropdown-toggle" class="w-full flex justify-between items-center text-gray-800 font-medium">
+        Tour Packages
+        <svg id="mobile-dropdown-icon" class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+    <div id="mobile-dropdown" class="hidden pl-4 mt-3 space-y-4 text-sm">
+
+  <!-- By Duration -->
+  <div>
+    <p class="text-gray-600 font-semibold mb-1">By Duration</p>
+    <div class="space-y-1">
+      <a href="days-page.html?days=4" class="block hover:text-red-600">4 Days</a>
+      <a href="days-page.html?days=5" class="block hover:text-red-600">5 Days</a>
+      <a href="days-page.html?days=6" class="block hover:text-red-600">6 Days</a>
+      <a href="days-page.html?days=7" class="block hover:text-red-600">7 Days</a>
+      <a href="days-page.html?days=8" class="block hover:text-red-600">8 Days</a>
+      <a href="days-page.html?days=9" class="block hover:text-red-600">9 Days</a>
+      <a href="days-page.html?days=10" class="block hover:text-red-600">10+ Days</a>
+    </div>
+  </div>
+
+  <!-- By Style -->
+  <div>
+    <p class="text-gray-600 font-semibold mb-1 mt-3">By Style</p>
+    <div class="space-y-1">
+      <a href="style.html?style=family" class="block hover:text-red-600">Family Tours</a>
+      <a href="style.html?style=honeymoon" class="block hover:text-red-600">Honeymoon</a>
+      <a href="style.html?style=luxury" class="block hover:text-red-600">Luxury</a>
+      <a href="style.html?style=cultural" class="block hover:text-red-600">Cultural</a>
+    </div>
+  </div>
+
+  <!-- By City -->
+  <div>
+    <p class="text-gray-600 font-semibold mb-1 mt-3">By City</p>
+    <div class="space-y-1">
+      <a href="city.html?city=hanoi" class="block hover:text-red-600">Hanoi</a>
+      <a href="city.html?city=danang" class="block hover:text-red-600">Da Nang</a>
+      <a href="city.html?city=halong" class="block hover:text-red-600">Halong</a>
+      <a href="city.html?city=cantho" class="block hover:text-red-600">Can Tho</a>
+      <a href="city.html?city=phuquoc" class="block hover:text-red-600">Phu Quoc</a>
+      <a href="city.html?city=sapa" class="block hover:text-red-600">Sapa</a>
+    </div>
+  </div>
+
+</div>
+
+    </div>
+
+   
+  </div>
+</div>
+
+<!-- JavaScript to toggle menu and dropdown -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("mobile-menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    const dropdownToggle = document.getElementById("mobile-dropdown-toggle");
+    const dropdown = document.getElementById("mobile-dropdown");
+    const icon = document.getElementById("mobile-dropdown-icon");
+
+    dropdownToggle.addEventListener("click", () => {
+      dropdown.classList.toggle("hidden");
+      icon.classList.toggle("rotate-180");
+    });
+  });
+</script>
+
+    <!--  -->
+
+      <section class="relative h-screen bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1555980483-93e7b3529e1a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+    <div class="relative z-10 flex flex-col justify-center items-center h-full text-center text-white px-4">
+      <h1 class="text-4xl font-bold mb-4 text-white-900">Vietnam Travel Offers & Deals</h1>
+      <p class="text-lg max-w-2xl mx-auto">Discover limited-time travel deals across Vietnam — from mountains to Mekong! Save big on your next adventure.</p>
+    </div>
+  </section>
+
+
+
+    <!-- Featured Vietnam Deal -->
+    <section class="max-w-6xl mx-auto px-4 py-10">
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden md:flex">
+        <img src="https://images.unsplash.com/photo-1668184599395-14e6a15fadcb?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ha Long Bay" class="w-full md:w-1/2 object-cover">
+        <div class="p-8">
+          <h2 class="text-2xl font-bold mb-2 text-gray-900">🛥️ Ha Long Bay Cruise - 25% Off</h2>
+          <p class="text-gray-600 mb-4">2 Days / 1 Night luxury cruise through the limestone karsts of Ha Long Bay with all meals included.</p>
+          <p class="text-red-600 text-lg font-semibold mb-4">Now at ₹11,499 <span class="line-through text-sm text-gray-500 ml-2">₹15,299</span></p>
+          <a href="tour-details.html?id=halong-cruise" class="inline-block bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition">View Details</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Other Vietnam Offers -->
+    <section class="max-w-6xl mx-auto px-4 py-10">
+      <h2 class="text-3xl font-bold text-center mb-10">More Vietnam Deals</h2>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Sapa Retreat -->
+        <div class="bg-white rounded-xl shadow hover:shadow-xl transition">
+          <img src="https://images.unsplash.com/photo-1746292870685-a0fc9f602f1c?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sapa" class="w-full h-56 object-cover rounded-t-xl">
+          <div class="p-5">
+            <h3 class="text-xl font-semibold mb-2">🏞️ Sapa Retreat - 30% Off</h3>
+            <p class="text-sm text-gray-600 mb-2">3 Nights in the scenic rice terraces with homestay, local treks & meals.</p>
+            <p class="text-red-500 font-semibold">From ₹8,399</p>
+            <a href="tour-details.html?id=sapa-retreat" class="block mt-4 text-green-600 hover:underline">View Details</a>
+          </div>
+        </div>
+
+        <!-- Hoi An Heritage Tour -->
+        <div class="bg-white rounded-xl shadow hover:shadow-xl transition">
+          <img src="https://images.unsplash.com/photo-1503539680555-732099a55a56?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hoi An" class="w-full h-56 object-cover rounded-t-xl">
+          <div class="p-5">
+            <h3 class="text-xl font-semibold mb-2">🎨 Hoi An Heritage Tour - 15% Off</h3>
+            <p class="text-sm text-gray-600 mb-2">2 Nights exploring lantern streets, riverboat dinner & tailor-made clothes.</p>
+            <p class="text-red-500 font-semibold">From ₹6,799</p>
+            <a href="tour-details.html?id=hoian-tour" class="block mt-4 text-green-600 hover:underline">View Details</a>
+          </div>
+        </div>
+
+        <!-- Mekong Delta Experience -->
+        <div class="bg-white rounded-xl shadow hover:shadow-xl transition">
+          <img src="https://images.unsplash.com/photo-1578001645693-d5c8974db90e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Mekong Delta" class="w-full h-56 object-cover rounded-t-xl">
+          <div class="p-5">
+            <h3 class="text-xl font-semibold mb-2">🚣 Mekong Delta Experience - 20% Off</h3>
+            <p class="text-sm text-gray-600 mb-2">1 Day boat & cycling tour, floating market, lunch included.</p>
+            <p class="text-red-500 font-semibold">Now ₹3,199</p>
+            <a href="tour-details.html?id=mekong-day" class="block mt-4 text-green-600 hover:underline">View Details</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gradient-to-r from-green-400 to-green-500 text-white py-12 px-6 text-center">
+  <h2 class="text-3xl font-bold mb-4">🔥 Monsoon Madness Sale!</h2>
+  <p class="text-lg mb-6">Up to 40% OFF on Northern Vietnam Tours – Limited Time Only</p>
+  <a href="#popular-deals" class="inline-block px-6 py-3 bg-white text-orange-600 font-semibold rounded-lg shadow-md hover:bg-gray-100 transition">Explore Deals</a>
+</section>
+
+<section class="bg-gray-100 py-12 px-6">
+  <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">Explore Deals by Region</h2>
+  <div class="grid md:grid-cols-4 gap-4 text-center">
+    <div class="bg-white p-6 rounded-lg shadow hover:bg-yellow-50 transition">
+      <h3 class="font-bold text-lg">North Vietnam</h3>
+      <p class="text-sm text-gray-600">Sapa, Hanoi, Ha Long Bay</p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow hover:bg-yellow-50 transition">
+      <h3 class="font-bold text-lg">Central Vietnam</h3>
+      <p class="text-sm text-gray-600">Hue, Da Nang, Hoi An</p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow hover:bg-yellow-50 transition">
+      <h3 class="font-bold text-lg">South Vietnam</h3>
+      <p class="text-sm text-gray-600">Ho Chi Minh, Mekong Delta</p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow hover:bg-yellow-50 transition">
+      <h3 class="font-bold text-lg">Island Escapes</h3>
+      <p class="text-sm text-gray-600">Phu Quoc, Con Dao</p>
+    </div>
+  </div>
+</section>
+<section class="w-full py-16 bg-white">
+  <div x-data="{
+    currentSlide: 0,
+    slides: [
+      {
+        title: 'Family Package',
+        price: '₹45,999',
+        img: 'https://plus.unsplash.com/premium_photo-1708007649753-62d8584c6525?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        cta: '#'
+      },
+      {
+        title: 'Luxury Escape',
+        price: '₹89,999',
+        img: 'https://images.unsplash.com/photo-1559191515-fb3fa97e6d61?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        cta: '#'
+      },
+      {
+        title: 'Honeymoon Special',
+        price: '₹59,999',
+        img: 'https://images.unsplash.com/photo-1654763966914-4f8bacc2913a?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        cta: '#'
+      },
+      {
+        title: 'Group Tour',
+        price: '₹39,999',
+        img: 'https://images.unsplash.com/photo-1660214332007-d0f2612f0632?q=80&w=1073&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        cta: '#'
+      }
+    ],
+    next() {
+      this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+    },
+    prev() {
+      this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+    },
+    init() {
+      setInterval(() => this.next(), 5000);
+    }
+  }" x-init="init()" class="relative">
+
+    <!-- Slides Wrapper -->
+    <!-- Slides Wrapper -->
+<div class="overflow-hidden relative rounded-2xl shadow-lg max-w-7xl mx-auto h-[75vh]">
+  <template x-for="(slide, index) in slides" :key="index">
+    <div
+      x-show="currentSlide === index"
+      x-transition:enter="transition-opacity ease-out duration-700"
+      x-transition:enter-start="opacity-0"
+      x-transition:enter-end="opacity-100"
+      x-transition:leave="transition-opacity ease-in duration-700"
+      x-transition:leave-start="opacity-100"
+      x-transition:leave-end="opacity-0"
+      class="absolute inset-0 w-full h-full"
+    >
+      <img :src="slide.img" class="w-full h-full object-cover rounded-2xl" />
+      <div class="absolute inset-0 bg-black/30 rounded-2xl"></div>
+      <div class="absolute bottom-10 left-10 z-20 text-white">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-2" x-text="slide.title"></h2>
+        <p class="text-lg md:text-xl font-semibold mb-4" x-text="'Packages from ' + slide.price"></p>
+        <a :href="slide.cta" class="inline-block bg-red-400 text-black px-5 py-2 rounded-md font-semibold hover:bg-red-300 transition">Book Now</a>
+      </div>
+    </div>
+  </template>
+
+  <!-- Navigation INSIDE slider -->
+  <button @click="prev"
+    class="absolute top-1/2 left-5 transform -translate-y-1/2 bg-white text-gray-700 p-3 rounded-full shadow hover:bg-gray-100 z-30">
+    &#10094;
+  </button>
+  <button @click="next"
+    class="absolute top-1/2 right-5 transform -translate-y-1/2 bg-white text-gray-700 p-3 rounded-full shadow hover:bg-gray-100 z-30">
+    &#10095;
+  </button>
+</div>
+
+</section>
+
+<div id="footer"></div>
+
+<script src="app.js"></script>
+  </body>
+</html>

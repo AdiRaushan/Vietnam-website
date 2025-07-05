@@ -1,6 +1,25 @@
+<!-- Header -->
+ <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VRIS Holidays</title>
+    <link rel="stylesheet" href="tailwind.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter&family=Playfair+Display&family=Rubik&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Roboto', sans-serif; }
+  </style>
+
+  </head>
 <header
   id="main-header"
-  x-data="{ scrolled: false }"
+  x-data="{ scrolled: false, mobileNavOpen: false, submenuOpen: false }"
   x-init="window.addEventListener('scroll', () => scrolled = window.scrollY > 10)"
   :class="{ 'bg-white shadow-md': scrolled, 'bg-transparent': !scrolled }"
   class="fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out"
@@ -8,15 +27,37 @@
   <div class="max-w-7xl mx-auto px-4">
     <div class="flex items-center justify-between py-4">
       <!-- Logo -->
-      <a href="#" class="flex items-center gap-2">
+      <a href="/index.html" class="flex items-center gap-2">
         <img
-          src="/Screenshot_2025-06-25_154430-removebg-preview.png"
+          src="/images/Screenshot_2025-06-25_154430-removebg-preview.png"
           alt="VRIS Logo"
           class="h-16 w-auto object-contain mt-1"
         />
       </a>
 
-      <!-- Nav -->
+      <!-- Hamburger -->
+      <button
+         @click="mobileNavOpen = !mobileNavOpen"
+  class="md:hidden z-[999] focus:outline-none"
+        :class="{ 'text-gray-800': scrolled, 'text-white': !scrolled }"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-8 w-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </button>
+
+      <!-- Desktop Nav -->
       <nav
         id="main-nav"
         class="hidden md:flex space-x-5 font-medium transition-colors duration-300"
@@ -24,7 +65,7 @@
       >
         <a href="index.html" class="hover:text-red-500">Home</a>
 
-        <!-- Tour Packages with Dropdown -->
+        <!-- Tour Packages Dropdown -->
         <div class="relative group">
           <button class="flex items-center space-x-1 hover:text-red-500">
             <span>Tour Packages</span>
@@ -43,11 +84,10 @@
             </svg>
           </button>
 
-          <!-- Mega Menu Dropdown -->
+          <!-- Mega Menu -->
           <div
             class="absolute left-1/2 -translate-x-1/2 mt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out bg-white shadow-lg border border-gray-200 rounded-md z-50 w-[90vw] max-w-4xl p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-h-[400px] overflow-y-auto text-gray-700"
           >
-            <!-- Duration -->
             <div class="min-w-[180px]">
               <h3
                 class="font-semibold text-gray-900 mb-3 uppercase text-xs border-b pb-1"
@@ -107,8 +147,6 @@
                 </li>
               </ul>
             </div>
-
-            <!-- Style -->
             <div class="min-w-[180px]">
               <h3
                 class="font-semibold text-gray-900 mb-3 uppercase text-xs border-b pb-1"
@@ -167,8 +205,6 @@
                 </li>
               </ul>
             </div>
-
-            <!-- Cities -->
             <div class="min-w-[180px]">
               <h3
                 class="font-semibold text-gray-900 mb-3 uppercase text-xs border-b pb-1"
@@ -237,39 +273,125 @@
           </div>
         </div>
 
-        <!-- Other Nav Items -->
         <a href="deals.html" class="hover:text-red-500">Deals & Offers</a>
         <a href="/esim.html" class="hover:text-red-500">Travel eSIM</a>
         <a href="things-todo.html" class="hover:text-red-500">Things To Do</a>
         <a href="../About.html" class="hover:text-red-500">About Us</a>
-
-        
       </nav>
-       <button
-          href="../contact.html"
-          class="bg-red-500 text-white px-5 py-2 rounded-full hover:bg-red-600 text-sm font-medium transition duration-200"
-        >
-          Contact Us
-      </button>
+
+      <!-- Contact Us -->
+      <a
+        href="../contact.html"
+        class="hidden md:inline-block bg-red-500 text-white px-5 py-2 rounded-full hover:bg-red-600 text-sm font-medium transition duration-200"
+        >Contact Us</a
+      >
     </div>
   </div>
+
+  <!-- Mobile Menu -->
+  <!-- Mobile Menu -->
+<!-- Submenu Panel -->
+<!-- Mobile Menu Wrapper -->
+<div
+  x-show="mobileNavOpen"
+  x-transition
+  x-cloak
+  class="fixed inset-0 z-40 bg-white overflow-y-auto md:hidden"
+>
+  <!-- Main Menu -->
+  <div x-show="!submenuOpen" x-transition x-cloak class="p-6 space-y-4 relative h-full">
+    <!-- Close Button -->
+    <button
+      @click="mobileNavOpen = false"
+      class="absolute top-4 right-4 text-gray-800"
+    >
+      <!-- X Icon -->
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
+
+    <!-- Links -->
+    <a href="index.html" @click="mobileNavOpen = false" class="block text-lg">Home</a>
+    <button @click="submenuOpen = true" class="block text-lg w-full text-left">
+      Tour Packages
+    </button>
+    <a href="deals.html" @click="mobileNavOpen = false" class="block text-lg">Deals & Offers</a>
+    <a href="/esim.html" @click="mobileNavOpen = false" class="block text-lg">Travel eSIM</a>
+    <a href="things-todo.html" @click="mobileNavOpen = false" class="block text-lg">Things To Do</a>
+    <a href="../About.html" @click="mobileNavOpen = false" class="block text-lg">About Us</a>
+    <a href="../contact.html" @click="mobileNavOpen = false" class="block text-lg">Contact Us</a>
+  </div>
+
+  <!-- Submenu Panel -->
+  <div
+    x-show="submenuOpen"
+    x-transition
+    x-cloak
+    class="p-6 absolute inset-0 bg-white overflow-y-auto"
+  >
+    <button @click="submenuOpen = false" class="flex items-center text-gray-800 mb-4">
+      <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+      Back
+    </button>
+
+    <!-- Tour Options -->
+    <div class="mb-6">
+      <h4 class="text-xs font-bold uppercase text-gray-600 mb-2">By Duration</h4>
+      <template x-for="day in [2,3,4,5,6,7,8,9,10,12]" :key="day">
+        <a
+          class="block text-sm"
+          :href="`days-page.html?days=${day}`"
+          @click="mobileNavOpen = false"
+          x-text="day === 12 ? 'Above 10 Days' : `${day} Days`"
+        ></a>
+      </template>
+    </div>
+
+    <div class="mb-6">
+      <h4 class="text-xs font-bold uppercase text-gray-600 mb-2">By Style</h4>
+      <template x-for="style in [
+        { name: 'Vietnam Classic Tours', value: 'Cultural' },
+        { name: 'Vietnam Family Holidays', value: 'Family' },
+        { name: 'Vietnam Beach Holidays', value: 'Beach' },
+        { name: 'Vietnam Honeymoon', value: 'Honeymoon' },
+        { name: 'Vietnam Luxury Tours', value: 'Luxury' },
+        { name: 'Private Group Tours', value: 'Private' },
+        { name: 'Adventure Tours', value: 'Adventure' }
+      ]" :key="style.value">
+        <a
+          class="block text-sm"
+          :href="`../days-page.html?style=${style.value}`"
+          @click="mobileNavOpen = false"
+          x-text="style.name"
+        ></a>
+      </template>
+    </div>
+
+    <div class="mb-6">
+      <h4 class="text-xs font-bold uppercase text-gray-600 mb-2">By City</h4>
+      <template x-for="city in ['hanoi', 'Ho Chi Minh City', 'Sapa', 'Da Nang', 'Can Tho', 'Halong', 'Hoi An', 'Hue']" :key="city">
+        <a
+          class="block text-sm"
+          :href="`../days-page.html?city=${encodeURIComponent(city)}`"
+          @click="mobileNavOpen = false"
+          x-text="city"
+        ></a>
+      </template>
+    </div>
+  </div>
+</div>
+
 </header>
 
-<script>
-  window.addEventListener("scroll", function () {
-    const header = document.getElementById("main-header");
-    const nav = document.getElementById("main-nav");
 
-    if (window.scrollY > 10) {
-      header.classList.remove("bg-transparent");
-      header.classList.add("bg-white", "shadow-md");
-      nav.classList.remove("text-white");
-      nav.classList.add("text-gray-800");
-    } else {
-      header.classList.remove("bg-white", "shadow-md");
-      header.classList.add("bg-transparent");
-      nav.classList.remove("text-gray-800");
-      nav.classList.add("text-white");
-    }
-  });
-</script>
+</style>
+
+

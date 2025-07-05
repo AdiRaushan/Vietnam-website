@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VRIS Holidays</title>
+<link rel="stylesheet" href="tailwind.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter&family=Playfair+Display&family=Rubik&display=swap" rel="stylesheet">
+
+<body class="bg-gray-50 p-6 font-sans">
+  <div class="max-w-6xl mx-auto">
+    <h1 class="text-2xl font-bold mb-4">Manage Packages</h1>
+
+    <div id="packageList" class="grid gap-2 mb-4">
+      Loading packages...
+    </div>
+
+    <button onclick="addNew()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mb-4">
+      ➕ Add New Package
+    </button>
+
+    <div class="bg-white shadow p-4 rounded">
+      <h2 class="text-xl font-semibold mb-2">Edit Package</h2>
+
+      <!-- Edit Form -->
+      <div id="editForm" class="space-y-2 hidden mt-4">
+        <label class="block">
+          <span class="text-sm">Title</span>
+          <input id="inputTitle" type="text" class="border p-1 w-full">
+        </label>
+        <label class="block">
+          <span class="text-sm">City</span>
+          <input id="inputCity" type="text" class="border p-1 w-full">
+        </label>
+        <label class="block">
+          <span class="text-sm">Days</span>
+          <input id="inputDays" type="number" class="border p-1 w-full">
+        </label>
+        <label class="block">
+          <span class="text-sm">Price</span>
+          <input id="inputPrice" type="number" class="border p-1 w-full">
+        </label>
+        <label class="block">
+          <span class="text-sm">Images (comma-separated URLs)</span>
+          <textarea id="inputImages" class="border p-1 w-full"></textarea>
+        </label>
+          <label class="block">
+    <span class="text-sm">Style</span>
+    <input id="inputStyle" type="text" class="border p-1 w-full">
+  </label>
+  <label class="block">
+    <span class="text-sm">Rating</span>
+    <input id="inputRating" type="number" step="0.1" class="border p-1 w-full">
+  </label>
+  <label class="block">
+    <span class="text-sm">Highlights (comma-separated)</span>
+    <textarea id="inputHighlights" class="border p-1 w-full"></textarea>
+  </label>
+  <label class="block">
+    <span class="text-sm">Inclusions (comma-separated labels)</span>
+    <textarea id="inputInclusions" class="border p-1 w-full"></textarea>
+  </label>
+  <label class="block">
+    <span class="text-sm">Exclusions (comma-separated)</span>
+    <textarea id="inputExclusions" class="border p-1 w-full"></textarea>
+  </label>
+  <label class="block">
+    <span class="text-sm">Where To Visit (one per line: place | image URL | description)</span>
+    <textarea id="inputWhereToVisit" class="border p-1 w-full"></textarea>
+  </label>
+  <label class="block">
+    <span class="text-sm">Activities (one per line: name | image URL)</span>
+    <textarea id="inputActivities" class="border p-1 w-full"></textarea>
+  </label>
+  <label class="block">
+    <span class="text-sm">Itinerary (one per line: day | title | description)</span>
+    <textarea id="inputItinerary" class="border p-1 w-full"></textarea>
+  </label>
+        <button onclick="saveCurrentFromForm()" class="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">
+          💾 Save This Package
+        </button>
+      </div>
+
+      <div class="mt-3 flex gap-2">
+        <button onclick="saveAll()" class="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">
+          💾 Save All Packages
+        </button>
+        <button onclick="downloadJSON()" class="bg-indigo-600 text-white px-3 py-1 rounded hover:bg-indigo-700">
+          ⬇️ Download JSON
+        </button>
+      </div>
+      <p id="status" class="mt-2 text-sm"></p>
+    </div>
+  </div>
+
+ <script>
+let allPackages = [];
+let currentIndex = null;
+
+function refreshList() {
+  const listDiv = document.getElementById('packageList');
+  listDiv.innerHTML = '';
+  allPackages.forEach((pkg, index) => {
+    const div = document.createElement('div');
+    div.className = 'flex justify-between items-center bg-white shadow p-2 rounded';
+    div.innerHTML = `
+      <div><strong>ID:</strong> ${pkg.id} | <strong>Title:</strong> ${pkg.title}</div>
+      <div>
+        <button onclick="loadPackage(${index})" class="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600">Edit</button>
+        <button onclick="deletePackage(${index})" class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">Delete</button>
+      </div>
+    `;
+    listDiv.appendChild(div);
+  });
+  if (allPackages.length === 0) {
+    listDiv.innerHTML = 'No packages found.';
+  }
+}
+
+function loadPackage(index) {
+  currentIndex = index;
+  const pkg = allPackages[index];
+  document.getElementById('editForm').classList.remove('hidden');
+
+  // Fill form fields
+  document.getElementById('inputTitle').value = pkg.title || '';
+  document.getElementById('inputCity').value = pkg.city || '';
+  document.getElementById('inputDays').value = pkg.days || 1;
+  document.getElementById('inputPrice').value = pkg.price || 0;
+  document.getElementById('inputStyle').value = pkg.style || '';
+  document.getElementById('inputRating').value = pkg.rating || 0;
+  document.getElementById('inputImages').value = (pkg.images || []).join(', ');
+  document.getElementById('inputHighlights').value = (pkg.highlights || []).join(', ');
+  document.getElementById('inputInclusions').value = (pkg.inclusions || []).map(i => i.label).join(', ');
+  document.getElementById('inputExclusions').value = (pkg.exclusions || []).join(', ');
+  document.getElementById('inputWhereToVisit').value = (pkg.where_to_visit || []).map(w => `${w.place}|${w.image}|${w.description}`).join('\n');
+  document.getElementById('inputActivities').value = (pkg.activities || []).map(a => `${a.name}|${a.image}`).join('\n');
+  document.getElementById('inputItinerary').value = (pkg.itinerary || []).map(i => `${i.day}|${i.title}|${i.description}`).join('\n');
+}
+
+function deletePackage(index) {
+  if (!confirm('Are you sure you want to delete this package?')) return;
+  allPackages.splice(index, 1);
+  currentIndex = null;
+  document.getElementById('editForm').classList.add('hidden');
+  refreshList();
+}
+
+function addNew() {
+  const newPkg = {
+    id: Date.now(),
+    title: "New Package",
+    city: "",
+    days: 1,
+    style: "",
+    price: 0,
+    rating: 0,
+    images: [],
+    highlights: [],
+    inclusions: [],
+    exclusions: [],
+    where_to_visit: [],
+    activities: [],
+    itinerary: []
+  };
+  allPackages.push(newPkg);
+  refreshList();
+}
+
+function saveCurrentFromForm() {
+  if (currentIndex === null) {
+    alert('No package selected.');
+    return;
+  }
+
+  const pkg = allPackages[currentIndex];
+  pkg.title = document.getElementById('inputTitle').value;
+  pkg.city = document.getElementById('inputCity').value;
+  pkg.days = parseInt(document.getElementById('inputDays').value) || 1;
+  pkg.price = parseInt(document.getElementById('inputPrice').value) || 0;
+  pkg.style = document.getElementById('inputStyle').value;
+  pkg.rating = parseFloat(document.getElementById('inputRating').value) || 0;
+  pkg.images = document.getElementById('inputImages').value.split(',').map(s => s.trim()).filter(s => s);
+  pkg.highlights = document.getElementById('inputHighlights').value.split(',').map(s => s.trim()).filter(s => s);
+  pkg.inclusions = document.getElementById('inputInclusions').value.split(',').map(s => s.trim()).filter(s => s).map(label => ({ label, icon: "fa-solid fa-check" }));
+  pkg.exclusions = document.getElementById('inputExclusions').value.split(',').map(s => s.trim()).filter(s => s);
+  pkg.where_to_visit = document.getElementById('inputWhereToVisit').value.split('\n').map(line => {
+    const [place, image, description] = line.split('|').map(s => s.trim());
+    return { place, image, description };
+  }).filter(w => w.place);
+  pkg.activities = document.getElementById('inputActivities').value.split('\n').map(line => {
+    const [name, image] = line.split('|').map(s => s.trim());
+    return { name, image };
+  }).filter(a => a.name);
+  pkg.itinerary = document.getElementById('inputItinerary').value.split('\n').map(line => {
+    const [day, title, description] = line.split('|').map(s => s.trim());
+    return { day, title, description };
+  }).filter(i => i.day);
+
+  refreshList();
+  document.getElementById('status').innerText = '✅ Package updated in memory.';
+}
+
+function saveAll() {
+  fetch('./save_packages.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(allPackages, null, 2)
+  })
+  .then(response => response.json())
+  .then(result => {
+    if (result.success) {
+      document.getElementById('status').innerText = '✅ All packages saved successfully!';
+    } else {
+      document.getElementById('status').innerText = '❌ Error saving: ' + (result.error || 'Unknown error.');
+    }
+  })
+  .catch(err => {
+    console.error(err);
+    document.getElementById('status').innerText = '❌ Request failed.';
+  });
+}
+
+function downloadJSON() {
+  const blob = new Blob([JSON.stringify(allPackages, null, 2)], {type: 'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'data.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  document.getElementById('status').innerText = '⬇️ JSON downloaded.';
+}
+
+fetch('./data/data.json')
+  .then(response => response.json())
+  .then(data => {
+    allPackages = data;
+    refreshList();
+  })
+  .catch(err => {
+    console.error(err);
+    document.getElementById('packageList').innerText = 'Error loading packages: ' + err;
+  });
+</script>
+
+</body>
+</html>

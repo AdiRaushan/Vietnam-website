@@ -118,3 +118,52 @@ fetch("./components/header.html")
 /* SLider for citys */
 
 
+
+  function toggleQuoteModal() {
+    const modal = document.getElementById('quoteModal');
+    modal.classList.toggle('hidden');
+
+    // Reset modal to step 1
+    document.getElementById('step1').classList.remove('hidden');
+    document.getElementById('step2').classList.add('hidden');
+    document.getElementById('successMsg').classList.add('hidden');
+  }
+
+  function clickOutsideToClose(e) {
+    if (e.target.id === 'quoteModal') toggleQuoteModal();
+  }
+
+  function goToStep2() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+
+    if (name && email && phone) {
+      document.getElementById('step1').classList.add('hidden');
+      document.getElementById('step2').classList.remove('hidden');
+    } else {
+      alert("Please fill in all fields.");
+    }
+  }
+
+  function submitForm() {
+    // Collect all values
+    const data = {
+      name: document.getElementById('name').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
+      destination: document.getElementById('destination').value.trim(),
+      days: document.getElementById('days').value.trim(),
+      style: document.getElementById('style').value.trim(),
+      notes: document.getElementById('notes').value.trim()
+    };
+
+    // You can use fetch() to send this to your backend here
+
+    // Show success message
+    document.getElementById('step2').classList.add('hidden');
+    document.getElementById('successMsg').classList.remove('hidden');
+
+    // Auto-close after 3s
+    setTimeout(() => toggleQuoteModal(), 3000);
+  }

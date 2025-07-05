@@ -1,0 +1,103 @@
+
+:root {
+  --color-accent: #16a34a;
+  --color-accent-dark: #15803d;
+  --color-accent-light: #86efac;
+  --color-text: #334155;
+  --color-white: #ffffff;
+
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-price: 'Rubik', sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-white);
+}
+
+
+
+html, body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-white);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  letter-spacing: 1px;
+}
+
+.price {
+  font-family: var(--font-price);
+  color: var(--color-accent-dark);
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Override red color utilities globally */
+.text-red-500 {
+  color: #16a34a !important; /* green-600 */
+}
+.text-red-600 {
+  color: #15803d !important; /* green-700 */
+}
+.text-red-700 {
+  color: #166534 !important; /* green-800 */
+}
+
+.bg-red-500 {
+  background-color: #16a34a !important;
+}
+.bg-red-600 {
+  background-color: #15803d !important;
+}
+.bg-red-700 {
+  background-color: #166534 !important;
+}
+
+.border-red-500 {
+  border-color: #16a34a !important;
+}
+.border-red-600 {
+  border-color: #15803d !important;
+}
+
+.ring-red-500 {
+  --tw-ring-color: #16a34a !important;
+}
+.focus\:ring-red-500:focus {
+  --tw-ring-color: #16a34a !important;
+}
+
+/* Hover variants */
+.hover\:bg-red-500:hover {
+  background-color: #16a34a !important;
+}
+.hover\:bg-red-600:hover {
+  background-color: #15803d !important;
+}
+.hover\:bg-red-700:hover {
+  background-color: #166534 !important;
+}
+
+.hover\:text-red-500:hover {
+  color: #16a34a !important;
+}
+
+/* SVG fill/stroke */
+.fill-red-500 {
+  fill: #16a34a !important;
+}
+.stroke-red-500 {
+  stroke: #16a34a !important;
+}
