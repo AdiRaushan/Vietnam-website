@@ -129,7 +129,8 @@
 
   <!-- Package Cards -->
   <main class="p-6">
-    <div id="packageContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    <div id="packageContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6"></div>
+"></div>
   </main>
 
 
@@ -254,7 +255,7 @@
       return `
       <div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition">
   <!-- Make image section clickable -->
-  <a href="tour-details.html?id=${tour.id}" class="block relative w-full h-56 overflow-hidden group">
+  <a href="tour-details.html?id=${tour.id}"  class="block relative w-full h-56 overflow-hidden group">
     <div id="slider-${tour.id}" class="flex transition-transform duration-300 ease-in-out" style="width: ${images.length * 100}%;">
       ${images.map(img => `
         <img src="${img}" alt="${tourTitle}" class="h-56 object-cover flex-shrink-0" style="width: ${100 / images.length}%;" />
@@ -274,9 +275,9 @@
   <!-- Card body -->
   <div class="p-6">
     <div class="flex justify-between text-sm text-gray-500 mb-3">
-      <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-red-500"></i> ${tour.city || ''}</span>
-      <span class="flex items-center gap-1"><i class="fas fa-calendar-alt text-red-500"></i> ${tour.days || ''} Days</span>
-      <span class="flex items-center gap-1"><i class="fas fa-user text-red-500"></i> ${tour.style || ''}</span>
+      <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-[#25D366]"></i> ${tour.city || ''}</span>
+      <span class="flex items-center gap-1"><i class="fas fa-calendar-alt text-[#25D366]"></i> ${tour.days || ''} Days</span>
+      <span class="flex items-center gap-1"><i class="fas fa-user text-[#25D366]"></i> ${tour.style || ''}</span>
     </div>
 
     <!-- Make title also clickable -->
@@ -290,7 +291,7 @@
         <div class="flex justify-between items-center text-xs text-gray-600 gap-4">
           ${tour.inclusions.map(item => `
             <div class="flex flex-col items-center px-2">
-              <i class="${item.icon} text-red-500 text-base mb-1"></i>
+              <i class="${item.icon} text-[#25D366] text-base mb-1"></i>
               <div>${item.label}</div>
             </div>
           `).join('')}
@@ -302,7 +303,7 @@
       <span class="flex items-center gap-1 text-yellow-500">
         <i class="fas fa-star"></i> ${tour.rating || 0} <span class="text-sm text-gray-500">(Reviews)</span>
       </span>
-      <span class="text-red-600 font-semibold text-lg">₹${Number(tour.price || 0).toLocaleString()}</span>
+      <span class="text--[#000000] font-semibold text-lg">₹${Number(tour.price || 0).toLocaleString()}</span>
     </div>
 
     <!-- Action buttons: keep them outside of link -->
