@@ -139,16 +139,90 @@
 
 <!--  -->
 <section class="relative bg-cover bg-center bg-no-repeat h-[80vh] flex items-center justify-center px-4 text-center"
-         style="background-image: url('https://images.unsplash.com/photo-1587233606800-1302fdd0a433?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
-  <!-- Dark Overlay -->
+  style="background-image: url('https://images.unsplash.com/photo-1587233606800-1302fdd0a433?q=80&w=1074&auto=format&fit=crop');">
   <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-
-  <!-- Text Content -->
   <div class="relative z-10 text-white max-w-2xl">
     <h1 class="text-4xl md:text-5xl font-bold mb-4">Happy Travelers, Real Experiences</h1>
     <p class="text-lg md:text-xl">See what our Indian travelers are saying after exploring the beauty of Vietnam with us. Real stories. Real moments. Real joy.</p>
   </div>
 </section>
+
+<!-- Travel Stories List -->
+<section class="py-12 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <div id="storiesContainer" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+
+    <!-- Pagination -->
+    <div id="pagination" class="flex justify-center mt-8 space-x-2"></div>
+  </div>
+</section>
+
+<script>
+  const apiURL = "/api/get-stories.php";
+  let stories = [];
+  let currentPage = 1;
+
+  const storiesContainer = document.getElementById("storiesContainer");
+  const paginationContainer = document.getElementById("pagination");
+
+  // Dynamic per-page count based on screen size
+  function getPerPage() {
+    return window.innerWidth < 768 ? 6 : 9;
+  }
+
+  function renderStories() {
+    const perPage = getPerPage();
+    const start = (currentPage - 1) * perPage;
+    const end = start + perPage;
+    const paginatedStories = stories.slice(start, end);
+
+    storiesContainer.innerHTML = paginatedStories.map(story => `
+      <div class="bg-white rounded-lg shadow p-4">
+        <img src="${story.image}" alt="${story.title}" class="h-48 w-full object-cover rounded">
+        <h3 class="mt-4 text-lg font-semibold">${story.title}</h3>
+        <p class="text-sm text-gray-600">By ${story.author}</p>
+        <p class="text-gray-700 text-sm mt-2">${story.content.slice(0, 100)}...</p>
+      </div>
+    `).join("");
+
+    renderPagination();
+  }
+
+  function renderPagination() {
+    const totalPages = Math.ceil(stories.length / getPerPage());
+    paginationContainer.innerHTML = '';
+
+    for (let i = 1; i <= totalPages; i++) {
+      paginationContainer.innerHTML += `
+        <button onclick="goToPage(${i})" class="px-3 py-1 rounded ${i === currentPage ? 'bg-blue-500 text-white' : 'bg-white border text-blue-500'}">
+          ${i}
+        </button>
+      `;
+    }
+  }
+
+  function goToPage(page) {
+    currentPage = page;
+    renderStories();
+  }
+
+  function loadStories() {
+    fetch(apiURL)
+      .then(res => res.json())
+      .then(data => {
+        stories = data;
+        renderStories();
+      });
+  }
+
+  loadStories();
+
+  // Handle responsive change in perPage
+  window.addEventListener('resize', () => {
+    renderStories(); // re-render on screen size change
+  });
+</script>
+
 <!-- Reviews Highlight Section -->
 <!-- Reviews Badge Section -->
 <!-- Reviews Summary Section -->
@@ -205,125 +279,93 @@
 
 <!--  -->
 
-<section class="py-16 px-4 bg-gray-100">
-  <div class="max-w-screen-xl mx-auto text-center mb-10 px-4 sm:px-6">
-    <h2 class="text-2xl md:text-4xl font-bold text-gray-800 mb-4">Our Best Customers</h2>
-    <p class="text-gray-600 text-base md:text-lg max-w-2xl mx-auto">Meet some of the amazing travelers who chose us for their Vietnam experience.</p>
-  </div>
-
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-2 sm:px-4 md:px-6">
-    <!-- Start of one card -->
-    <div class="bg-white shadow rounded-xl overflow-hidden transition hover:shadow-md">
-      <img src="https://images.unsplash.com/photo-1655185495379-57b80bc79fe3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Traveler Photo" class="w-full h-48 sm:h-52 md:h-56 object-cover">
-      <div class="p-4 sm:p-5">
-        <h3 class="font-semibold text-lg text-gray-800">Mr. Vijay Malik</h3>
-        <p class="text-sm text-gray-600"><strong>Visited:</strong> Hanoi, Ha Long Bay</p>
-        <p class="text-sm text-gray-600 mb-2"><strong>Duration:</strong> 5 Days</p>
-        <p class="text-sm text-gray-700">“Embracing Vietnam as a senior traveler was smooth and fulfilling. The scenic cruise at Ha Long was unforgettable.”</p>
-      </div>
+<section class="py-12 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <div id="storiesContainer" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Nothing here: all injected by JS -->
     </div>
 
-   <!-- Card #2 -->
-<div class="bg-white shadow rounded-xl overflow-hidden transition hover:shadow-md">
-  <img src="https://images.unsplash.com/photo-1659352790654-058e9077a4f4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Traveler Photo" class="w-full h-48 sm:h-52 md:h-56 object-cover">
-  <div class="p-4 sm:p-5">
-    <h3 class="font-semibold text-lg text-gray-800">Mr. Satya & Friends</h3>
-    <p class="text-sm text-gray-600"><strong>Visited:</strong> Hanoi, Siem Reap (Cambodia)</p>
-    <p class="text-sm text-gray-600 mb-2"><strong>Duration:</strong> 6 Days</p>
-    <p class="text-sm text-gray-700">“The journey through Vietnam and Cambodia with friends created memories that’ll last a lifetime. Truly seamless planning.”</p>
-  </div>
-</div>
-
-<!-- Card #3 -->
-<div class="bg-white shadow rounded-xl overflow-hidden transition hover:shadow-md">
-  <img src="https://images.unsplash.com/photo-1636320805687-7559c1192151?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Traveler Photo" class="w-full h-48 sm:h-52 md:h-56 object-cover">
-  <div class="p-4 sm:p-5">
-    <h3 class="font-semibold text-lg text-gray-800">Mr. Nishant & Wife</h3>
-    <p class="text-sm text-gray-600"><strong>Visited:</strong> Da Nang, Hoi An</p>
-    <p class="text-sm text-gray-600 mb-2"><strong>Duration:</strong> 4 Days</p>
-    <p class="text-sm text-gray-700">“A perfect honeymoon getaway. Everything from private beach dinners to heritage walks was perfectly curated.”</p>
-  </div>
-</div>
-
-<!-- Card #4 -->
-<div class="bg-white shadow rounded-xl overflow-hidden transition hover:shadow-md">
-  <img src="https://images.unsplash.com/photo-1714152240127-ce2fd931e9cb?q=80&w=715&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Traveler Photo" class="w-full h-48 sm:h-52 md:h-56 object-cover">
-  <div class="p-4 sm:p-5">
-    <h3 class="font-semibold text-lg text-gray-800">Mr. Vignesh's Team</h3>
-    <p class="text-sm text-gray-600"><strong>Visited:</strong> Ho Chi Minh City</p>
-    <p class="text-sm text-gray-600 mb-2"><strong>Duration:</strong> 3 Days</p>
-    <p class="text-sm text-gray-700">“A wonderful corporate getaway. The team loved the Mekong Delta cruise and vibrant city life!”</p>
-  </div>
-</div>
-
-<!-- Card #5 -->
-<div class="bg-white shadow rounded-xl overflow-hidden transition hover:shadow-md">
-  <img src="https://images.unsplash.com/photo-1624894830193-4fddb348ab65?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Traveler Photo" class="w-full h-48 sm:h-52 md:h-56 object-cover">
-  <div class="p-4 sm:p-5">
-    <h3 class="font-semibold text-lg text-gray-800">Mrs. Kalyani & Mr. Pritam</h3>
-    <p class="text-sm text-gray-600"><strong>Visited:</strong> Hanoi, Halong, Sapa</p>
-    <p class="text-sm text-gray-600 mb-2"><strong>Duration:</strong> 7 Days</p>
-    <p class="text-sm text-gray-700">“Perfect family trip! From mountains to the bay, every detail was managed to perfection. Felt so cared for.”</p>
-  </div>
-</div>
-
-<!-- Card #6 -->
-<div class="bg-white shadow rounded-xl overflow-hidden transition hover:shadow-md">
-  <img src="https://images.unsplash.com/photo-1559875253-5ba02e7378f3?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Traveler Photo" class="w-full h-48 sm:h-52 md:h-56 object-cover">
-  <div class="p-4 sm:p-5">
-    <h3 class="font-semibold text-lg text-gray-800">Mr. Sanjay & Friends</h3>
-    <p class="text-sm text-gray-600"><strong>Visited:</strong> Hoi An, Hue</p>
-    <p class="text-sm text-gray-600 mb-2"><strong>Duration:</strong> 6 Days</p>
-    <p class="text-sm text-gray-700">“Exploring Vietnam with friends was magical. We enjoyed every bit of the cultural heritage and food.”</p>
-  </div>
-</div>
-
-<!-- Card #7 -->
-<div class="bg-white shadow rounded-xl overflow-hidden transition hover:shadow-md">
-  <img src="https://images.unsplash.com/photo-1680759112857-b32352d36785?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Traveler Photo" class="w-full h-48 sm:h-52 md:h-56 object-cover">
-  <div class="p-4 sm:p-5">
-    <h3 class="font-semibold text-lg text-gray-800">Ms. Geetha’s Family</h3>
-    <p class="text-sm text-gray-600"><strong>Visited:</strong> Ho Chi Minh, Cu Chi Tunnels</p>
-    <p class="text-sm text-gray-600 mb-2"><strong>Duration:</strong> 4 Days</p>
-    <p class="text-sm text-gray-700">“Loved how historical and emotional the tour was for us as a family. Great guides and schedule!”</p>
-  </div>
-</div>
-
-<!-- Card #8 -->
-<div class="bg-white shadow rounded-xl overflow-hidden transition hover:shadow-md">
-  <img src="https://images.unsplash.com/photo-1600899508790-cf9d5f164673?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Traveler Photo" class="w-full h-48 sm:h-52 md:h-56 object-cover">
-  <div class="p-4 sm:p-5">
-    <h3 class="font-semibold text-lg text-gray-800">Mr. Gudigantala's Family</h3>
-    <p class="text-sm text-gray-600"><strong>Visited:</strong> Da Nang, Bana Hills</p>
-    <p class="text-sm text-gray-600 mb-2"><strong>Duration:</strong> 5 Days</p>
-    <p class="text-sm text-gray-700">“Golden Bridge and Fantasy Park were absolute hits with the kids! Loved the pace and planning.”</p>
-  </div>
-</div>
-
-<!-- Card #9 -->
-<div class="bg-white shadow rounded-xl overflow-hidden transition hover:shadow-md">
-  <img src="https://images.unsplash.com/photo-1520966629575-180a0bb2e33f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Traveler Photo" class="w-full h-48 sm:h-52 md:h-56 object-cover">
-  <div class="p-4 sm:p-5">
-    <h3 class="font-semibold text-lg text-gray-800">Mrs. Iyer & Daughter</h3>
-    <p class="text-sm text-gray-600"><strong>Visited:</strong> Ninh Binh, Hanoi</p>
-    <p class="text-sm text-gray-600 mb-2"><strong>Duration:</strong> 5 Days</p>
-    <p class="text-sm text-gray-700">“Boat ride through Tam Coc was stunning. Great care and attention to our needs. Highly recommend!”</p>
-  </div>
-</div>
-
-<!-- Card #10 -->
-<div class="bg-white shadow rounded-xl overflow-hidden transition hover:shadow-md">
-  <img src="https://images.unsplash.com/photo-1728982244493-e060cc8a8bed?q=80&w=1228&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Traveler Photo" class="w-full h-48 sm:h-52 md:h-56 object-cover">
-  <div class="p-4 sm:p-5">
-    <h3 class="font-semibold text-lg text-gray-800">Mr. Arjun Rao</h3>
-    <p class="text-sm text-gray-600"><strong>Visited:</strong> Phu Quoc Island</p>
-    <p class="text-sm text-gray-600 mb-2"><strong>Duration:</strong> 3 Days</p>
-    <p class="text-sm text-gray-700">“Relaxing beach holiday at its best! Crystal waters, smooth bookings, and island food to die for.”</p>
-  </div>
-</div>
+    <!-- Pagination -->
+    <div id="pagination" class="flex justify-center mt-8 space-x-2"></div>
   </div>
 </section>
+<!--  -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var apiURL = "api/get-travel-stories.php";
+    var stories = [];
+    var currentPage = 1;
+    var totalStories = 0;
 
+    const storiesContainer = document.getElementById("storiesContainer");
+    const paginationContainer = document.getElementById("pagination");
+
+    function getPerPage() {
+      return window.innerWidth < 768 ? 6 : 9;
+    }
+
+    function renderStories() {
+      storiesContainer.innerHTML = stories.map(function (story) {
+        return `
+          <div class="bg-white rounded-lg shadow p-4">
+            <img src="${story.image}" alt="${story.title}" class="h-48 w-full object-cover rounded">
+            <h3 class="mt-4 text-lg font-semibold">${story.title}</h3>
+            <p class="text-sm text-gray-600">By ${story.author || "Anonymous"}</p>
+            <p class="text-gray-700 text-sm mt-2">${story.content.slice(0, 100)}...</p>
+          </div>
+        `;
+      }).join("");
+
+      renderPagination();
+    }
+
+    function renderPagination() {
+      var totalPages = Math.ceil(totalStories / getPerPage());
+      paginationContainer.innerHTML = "";
+
+      for (var i = 1; i <= totalPages; i++) {
+        paginationContainer.innerHTML += `
+          <button onclick="goToPage(${i})" class="px-3 py-1 rounded ${i === currentPage ? 'bg-blue-500 text-white' : 'bg-white border text-blue-500'}">
+            ${i}
+          </button>
+        `;
+      }
+    }
+
+    function goToPage(page) {
+      currentPage = page;
+      loadStories();
+    }
+
+    function loadStories() {
+      var perPage = getPerPage();
+      fetch(apiURL + "?limit=" + perPage + "&page=" + currentPage)
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          stories = data.stories;
+          totalStories = data.total;
+          renderStories();
+        })
+        .catch(function (err) {
+          console.error("Failed to load stories:", err);
+        });
+    }
+
+    loadStories();
+    window.addEventListener("resize", function () {
+      currentPage = 1;
+      loadStories();
+    });
+  });
+</script>
+
+
+
+
+
+
+
+<!--  -->
 <section class="bg-white">
   <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center px-6 md:px-12 pt-8 pb-14">
 

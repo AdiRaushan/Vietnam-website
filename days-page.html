@@ -155,8 +155,8 @@
 
   async function fetchTours() {
     try {
-      const res = await fetch('./data/data.json');
-      tours = await res.json();
+      const res = await fetch('./api/get-packages.php');
+tours = await res.json();
       populateFilters();
       setTimeout(applyURLFilters, 0);
     } catch (err) {

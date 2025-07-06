@@ -192,9 +192,9 @@
     const params = new URLSearchParams(window.location.search);
     const id = Number(params.get("id"));
 
-    const res = await fetch('./data/data.json');
-    const tours = await res.json();
-    const tour = tours.find(t => t.id === id);
+const res = await fetch(`./api/get-package.php?id=${id}`);
+const tour = await res.json();
+
 
     if (!tour) {
       document.getElementById("tourBanner").innerHTML = `<h2 class="text-center text-red-500">Tour not found</h2>`;
