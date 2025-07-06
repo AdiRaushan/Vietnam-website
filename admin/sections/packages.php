@@ -1,5 +1,5 @@
 <?php
-require_once '../Config/db.php';
+require_once __DIR__ . '/../../Config/db.php';
 
 $stmt = $pdo->query("SELECT id, title, city, days, price FROM packages ORDER BY id DESC");
 $packages = $stmt->fetchAll(PDO::FETCH_ASSOC);

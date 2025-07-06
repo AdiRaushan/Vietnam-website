@@ -1,4 +1,4 @@
-CREATE DATABASE travel_dashboard;
+
 USE	travel_dashboard;
 
 -- Main packages table

@@ -25,8 +25,7 @@ $page = $_GET['page'] ?? 'packages'; // default to packages
   <!-- Main Content -->
   <div class="flex-1 p-8 bg-gray-50">
     <?php
-   $sectionFile = __DIR__ . "/sections/$page.php";
-
+      $sectionFile = __DIR__ . "/sections/$page.php";
       if (file_exists($sectionFile)) {
         include $sectionFile;
       } else {

@@ -257,98 +257,7 @@
   </div>
 </section>
 
-<!--box section  -->
-<section class="bg-white py-12 px-4 text-center">
-  <div class="max-w-6xl mx-auto">
-    <div
-      class="relative bg-cover bg-center rounded-lg text-white py-24 px-8"
-      style="background-image: url('https://images.pexels.com/photos/1018478/pexels-photo-1018478.jpeg?auto=compress&cs=tinysrgb&h=600');"
-    >
-      <h2 class="text-4xl font-bold mb-4">Vietnam Holidays</h2>
-      <p class="text-lg mb-6">From Ancient Towns to Tropical Beaches, explore the beauty and culture of Vietnam</p>
-      <a href="#" class="bg-white hover:bg-green-600 text-black px-6 py-3 rounded-md font-semibold transition">
-        Explore More
-      </a>
-    </div>
 
-    <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-      <!-- Hanoi -->
-      <div class="relative group overflow-hidden rounded-xl shadow-md aspect-[16/9]">
-        <img
-          loading="lazy"
-          src="https://images.pexels.com/photos/1004122/pexels-photo-1004122.jpeg?auto=compress&cs=tinysrgb&h=360"
-          alt="Hanoi"
-          class="w-full h-full object-cover brightness-75 transition duration-300 group-hover:brightness-50"
-        />
-        <div class="absolute bottom-3 left-3 text-white text-lg font-semibold z-10">Hanoi</div>
-        <div class="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition duration-300">
-          <p class="text-white text-sm mb-3">Starting ₹12,000</p>
-          <a href="#" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 text-sm rounded">Check Packages</a>
-        </div>
-      </div>
-
-      <!-- Ho Chi Minh -->
-      <div class="relative group overflow-hidden rounded-xl shadow-md aspect-[16/9]">
-        <img
-          loading="lazy"
-          src="https://images.pexels.com/photos/980221/pexels-photo-980221.jpeg?auto=compress&cs=tinysrgb&h=360"
-          alt="Ho Chi Minh"
-          class="w-full h-full object-cover brightness-75 transition duration-300 group-hover:brightness-50"
-        />
-        <div class="absolute bottom-3 left-3 text-white text-lg font-semibold z-10">Ho Chi Minh</div>
-        <div class="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition duration-300">
-          <p class="text-white text-sm mb-3">Starting ₹14,000</p>
-          <a href="#" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 text-sm rounded">Check Packages</a>
-        </div>
-      </div>
-
-      <!-- Da Nang -->
-      <div class="relative group overflow-hidden rounded-xl shadow-md aspect-[16/9]">
-        <img
-          loading="lazy"
-          src="https://images.pexels.com/photos/2965773/pexels-photo-2965773.jpeg?auto=compress&cs=tinysrgb&h=360"
-          alt="Da Nang"
-          class="w-full h-full object-cover brightness-75 transition duration-300 group-hover:brightness-50"
-        />
-        <div class="absolute bottom-3 left-3 text-white text-lg font-semibold z-10">Da Nang</div>
-        <div class="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition duration-300">
-          <p class="text-white text-sm mb-3">Starting ₹13,500</p>
-          <a href="#" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 text-sm rounded">Check Packages</a>
-        </div>
-      </div>
-
-      <!-- Ha Long Bay -->
-      <div class="relative group overflow-hidden rounded-xl shadow-md aspect-[16/9]">
-        <img
-          loading="lazy"
-          src="https://images.pexels.com/photos/2796627/pexels-photo-2796627.jpeg?auto=compress&cs=tinysrgb&h=360"
-          alt="Ha Long Bay"
-          class="w-full h-full object-cover brightness-75 transition duration-300 group-hover:brightness-50"
-        />
-        <div class="absolute bottom-3 left-3 text-white text-lg font-semibold z-10">Ha Long Bay</div>
-        <div class="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition duration-300">
-          <p class="text-white text-sm mb-3">Starting ₹15,000</p>
-          <a href="#" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 text-sm rounded">Check Packages</a>
-        </div>
-      </div>
-
-      <!-- Hoi An -->
-      <div class="relative group overflow-hidden rounded-xl shadow-md aspect-[16/9]">
-        <img
-          loading="lazy"
-          src="https://images.pexels.com/photos/2602490/pexels-photo-2602490.jpeg?auto=compress&cs=tinysrgb&h=360"
-          alt="Hoi An"
-          class="w-full h-full object-cover brightness-75 transition duration-300 group-hover:brightness-50"
-        />
-        <div class="absolute bottom-3 left-3 text-white text-lg font-semibold z-10">Hoi An</div>
-        <div class="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition duration-300">
-          <p class="text-white text-sm mb-3">Starting ₹13,000</p>
-          <a href="#" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 text-sm rounded">Check Packages</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 
@@ -473,88 +382,81 @@
   }
 </style>
 
+<div x-data class="py-8 bg-gray-50">
+  <h2 class="text-2xl font-bold text-center mb-6">Explore Vietnam Tour Styles</h2>
 
+  <div class="relative flex items-center">
+    <!-- Left Arrow -->
+    <button
+      @click="$refs.slider.scrollBy({ left: -300, behavior: 'smooth' })"
+      class="absolute left-0 z-10 bg-white p-2 shadow rounded-full"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
 
-
-<!-- Top Style Slider -->
-<section class="bg-gray-50 py-12">
-  <h2 class="text-3xl font-bold text-center text-gray-800 mb-8 px-4">Explore Tour Styles Across India</h2>
-
-  <div class="overflow-hidden relative">
-    <div class="flex gap-6 animate-slide px-6">
-
-      <!-- Card -->
-      <a href="style.html?style=goa" class="min-w-[260px] bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 shrink-0">
-        <img src="https://images.unsplash.com/photo-1732243395944-cb3ff9311091?q=80&w=1075&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ladakh" class="w-full h-40 object-cover" />
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-gray-800">Adventure Tours</h3>
-          <p class="text-sm text-gray-500">₹10,999/-</p>
+    <!-- Slider -->
+    <div
+      x-ref="slider"
+      class="flex overflow-x-auto space-x-4 px-8 no-scrollbar"
+    >
+      <template x-for="tour in [
+        { image: 'https://plus.unsplash.com/premium_photo-1673283243696-497565b6489b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', title: 'Beach Holidays', price: '₹38,999/-' },
+        { image: 'https://images.unsplash.com/photo-1500981458086-b8a11cd163af?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', title: 'Honeymoon Trips', price: '₹48,999/-' },
+        { image: 'https://images.unsplash.com/photo-1685345410569-716024b88a41?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', title: 'Family Holidays', price: '₹33,999/-' },
+        { image: 'https://images.unsplash.com/photo-1672112569635-a20efc35ca45?q=80&w=1176&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', title: 'Adventure Tours', price: '₹28,999/-' },
+        { image: 'https://images.unsplash.com/photo-1750900142630-e16de683a661?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', title: 'Luxury Tours', price: '₹58,999/-' },
+        { image: 'https://plus.unsplash.com/premium_photo-1664474404787-1228364aa978?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', title: 'Beach Holidays', price: '₹38,999/-' },
+        { image: 'https://images.unsplash.com/photo-1559827291-72ee739d0d9a?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', title: 'Honeymoon Trips', price: '₹48,999/-' },  { image: 'https://plus.unsplash.com/premium_photo-1673283243696-497565b6489b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', title: 'Beach Holidays', price: '₹38,999/-' },
+        { image: 'https://images.unsplash.com/photo-1500981458086-b8a11cd163af?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', title: 'Honeymoon Trips', price: '₹48,999/-' },
+        { image: 'https://images.unsplash.com/photo-1685345410569-716024b88a41?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', title: 'Family Holidays', price: '₹33,999/-' },
+        { image: 'https://images.unsplash.com/photo-1672112569635-a20efc35ca45?q=80&w=1176&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', title: 'Adventure Tours', price: '₹28,999/-' },
+        { image: 'https://images.unsplash.com/photo-1619149822710-bbdc838f2b3f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', title: 'Family Holidays', price: '₹33,999/-' }
+      ]">
+        <div class="relative w-48 flex-shrink-0 rounded-lg overflow-hidden shadow hover:shadow-lg transition duration-300">
+          <img
+            :src="tour.image"
+            alt=""
+            class="w-full h-64 object-cover"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 hover:opacity-100 transition"
+          ></div>
+          <div class="absolute bottom-0 p-3 text-white">
+            <h3 class="font-semibold text-sm" x-text="tour.title"></h3>
+            <p class="text-xs mt-1" x-text="tour.price"></p>
+          </div>
         </div>
-      </a>
-
-      <!-- Card -->
-      <a href="style.html?style=uttarakhand" class="min-w-[260px] bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 shrink-0">
-        <img src="https://images.unsplash.com/photo-1648850262706-a335e2369157?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Uttarakhand" class="w-full h-40 object-cover" />
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-gray-800">Private Group Tours</h3>
-          <p class="text-sm text-gray-500">₹12,999/-</p>
-        </div>
-      </a>
-
-      <!-- Card -->
-      <a href="style.html?style=kerala" class="min-w-[260px] bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 shrink-0">
-        <img src="https://images.unsplash.com/photo-1723821885976-8130a8a051c5?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Kerala" class="w-full h-40 object-cover" />
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-gray-800">Vietnam Luxury Tours</h3>
-          <p class="text-sm text-gray-500">₹29,999/-</p>
-        </div>
-      </a>
-
-      <!-- Card -->
-      <a href="style.html?style=northeast" class="min-w-[260px] bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 shrink-0">
-        <img src="https://images.unsplash.com/photo-1732243395944-cb3ff9311091?q=80&w=1075&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="North East" class="w-full h-40 object-cover" />
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-gray-800">Vietnam Beach Holidays</h3>
-          <p class="text-sm text-gray-500">₹37,999/-</p>
-        </div>
-      </a>
-
-      <!-- Card -->
-      <a href="style.html?style=ladakh" class="min-w-[260px] bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 shrink-0">
-        <img src="https://images.unsplash.com/photo-1671249819245-4a8f1c4d724e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ladakh" class="w-full h-40 object-cover" />
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-gray-800">Vietnam Honeymoon</h3>
-          <p class="text-sm text-gray-500">₹41,999/-</p>
-        </div>
-      </a>
-     <a href="style.html?style=ladakh" class="min-w-[260px] bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 shrink-0">
-        <img src="https://images.unsplash.com/photo-1743693812757-0bb3c3bd45a5?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ladakh" class="w-full h-40 object-cover" />
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-gray-800">Vietnam Classic Tours</h3>
-          <p class="text-sm text-gray-500">₹41,999/-</p>
-        </div>
-      </a>     <a href="style.html?style=ladakh" class="min-w-[260px] bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 shrink-0">
-        <img src="https://images.unsplash.com/photo-1557051310-6cbf61ae9efb?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ladakh" class="w-full h-40 object-cover" />
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-gray-800">Vietnam Family Holidays</h3>
-          <p class="text-sm text-gray-500">₹41,999/-</p>
-        </div>
-      </a>     <a href="style.html?style=ladakh" class="min-w-[260px] bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 shrink-0">
-        <img src="https://images.unsplash.com/photo-1732243395944-cb3ff9311091?q=80&w=1075&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ladakh" class="w-full h-40 object-cover" />
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-gray-800">Vietnam Beach Holidays</h3>
-          <p class="text-sm text-gray-500">₹41,999/-</p>
-        </div>
-      </a>     <a href="style.html?style=ladakh" class="min-w-[260px] bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 shrink-0">
-        <img src="https://images.unsplash.com/photo-1732243395944-cb3ff9311091?q=80&w=1075&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ladakh" class="w-full h-40 object-cover" />
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-gray-800">Adventure Tour</h3>
-          <p class="text-sm text-gray-500">₹41,999/-</p>
-        </div>
-      </a>
+      </template>
     </div>
+
+    <!-- Right Arrow -->
+    <button
+      @click="$refs.slider.scrollBy({ left: 300, behavior: 'smooth' })"
+      class="absolute right-0 z-10 bg-white p-2 shadow rounded-full"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
   </div>
-</section>
+</div>
+<style>
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+</style>
+
+
+
+
+
+
 
 <style>
 @keyframes slide {
@@ -633,15 +535,81 @@
 
 <!-- day slider -->
 
+
+
+<style>
+@keyframes slide {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-slide {
+  animation: slide 40s linear infinite;
+}
+</style>
+<!--  -->
+
+<script>
+  const slider = document.getElementById('autoSlider');
+  const btnLeft = document.getElementById('scrollLeft');
+  const btnRight = document.getElementById('scrollRight');
+
+  btnLeft.addEventListener('click', () => {
+    slider.scrollBy({ left: -300, behavior: 'smooth' });
+  });
+
+  btnRight.addEventListener('click', () => {
+    slider.scrollBy({ left: 300, behavior: 'smooth' });
+  });
+</script>
+
+
+
+
+<!--  -->
+<style>
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+</style>
+<!--  -->
 <section class="bg-white py-12 px-4 sm:px-6 lg:px-8">
   <div class="max-w-7xl mx-auto text-center">
     <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-800 mb-4">Top Destinations in Vietnam</h2>
-    <p class="text-gray-600 max-w-2xl mx-auto mb-10">Explore the beauty of Vietnam with our exclusive 4-day holiday packages.</p>
+    <p class="text-gray-600 max-w-2xl mx-auto mb-10">
+      Explore the beauty of Vietnam with our exclusive holiday packages.
+    </p>
 
-    <div class="overflow-hidden relative">
-      <div id="autoSlider" class="flex gap-4 sm:gap-6 w-max animate-slide whitespace-nowrap">
+    <div class="relative">
+      <!-- Left Arrow -->
+      <button
+        id="scrollLeft"
+        class="hidden sm:flex items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 bg-white border border-gray-300 shadow p-2 rounded-full z-10 hover:bg-gray-100 cursor-pointer"
+        type="button"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+      </button>
 
-        <!-- Destination Card -->
+      <!-- Right Arrow -->
+      <button
+        id="scrollRight"
+        class="hidden sm:flex items-center justify-center absolute right-0 top-1/2 -translate-y-1/2 bg-white border border-gray-300 shadow p-2 rounded-full z-10 hover:bg-gray-100 cursor-pointer"
+        type="button"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
+
+      <div class="overflow-x-auto relative scrollbar-hide">
+        <div id="autoSlider" class="flex gap-4 sm:gap-6 w-max whitespace-nowrap">
+          <!-- YOUR CARDS (unchanged) -->
+             <!-- Destination Card -->
         <a href="style.html?type=city&value=Hanoi" class="relative group block w-64 sm:w-72 md:w-80 h-48 sm:h-52 rounded-lg overflow-hidden">
           <span class="absolute top-2 left-2 bg-white text-black text-xs font-semibold px-2 py-1 rounded shadow">
   4 Days
@@ -723,25 +691,13 @@
           </div>
         </a>
 
-        <!-- Add more cities as needed -->
-
+          <!-- ... all your <a> cards here ... -->
+        </div>
       </div>
     </div>
   </div>
 </section>
-
-<style>
-@keyframes slide {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-.animate-slide {
-  animation: slide 40s linear infinite;
-}
-</style>
-
-
-
+<!--  -->
 
 <!-- ----------------------------------- -->
 <section class="bg-gray-50 py-16">
@@ -1033,7 +989,7 @@
       <div class="absolute bottom-10 left-10 z-20 text-white">
         <h2 class="text-4xl md:text-5xl font-extrabold mb-2" x-text="slide.title"></h2>
         <p class="text-lg md:text-xl font-semibold mb-4" x-text="'Packages from ' + slide.price"></p>
-        <a :href="slide.cta" class="inline-block bg-red-400 text-black px-5 py-2 rounded-md font-semibold hover:bg-red-300 transition">Book Now</a>
+        <a :href="slide.cta" class="inline-block bg-green-400 text-black px-5 py-2 rounded-md font-semibold hover:bg-green-300 transition">Book Now</a>
       </div>
     </div>
   </template>
@@ -1128,6 +1084,7 @@
     <div class="grid gap-6 md:grid-cols-3">
       
       <!-- Story 1 -->
+       <a href="happy-travellers.html">
       <div class="relative group overflow-hidden rounded-lg shadow-lg">
         <img src="https://static-images.vnncdn.net/files/publish/2023/12/12/vietnam-emerges-as-new-favourite-destination-among-indian-tourists-832.jpg?width=768&s=5rcSCuEfLyG39fB0if8_bg" alt="Story 1" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
         <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end p-4 transition duration-300 ease-in-out group-hover:bg-opacity-60">
@@ -1138,9 +1095,8 @@
           <p class="text-gray-800 text-sm italic">"Highly recommended for seniors! Everything was organized perfectly and comfortably."</p>
         </div>
       </div>
-
-      <!-- Story 2 -->
-      <div class="relative group overflow-hidden rounded-lg shadow-lg">
+      </a>
+<a href="happy-travellers.html"> <div class="relative group overflow-hidden rounded-lg shadow-lg">
         <img src="https://vietnaminsiders.com/wp-content/uploads/2023/03/tourism.jpg" alt="Story 2" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
         <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end p-4 transition duration-300 ease-in-out group-hover:bg-opacity-60">
           <h3 class="text-white text-lg font-semibold">Ms. Satya's Cambodia + Vietnam Adventure</h3>
@@ -1149,10 +1105,10 @@
         <div class="absolute bottom-0 left-0 w-full bg-white bg-opacity-90 p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0">
           <p class="text-gray-800 text-sm italic">"Vietnam and Cambodia together made the perfect friends trip! Highly recommended."</p>
         </div>
-      </div>
-
-      <!-- Story 3 -->
-      <div class="relative group overflow-hidden rounded-lg shadow-lg">
+      </div></a>
+      <!-- Story 2 -->
+     
+<a href="happy-travellers.html">  <div class="relative group overflow-hidden rounded-lg shadow-lg">
         <img src="https://i.pinimg.com/originals/5a/ee/ce/5aeece63f113faef5ddab992057aa17e.jpg" alt="Story 3" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
         <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end p-4 transition duration-300 ease-in-out group-hover:bg-opacity-60">
           <h3 class="text-white text-lg font-semibold">Vignesh's Team Explores Vietnam</h3>
@@ -1161,7 +1117,9 @@
         <div class="absolute bottom-0 left-0 w-full bg-white bg-opacity-90 p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0">
           <p class="text-gray-800 text-sm italic">"Vietnam gave our team the experience of a lifetime. Will return soon!"</p>
         </div>
-      </div>
+      </div></a>
+      <!-- Story 3 -->
+    
 
     </div>
   </div>
@@ -1180,7 +1138,7 @@
 
       <!-- Aarti -->
       <div class="text-center group">
-        <div class="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-red-400 transition-transform duration-300 group-hover:scale-110">
+        <div class="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-green-300 transition-transform duration-300 group-hover:scale-110">
           <img src="https://cdn1.matadornetwork.com/blogs/1/2016/03/India9real.jpg" alt="Aarti">
         </div>
         <h3 class="mt-4 text-lg font-semibold text-gray-800">Aarti</h3>
@@ -1190,7 +1148,7 @@
 
       <!-- Sneha -->
       <div class="text-center group">
-        <div class="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-red-400 transition-transform duration-300 group-hover:scale-110">
+        <div class="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-green-300 transition-transform duration-300 group-hover:scale-110">
           <img src="https://i.pinimg.com/originals/8a/a6/50/8aa6504b65e494811bd355ee76500f22.jpg" alt="Sneha">
         </div>
         <h3 class="mt-4 text-lg font-semibold text-gray-800">Sneha</h3>
@@ -1200,7 +1158,7 @@
 
       <!-- Rahul -->
       <div class="text-center group">
-        <div class="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-red-400 transition-transform duration-300 group-hover:scale-110">
+        <div class="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-green-300 transition-transform duration-300 group-hover:scale-110">
           <img src="https://img.freepik.com/premium-photo/face-young-handsome-indian-man_251136-20685.jpg" alt="Rahul">
         </div>
         <h3 class="mt-4 text-lg font-semibold text-gray-800">Rahul</h3>
@@ -1210,22 +1168,22 @@
 
       <!-- Meena -->
       <div class="text-center group">
-        <div class="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-red-400 transition-transform duration-300 group-hover:scale-110">
+        <div class="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-green-300 transition-transform duration-300 group-hover:scale-110">
           <img src="https://img.freepik.com/premium-photo/indian-young-girl-face-with-skin-detail_1000823-179900.jpg" alt="Meena">
         </div>
         <h3 class="mt-4 text-lg font-semibold text-gray-800">Meena</h3>
         <p class="text-sm text-gray-500">Travel Planner, Vietnam Specialist</p>
-        <button class="mt-3 px-4 py-1 bg-red-500 text-white text-sm rounded-full hover:bg-red-600 transition">Connect Now</button>
+        <button class="mt-3 px-4 py-1 bg-red-500 text-white text-sm rounded-full hover:green-300 transition">Connect Now</button>
       </div>
 
       <!-- Arjun -->
       <div class="text-center group">
-        <div class="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-red-400 transition-transform duration-300 group-hover:scale-110">
+        <div class="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-green-300 transition-transform duration-300 group-hover:scale-110">
           <img src="https://thumbs.dreamstime.com/b/handsome-indian-man-21061193.jpg" alt="Arjun">
         </div>
         <h3 class="mt-4 text-lg font-semibold text-gray-800">Arjun</h3>
         <p class="text-sm text-gray-500">Vietnam Package Expert</p>
-        <button class="mt-3 px-4 py-1 bg-red-500 text-white text-sm rounded-full hover:bg-red-600 transition">Connect Now</button>
+        <button class="mt-3 px-4 py-1 bg-red-500 text-white text-sm rounded-full hover:bg-green-300 transition">Connect Now</button>
       </div>
 
     </div>
@@ -1355,7 +1313,7 @@
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8">
     <!-- Left: Image + Text -->
     <div class="flex-1 text-center md:text-left">
-      <img src="/images/3873169.jpg" alt="Experts Assist You" class="w-full max-w-md mx-auto md:mx-0">
+      <img src="images/3873169.jpg" alt="Experts Assist You" class="w-full max-w-md mx-auto md:mx-0">
       <h2 class="text-3xl font-bold mt-6 text-gray-800">Let Our Experts Assist You</h2>
       <p class="mt-2 text-gray-600 text-sm">Get free guidance from our travel experts to plan your perfect trip. Share your contact details, and we’ll get back to you shortly.</p>
     </div>
