@@ -25,18 +25,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    foreach ($_POST['inclusion_labels'] as $i => $label) {
-        $icon = $_POST['inclusion_icons'][$i] ?? '';
-        if (!empty($label)) {
-            $pdo->prepare("INSERT INTO inclusions (package_id, label, icon) VALUES (?, ?, ?)")->execute([$packageId, $label, $icon]);
-        }
-    }
 
-    foreach ($_POST['exclusions'] as $text) {
-        if (!empty($text)) {
-            $pdo->prepare("INSERT INTO exclusions (package_id, text) VALUES (?, ?)")->execute([$packageId, $text]);
-        }
+// Inclusions
+if (!empty($_POST['inclusions_label']) && is_array($_POST['inclusions_label'])) {
+  for ($i = 0; $i < count($_POST['inclusions_label']); $i++) {
+    $label = trim($_POST['inclusions_label'][$i]);
+    $icon = trim($_POST['inclusions_icon'][$i]);
+
+    if ($label !== '') {
+      $stmt = $pdo->prepare("INSERT INTO inclusions (package_id, label, icon) VALUES (?, ?, ?)");
+      $stmt->execute([$packageId, $label, $icon]);
     }
+  }
+}
+
+// Exclusions
+foreach ($_POST['exclusions'] as $text) {
+  if (!empty($text)) {
+    $pdo->prepare("INSERT INTO exclusions (package_id, text) VALUES (?, ?)")->execute([$packageId, $text]);
+  }
+}
+
 
     foreach ($_POST['place'] as $i => $place) {
         $image = $_POST['place_image'][$i] ?? '';
